@@ -2,11 +2,11 @@
 main:
  #  - title: "Quick-Start Guide"
  #    url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
-- title: "About"
+- title: "Chi sono"
   url: /pages/about/
 - title: "Tutorial"
   url: /pages/tutorial/
 - title: "Corsi"
-  url: /python/lezione-01/
+  url: /pages/corsi/
   # - title: "Sitemap"
   #   url: /sitemap/

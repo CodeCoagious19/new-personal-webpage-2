@@ -5,39 +5,29 @@ permalink: /pages/tutorial/
 header:
   overlay_color: "#5e616c"
   overlay_image: /assets/images/mm-home-page-feature.jpg
-  actions:
-    - label: "<i class='fas fa-download'></i> Install now"
-      url: "/docs/quick-start-guide/"
+#  actions:
+#    - label:
+#      url:
 excerpt: >
-  A flexible two-column Jekyll theme. Perfect for building personal sites, blogs, and portfolios.<br />
-  <small><a href="https://github.com/mmistakes/minimal-mistakes/releases/tag/4.21.0">Latest release v4.21.0</a></small>
+  Qualche tutorial base utile per ogni programmatore
 feature_row:
-  - image_path: /assets/images/cpp-logo-200x200.png
-    alt: "customizable"
-    title: "Super customizable cpp course incredible learn"
-    excerpt: "Everything from the menus, sidebars, comments, and more can be configured or set with YAML Front Matter. learn about cpp class and cpp standard for automotive system or embedded io programming languages"
-    url: "/docs/configuration/"
+  - image_path: /assets/images/ubuntu-logo.png
+    alt: ""
+    title: "Ubuntu"
+    excerpt: "Guida per principianti all'installazione, post-installazione e rimozione di un sistema operativo open source e didatticamente molto istruttivo."
+    url: ""
     btn_class: "btn--primary"
-    btn_label: "Learn more"
-  - image_path: /assets/images/logo2.png
-    alt: "fully responsive"
-    title: "Responsive layouts"
-    excerpt: "Built with HTML5 + CSS3. All layouts are fully responsive with helpers to augment your content."
-    url: "/docs/layouts/"
+    btn_label: "Inizia"
+  - image_path: /assets/images/github-jekyll-logo.png
+    alt: ""
+    title: "GitHub Pages & Jekyll"
+    excerpt: "Guida alla creazione di siti statici con GitHub Pages e Jekyll"
+    url: ""
     btn_class: "btn--primary"
-    btn_label: "Learn more"
-  - image_path: /assets/images/mm-free-feature.png
-    alt: "100% free"
-    title: "100% free"
-    excerpt: "Free to use however you want under the MIT License. Clone it, fork it, customize it... whatever!"
-    url: "/docs/license/"
-    btn_class: "btn--primary"
-    btn_label: "Learn more"      
+    btn_label: "Inizia"
 ---
 
 {% include feature_row %}
 
-Questa pagina dovrebbe essere l'appendice di tutti i corsi
 
-[inizia](/python/index)
 

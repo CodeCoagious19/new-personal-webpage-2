@@ -8,34 +8,55 @@
 @import "minimal-mistakes"; // main partials
 
 
-.archive__item {
+@media (min-width: 37.5em){
+.feature__item {
+    margin-bottom: 1rem;
+}
+}
+
+.feature__item {
+    margin-bottom: 1rem;
+//    border: 2px solid rgba(128, 128, 128, 0.411);
+//    border-radius: 5px;
+}
+
+.feature__item .archive__item {
     //background: wheat;
     display: flex;
     flex-flow: column;
-    height: 500px;
+    height: 350px;
     align-items: center;
-    border: 2px solid rgba(128, 128, 128, 0.411);
-    border-radius: 5px;
+
+}
+
+@media (min-width: 37.5em){
+    .feature__item .archive__item {
+        //background: wheat;
+        height: 500px;
+    }
 }
 
 //image
-.archive__item-teaser {
+.feature__item .archive__item-teaser {
     flex: 0 0 150px;
     width: 150px;
     //background: yellowgreen;
 }
 
-
-
-
 .feature__item .archive__item-body {
-    flex: 1 1 250px;
+    flex: 1 1 100px;
     display: flex;
     flex-flow: column;
     align-items: center;
 }
 
-.archive__item-excerpt {
+@media (min-width: 37.5em){
+    .feature__item .archive__item-body {
+        flex: 1 1 250px;
+    }
+}
+
+.feature__item .archive__item-excerpt {
     flex: 1 1 50px;
     overflow-y: auto;
     height: 100px;

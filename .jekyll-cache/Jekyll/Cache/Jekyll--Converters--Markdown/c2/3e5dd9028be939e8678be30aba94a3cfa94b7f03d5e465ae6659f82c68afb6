@@ -1,0 +1,64 @@
+I"¬
+<div class="feature__wrapper">
+
+  
+    <div class="feature__item">
+      <div class="archive__item">
+        
+          <div class="archive__item-teaser">
+            <img src="/assets/images/ubuntu-logo.png" alt="" />
+            
+          </div>
+        
+
+        <div class="archive__item-body">
+          
+            <h2 class="archive__item-title">Ubuntu</h2>
+          
+
+          
+            <div class="archive__item-excerpt">
+              <p>Guida per principianti allâ€™installazione, post-installazione e rimozione di un sistema operativo open source e didatticamente molto istruttivo.</p>
+
+            </div>
+          
+
+          
+            <p><a href="" class="btn btn--primary">Inizia</a></p>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="feature__item">
+      <div class="archive__item">
+        
+          <div class="archive__item-teaser">
+            <img src="/assets/images/github-jekyll-logo.png" alt="" />
+            
+          </div>
+        
+
+        <div class="archive__item-body">
+          
+            <h2 class="archive__item-title">GitHub Pages &amp; Jekyll</h2>
+          
+
+          
+            <div class="archive__item-excerpt">
+              <p>Guida alla creazione di siti statici con GitHub Pages e Jekyll</p>
+
+            </div>
+          
+
+          
+            <p><a href="" class="btn btn--primary">Inizia</a></p>
+          
+        </div>
+      </div>
+    </div>
+  
+
+</div>
+
+:ET
