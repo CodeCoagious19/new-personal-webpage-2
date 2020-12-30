@@ -1,0 +1,401 @@
+I"�|<p>Se stai leggendo questa guida avrai sentito parlare di Ubuntu e sarai quindi curioso di provarlo sul tuo PC tuttavia probabilmente sei un po’ titubante perchè non sai se riuscirai ad installarlo e soprattutto, qualora qualcosa andasse storto, a tornare indietro. Imbattendoti in altre guide ti sei trovato davanti in procedure mai viste e hai paura di scassare il tuo PC o peggio ancora a ricorrere all’assistenza per una stupida infatuazione del sistema operativo Ubuntu.
+In questa guida ti guiderò passo passo nell’installazione di Ubuntu 20.10 (ma va bene anche per la 20.04 LTS) e soprattutto ti darò la possibilità di “tornare indietro” alla tua attuale configurazione con Windows come se non fosse successo niente.</p>
+
+<h2 id="e-facile-o-difficile-installare-ubuntu">E’ facile o difficile installare Ubuntu?</h2>
+<p>Se non hai mai installato o ripristinato un sistema operativo sul tuo PC come Windows potresti non essere a conoscenza di certe procedure che potrebbero spaventarti, mi riferisco al punto <a href="#3-riavvia-il-pc-nel-biosuefi-menu">3. Riavvia il PC nel bios/uefi menu</a>. Prima di iniziare questo tutorial dovresti dare un’occhiata a <a href="#3-riavvia-il-pc-nel-biosuefi-menu">questa sezione</a> e vedere se riesci a muoverti con il tuo PC come descritto. Se trovi difficoltà o trovi un’interfaccia diversa da quella mostrata in figura capisco che tu possa spaventarti, purtroppo ogni computer ha il suo software di gestione del BIOS. In questo caso è richiesta la massima attenzione e per questo ti consiglio di leggere più e più volte <a href="#3-riavvia-il-pc-nel-biosuefi-menu">questa sezione</a> finchè non sarà tutto chiaro prima di procedere con l’installazione di Ubunutu. Questa è l’unica potenziale difficoltà che troverai.</p>
+
+<h2 id="installazione-di-ubuntu">Installazione di Ubuntu</h2>
+<ul>
+  <li><a href="#1-collegati-alla-pagina-ufficiale">1. Collegati alla pagina ufficiale</a></li>
+  <li><a href="#2-crea-un-disco-di-avvio-tramite-penna-usb">2. Crea un disco di avvio tramite penna USB</a>
+    <ul>
+      <li><a href="#creazione-di-un-disco-di-avvio-tramite-penna-usb-su-windows">Creazione di un disco di avvio tramite penna USB su Windows</a></li>
+      <li><a href="#creazione-di-un-disco-di-avvio-tramite-penna-usb-su-ubuntu">Creazione di un disco di avvio tramite penna USB su Ubuntu</a></li>
+    </ul>
+  </li>
+  <li><a href="#3-riavvia-il-pc-nel-biosuefi-menu">3. Riavvia il PC nel bios/uefi menu</a></li>
+  <li><a href="#4-avvia-ubuntu-tramite-penna-usb">4. Avvia ubuntu tramite penna USB</a></li>
+  <li><a href="#5-prova-o-installa-ubuntu">5. Prova o installa ubuntu</a></li>
+  <li><a href="#6-installa-ubuntu">6. Installa Ubuntu</a></li>
+  <li><a href="#7-grub-manager">7. GRUB Manager</a></li>
+</ul>
+
+<h2 id="1-collegati-alla-pagina-ufficiale">1. Collegati alla pagina ufficiale</h2>
+<p><a href="https://ubuntu.com/download/desktop/thank-you?version=20.04.1&amp;architecture=amd64#download">ubuntu.com</a> e scarica la versione di Ubuntu che preferisci. Consiglio sempre di installare le versioni <code class="language-plaintext highlighter-rouge">LTS</code> (come la 20.04 LTS) poichè sono quelle più supportate e stabili. In questa guida installerò la versione 20.10 ma la procedura è la stessa anche per la 20.04 LTS</p>
+
+<p><img src="./images/download-ubunutu.png" alt="" /></p>
+
+<p>A fine download verrà scaricato un file con estensione <code class="language-plaintext highlighter-rouge">.iso</code>, ad esempio nel caso della versione 20.10 sarà <code class="language-plaintext highlighter-rouge">ubuntu-20.10-desktop-amd64.iso</code>. Il file appena scaricato è detto <em>file immagine</em> e deve essere trasferito e scompattato su CD o su penna USB <a href="#2-crea-un-disco-di-avvio-tramite-penna-usb">creando un disco di avvio</a>. Ti consiglio di procurarti una penna USB da almeno 8Gb vuota o con dei file che non ritieni importanti. L’intero contenuto della penna USB verrà sovra-iscritto con il contenuto del file immagine di Ubuntu</p>
+
+<h2 id="2-crea-un-disco-di-avvio-tramite-penna-usb">2. Crea un disco di avvio tramite penna USB</h2>
+<p>Procurati una penna USB da almeno 8Gb e inseriscila nel PC. Se sei su Windows segui la procedura <em>Creazione di un disco di avvio tramite penna USB su Windows</em>, se sei su ubuntu segui invece <em>Creazione di un disco di avvio tramite penna USB su Ubuntu</em></p>
+
+<h3 id="creazione-di-un-disco-di-avvio-tramite-penna-usb-su-windows">Creazione di un disco di avvio tramite penna USB su Windows</h3>
+<p>Scarica ed esegui il software <a href="https://rufus.ie/">Rufus</a>. 
+Dovrai selezionare nella scheda <code class="language-plaintext highlighter-rouge">Dispositivo/unità</code> la penna USB appena inserita, dopodichè tramite il pulsante <code class="language-plaintext highlighter-rouge">SELEZIONA</code> dovrai scegliere il file immagine di ubuntu <code class="language-plaintext highlighter-rouge">ubuntu-20.10-desktop-amd64.iso</code>. Delle impostazioni successive ti consiglio di impostare:</p>
+<ul>
+  <li>Schema partizione: MBR</li>
+  <li>Sistema destinazione: UEFI (non CSM)</li>
+</ul>
+
+<p><img src="./images/rufus.PNG" alt="" /></p>
+
+<p>Premi su <code class="language-plaintext highlighter-rouge">AVVIA</code> e attendi che abbia finito</p>
+
+<p><strong>Nota:</strong> Potrebbe comparire un messaggio chiedendo la connessione ad internet per scaricare dalla rete alcuni file importanti per il boot di Ubunut, acconsenti e procedi</p>
+
+<h3 id="creazione-di-un-disco-di-avvio-tramite-penna-usb-su-ubuntu">Creazione di un disco di avvio tramite penna USB su Ubuntu</h3>
+<p>Apri il software “Creatore dischi di avvio” e seleziona, nella scheda superiore, la sorgente che nel nostro caso sarà <code class="language-plaintext highlighter-rouge">ubuntu-20.10-desktop-amd64.iso</code> e, nella scheda inferiore, il disco da usare ovvero la penna USB appena inserita. Dopodichè clicca su <code class="language-plaintext highlighter-rouge">Crea disco di avvio</code>. Una volta terminata la procedura sarai pronto per lanciare ubuntu e installarlo</p>
+
+<p><img src="./images/crea-disco-davvio.png" alt="" /></p>
+
+<h2 id="3-riavvia-il-pc-nel-biosuefi-menu">3. Riavvia il PC nel bios/uefi menu</h2>
+<p>Una volta che hai caricato il sistema operativo Ubuntu sulla penna USB dovrai istruire il tuo PC ad accendersi e leggere il contenuto della penna USB anzichè il sistema operativo Windows installato sul tuo hard disk interno. Per far ciò dovrai ravviare il computer in un menù speciale detto <code class="language-plaintext highlighter-rouge">BIOS</code> e cambiare il cosìdetto <code class="language-plaintext highlighter-rouge">boot order</code>. Devi sapere infatti che all’accensione del PC, questo software fa una semplice scansione tra tutti i dischi rigidi alla ricerca di un sistema avviabile, nel nostro caso un sistema operativo. Poichè in prima posizione c’è di default la voce <code class="language-plaintext highlighter-rouge">Internal hard drive</code> o qualcosa del genere significa che all’accensione verrà sempre controllato se c’è un sistema operativo sull’hard disk interno, troverà Windows installato e lo caricherà. Se per qualche assurdo motivo (l’hard disk viene danneggiato o formattato) il BIOS non troverà un sistema avviabile nell’hard disk, passerà alla seconda voce che probabilmente sarà <code class="language-plaintext highlighter-rouge">CD-ROM drive</code> e quindi cercherà un sistema avviabile all’interno del CD inserito nel lettore CD e così via. Tra queste voci c’è anche la voce <code class="language-plaintext highlighter-rouge">Removable devices</code> o <code class="language-plaintext highlighter-rouge">USB</code> o <code class="language-plaintext highlighter-rouge">USB Hard Disk</code> o <code class="language-plaintext highlighter-rouge">USB HDD</code> o voci simili che rappresenta proprio la penna USB. Quello che dobbiamo riuscire a fare sarà semplicemente spostare questa voce in prima posizione in modo da poter finalmente istruire il PC a partire tramite il sistema avviabile che sta sulla penna USB, Ubuntu.</p>
+
+<p>Per accedere al BIOS menu’ dovrai riavviare il PC e probabilmente dovrai premere ripetutamente il tasto <code class="language-plaintext highlighter-rouge">F2</code> o <code class="language-plaintext highlighter-rouge">F12</code> oppure <code class="language-plaintext highlighter-rouge">ESC</code> o <code class="language-plaintext highlighter-rouge">F10</code>. Se fai attenzione, appena si avvia il PC in basso compare per un istante una scritta con le indicazioni del tasto da premere per entrare nel BIOS menu. Ecco un esempio in cui per accedere al menu’ è necessario premere il tasto <code class="language-plaintext highlighter-rouge">DEL</code></p>
+
+<p><img src="./images/boot-pc.png" alt="" /></p>
+
+<p><a href="https://www.lifewire.com/change-the-boot-order-in-bios-2624528">Lifewire - Change the Boot Order in BIOS</a></p>
+
+<p>Se siete riusciti ad entrare nel BIOS menu probabilmente vi apparirà a schermo un’interfaccia del genere:</p>
+
+<p><img src="./images/bios-main-menu.png" alt="" /></p>
+
+<p><a href="https://www.lifewire.com/change-the-boot-order-in-bios-2624528">Lifewire - Change the Boot Order in BIOS</a></p>
+
+<p>Il BIOS è un software essenziale ben lontano dalle attuali app Android. Per muoversi all’interno del menu’ è possibile consultare le indicazioni riportate in fondo allo schermo. In genere ci si muove con i tasti freccia, si esce con il tasto <code class="language-plaintext highlighter-rouge">ESC</code> e si esce salvando le impostazioni con <code class="language-plaintext highlighter-rouge">F10</code>. Devi raggiungere la scheda <code class="language-plaintext highlighter-rouge">Boot</code>. A questo punto appariranno le opzioni di boot elencate in ordine di priorità.</p>
+
+<p><img src="./images/change-boot-order.jpg" alt="" /></p>
+
+<p><a href="https://www.lifewire.com/change-the-boot-order-in-bios-2624528">Lifewire - Change the Boot Order in BIOS</a></p>
+
+<p>Devi riuscire a spostare l’opzione relativa al disco USB, <code class="language-plaintext highlighter-rouge">Removable devices</code> o <code class="language-plaintext highlighter-rouge">USB</code> o <code class="language-plaintext highlighter-rouge">USB Hard Disk</code> o <code class="language-plaintext highlighter-rouge">USB HDD</code> o voci simili alla prima posizione. In molti casi per spostare le voci su utilizzano i tasti <code class="language-plaintext highlighter-rouge">F5/F6</code> oppure i tasti <code class="language-plaintext highlighter-rouge">+/-</code>. Quando sarai riuscito a spostarla in prima posizione premi <code class="language-plaintext highlighter-rouge">F10</code>, salverai le modifiche e al prossimo avvio il PC scansionerà i dischi a partire dalla penna USB che hai inserito con Ubuntu pronto a partire. E’ tutto!</p>
+
+<h2 id="4-avvia-ubuntu-tramite-penna-usb">4. Avvia ubuntu tramite penna USB</h2>
+<p>Una volta settato l’avvio tramite penna USB, mantieni collegata la penna USB e riavvia il PC. Apparirà una schermata simile alla seguente</p>
+
+<p><img src="./images/grub-initial.jpg" alt="" />
+<a href="https://www.linux.org/threads/multi-boot-full-install-to-a-usb.23563/#lg=attachment4039&amp;slide=0">linux.org</a></p>
+
+<p>Scegli la prima opzione <code class="language-plaintext highlighter-rouge">Ubuntu</code> e attendi che la procedura abbia finito.</p>
+
+<h2 id="5-prova-o-installa-ubuntu">5. Prova o installa ubuntu</h2>
+
+<p>Appena avviato, si aprirà la procedura di installazione. Vi chiederà se vorrete provare Ubuntu (Try Ubuntu) o se vorrete installarlo (Install Ubunutu)</p>
+
+<p><img src="./images/groovy2-frist-boot.png" alt="" /></p>
+
+<p>Se per voi è la prima volta vi consiglio l’opzione <code class="language-plaintext highlighter-rouge">Try Ubuntu</code>. Potrete navigare tra le applicazioni, nel file manager o nelle impostazioni per prendere familiarità con i settaggi principali. Non abbiate paura di fare pasticci. Ubuntu “vive” nella vostra penna USB. Troverete comunque il link di accesso rapido al setup di installazione sul desktop</p>
+
+<p><img src="./images/link-wizard.png" alt="" /></p>
+
+<h2 id="6-installa-ubuntu">6. Installa Ubuntu</h2>
+
+<p>Riporto passo passo la procedura wizard per l’installazione di ubuntu. Se avete scelto <code class="language-plaintext highlighter-rouge">Install Ubuntu</code> o avete aperto il link rapido alla wizard sul desktop seguite i seguenti passaggi.</p>
+
+<h3 id="selziona-una-lingua">Selziona una lingua</h3>
+
+<p><img src="./images/1.png" alt="" /></p>
+
+<h3 id="selziona-il-tipo-di-tastiera">Selziona il tipo di tastiera</h3>
+
+<p><img src="./images/2.png" alt="" /></p>
+
+<h3 id="seleziona-una-rete-wifi">Seleziona una rete wifi</h3>
+
+<p><img src="./images/wizard-wifi.png" alt="" /></p>
+
+<h3 id="scegli-il-tipo-di-installazione">Scegli il tipo di installazione</h3>
+
+<p>Se è la prima volta che installate Ubuntu, ti consiglio <code class="language-plaintext highlighter-rouge">Installazione normale</code>. Con questo tipo di installazione verranno aggiunti software e altri pacchetti utili e ti aiuta in fase di post-installazione. Spunta anche le altre opzioni come in figura</p>
+
+<p><img src="./images/3.png" alt="" /></p>
+
+<h3 id="dual-boot">Dual boot?</h3>
+
+<p>Se è la prima volta che installate Ubuntu, ti consiglio di installare ubuntu a fianco di windows, nella cosìdetta modalità <em>dual-boot</em>. Ciò ti consentirà di avere sia Windows che Ubuntu sul tuo PC e di poter scegliere quale dei due sistemi operativi lanciare all’accensione del PC. E’ fortemente consigliata questa modalità per chi è alle prime armi con Ubuntu perchè per qualsiasi pasticcio tu possa combinare con Ubuntu potrai sempre riavviare il PC e lanciare windows per ripristinare il sistema. Personalmente uso questa modalità.</p>
+
+<p><img src="./images/4.png" alt="" /></p>
+
+<h3 id="scegli-la-dimensione-della-partizione-ubuntu">Scegli la dimensione della partizione Ubuntu</h3>
+
+<p>E’ possibile scegliere quanta dimensione di spazio fisso allocare a Ubuntu e quanta lasciare per Windows. Se sei alla prima installazione di Ubuntu ti consiglio di allocare circa <code class="language-plaintext highlighter-rouge">100Gb</code> in base anche ai programmi che hai intenzione di installare</p>
+
+<p><img src="./images/5.png" alt="" /></p>
+
+<p>Clicca su <code class="language-plaintext highlighter-rouge">Installa</code> e accetta i messaggi successivi.</p>
+
+<p><img src="./images/6.png" alt="" /></p>
+
+<p><img src="./images/7.png" alt="" /></p>
+
+<h3 id="imposta-la-località">Imposta la località</h3>
+
+<p><img src="./images/8.png" alt="" /></p>
+
+<h3 id="imposta-lu-tue-informazioni-personali">Imposta lu tue informazioni personali</h3>
+
+<p>Scegli un nome per l’account e una password di accesso.</p>
+
+<p><img src="./images/9.png" alt="" /></p>
+
+<h3 id="attendi-la-fine-della-procedura-di-installazione">Attendi la fine della procedura di installazione</h3>
+
+<p><img src="./images/10.png" alt="" /></p>
+
+<h3 id="riavvia-il-pc">Riavvia il pc</h3>
+
+<p><img src="./images/wizard-end.png" alt="" /></p>
+
+<h3 id="togli-la-penna-usb">Togli la penna USB</h3>
+
+<p>Quando compare la seguente schermata (o simile), togli la penna USB e premi <code class="language-plaintext highlighter-rouge">Invio</code></p>
+
+<p><img src="./images/remove-installation-media.jpg" alt="" /></p>
+
+<p><a href="https://www.shaileshjha.com/wp-content/uploads/2019/10/virtualbox_ubuntu_desktop_remove_installation_media_1.jpg">SHAILESHJHA.com</a></p>
+
+<h2 id="7-grub-manager">7. GRUB Manager</h2>
+<p>Al riavvio, se hai scelto la modalità dual boot dovrebbe apparire la schermata del software di gestione del dual boot, <code class="language-plaintext highlighter-rouge">GRUB</code>. Una cosa del genere..</p>
+
+<p><img src="./images/GRUB_with_ubuntu_and_windows_vista.png" alt="" /></p>
+
+<p>Nel tuo caso apparirà la voce <code class="language-plaintext highlighter-rouge">Ubuntu</code> e <code class="language-plaintext highlighter-rouge">Windows boot manager</code>. Ogni volta che accenderai il PC avrai la possibilità di scegliere il sistema operativo da lanciare.</p>
+
+<p><strong>Nota:</strong> normalmente il software ha un timeout di circa 10 secondi. Se non si sceglie nessuna opzione sceglierà la prima che in questo caso è <code class="language-plaintext highlighter-rouge">Ubuntu</code></p>
+
+<h2 id="primo-avvio">Primo avvio</h2>
+
+<p>Una volta avviato Ubuntu da <code class="language-plaintext highlighter-rouge">grub</code> ti chiederà di effettuare l’accesso ad un account.</p>
+
+<p><img src="./images/google-account.png" alt="" /></p>
+
+<p>Se effettuerai l’accesso tramite google, troverai tra i documenti il link rapido a <code class="language-plaintext highlighter-rouge">google drive</code>, indicato tramite l’email</p>
+
+<p><img src="./images/google-drive-repo.png" alt="" /></p>
+
+<p>Contemporaneamente si attiverà l’applicazione “Aggiornamenti software” che verificherà la presenza di aggiornamenti</p>
+
+<p><img src="./images/aggiornamenti-software-firstboot.png" alt="" /></p>
+
+<p>Attendi che il processo finisca e riavvia il PC.</p>
+
+<p><img src="./images/12.png" alt="" /></p>
+
+<h2 id="post-installazione">Post-Installazione</h2>
+
+<p>Una volta riavviato il PC apri il terminale con il comando <code class="language-plaintext highlighter-rouge">Ctrl + Alt + T</code> oppure tramite l’applicazione “Terminale” che puoi trovare nella lista delle applicazioni.</p>
+
+<p><img src="./images/bash.png" alt="" /></p>
+
+<p>Per un aggiornamento manuale del sistema digita:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt update <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>apt upgrade <span class="nt">-y</span>
+</code></pre></div></div>
+
+<p><strong>Devo utilizzare obbligatoriamente il Terminale? 🤔</strong><br />
+La maggior parte delle cose interessanti con Ubuntu si fanno attraverso il Terminale ma non devi spaventarti, non ha niente a che vedere con il <code class="language-plaintext highlighter-rouge">prompt</code> dei comandi di Windows. All’inizio ti limiterai a copiare qualche comando dal web senza capire molto (immagino che molti abbiano utilizzato questo approccio, il sottoscritto compreso) e non è raro che tu possa creare dei pasticci assolutamente rimediabili ma non certo da un utente inesperto ecco perchè ti ho consigliato di installare Ubuntu a fianco di Windows, così se avrai dei problemi potrai formattare la partizione di Ubuntu e riprovarci (non nego che l’ho fatto diverse volte) oppure abbandonare se pensi che il gioco non valga la candela..</p>
+
+<h2 id="applicazioni-utili-per-tutti">Applicazioni utili per tutti</h2>
+
+<p>Prima di installare qualche applicazione interessante apri il terminale con il comando <code class="language-plaintext highlighter-rouge">Ctrl + Alt + T</code> oppure tramite l’applicazione “Terminale” che puoi trovare nella lista delle applicazioni e aggiorna il sistema con il comando:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get upgrade
+</code></pre></div></div>
+
+<p>Ecco una breve lista di applicazioni utili per tutti che ho deciso di riportare:</p>
+<ul>
+  <li><a href="#vlc-media-player">VLC media player</a></li>
+  <li><a href="#chromium-web-browser">Chromium web browser</a></li>
+  <li><a href="#telegram">Telegram</a></li>
+  <li><a href="#gimp">Gimp</a></li>
+  <li><a href="#gnome-tweaks">GNOME tweaks</a></li>
+</ul>
+
+<h2 id="vlc-media-player">VLC media player</h2>
+
+<p>VLC media player è un software di riproduzione multimediale gratuito e open source, portatile, multipiattaforma e un server multimediale in streaming sviluppato dal progetto VideoLAN, <a href="https://www.videolan.org/vlc/index.html">VLC - official webpage</a></p>
+
+<p><img src="./images/vlc.png" alt="" /></p>
+
+<p>Per installarlo digita da terminale:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>snap <span class="nb">install </span>vlc
+</code></pre></div></div>
+
+<h2 id="chromium-web-browser">Chromium web browser</h2>
+
+<p>Chromium è un browser per la navigazione web free e open source, <a href="https://www.chromium.org/">chromium - offical webpage</a></p>
+
+<p><img src="./images/chromium.png" alt="" /></p>
+
+<p>Per installarlo digita da terminale:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get <span class="nb">install </span>chromium-browser
+</code></pre></div></div>
+<h2 id="telegram">Telegram</h2>
+
+<p>Telegram è un servizio di messaggistica istantanea, videochiamata e VoIP multipiattaforma basato su cloud, <a href="https://telegram.org/">Telegram - offical webpage</a></p>
+
+<p><img src="./images/telegram.png" alt="" /></p>
+
+<p>Per installarlo digita da terminale:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>snap <span class="nb">install </span>telegram-desktop
+</code></pre></div></div>
+
+<h2 id="gimp">Gimp</h2>
+
+<p>GIMP è un editor di grafica raster gratuito e open source utilizzato per la manipolazione e l’editing di immagini o  il disegno in forma libera, <a href="https://www.gimp.org/">gimp - official webpage</a></p>
+
+<p><img src="./images/gimp.png" alt="" /></p>
+
+<p>Per installarlo digita da terminale:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>snap <span class="nb">install </span>gimp
+</code></pre></div></div>
+
+<h2 id="gnome-tweaks">GNOME tweaks</h2>
+
+<p>GNOME Tweak Tool è un’estensione della shell GNOME che puoi usare per modificare l’interfaccia GNOME</p>
+
+<p>Cosa puoi fare con Gnome-tweaks?<br />
+Puoi cambiare font o l’aspetto della barra superiore, togliere animazioni.. e richiamare altre estensioni che ti permettondo di estendere la personalizzazione dell’interfaccia grafica</p>
+
+<p><img src="./images/personalizzazioni-aspetto.png" alt="" /></p>
+
+<p>E’ possibile installarlo dall’applicazione “Ubuntu Software” cercando nella barra di ricerca “Tweaks” o “Personalizzazioni”</p>
+
+<p><img src="./images/gnome-tewaks.gif" alt="" /></p>
+
+<p>Troverete l’applicazione sotto il nome di “Personalizzazioni”.</p>
+
+<h2 id="applicazioni-utili-per-programmatori">Applicazioni utili per programmatori</h2>
+
+<p>Ecco una breve lista di applicazioni utili per programmatori che ho deciso di riportare:</p>
+<ul>
+  <li><a href="#git">git</a></li>
+  <li><a href="#visual-studio-code">Visual studio code</a></li>
+  <li><a href="#peek---gif-video-recorder">peek - gif video recorder</a></li>
+</ul>
+
+<h2 id="git">git</h2>
+
+<p>Git è un sistema di controllo di versione distribuito gratuito e open source progettato per gestire qualsiasi progetto software, dai più piccoli ai più grandi vantando velocità ed efficienza, <a href="https://git-scm.com/">git - official webpage</a></p>
+
+<p><img src="./images/git.png" alt="" /></p>
+
+<p>Per installarlo digita da terminale:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get <span class="nb">install </span>git
+</code></pre></div></div>
+
+<h2 id="visual-studio-code">Visual studio code</h2>
+
+<p>Visual Studio Code è un editor di test gratuito realizzato da Microsoft per Windows, Linux e macOS, <a href="https://code.visualstudio.com/">VS code - offical webpage</a></p>
+
+<p><img src="./images/vscode.png" alt="" /></p>
+
+<p>Per installarlo digita da terminale:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>snap <span class="nb">install </span>code <span class="nt">--classic</span>
+</code></pre></div></div>
+
+<p>Riporto anche alcune estensioni utili:</p>
+<ul>
+  <li>Python (ms-python.python)</li>
+  <li>Live Server (ritwickdey.liveserver)</li>
+  <li>JavaScript (ES6) code snippets (xabikos.javascriptsnippets)</li>
+  <li>HTML Snippets (abusaidm.html-snippets)</li>
+  <li>Atom One Dark Theme (akamud.vscode-theme-onedark)</li>
+  <li>Markdown Preview Github Styling (bierner.markdown-preview-github-styles)</li>
+</ul>
+
+<h2 id="peek---gif-video-recorder">peek - gif video recorder</h2>
+
+<p>peek è un semplice registratore di schermo che consente l’esportazione diretta in formato <code class="language-plaintext highlighter-rouge">.gif</code>. Il progetto è free e open source, <a href="https://github.com/phw/peek#ubuntu">peek - offical webpage</a></p>
+
+<p><img src="./images/peek.png" alt="" /></p>
+
+<p>Per installarlo digita da terminale:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>add-apt-repository ppa:peek-developers/stable
+<span class="nb">sudo </span>apt update
+<span class="nb">sudo </span>apt <span class="nb">install </span>peek
+</code></pre></div></div>
+
+<h2 id="qualche-configurazione">Qualche configurazione</h2>
+
+<ul>
+  <li><a href="#Installazionerimozione-pacchetti-e-applicazioni">Installazione/rimozione pacchetti e applicazioni</a></li>
+  <li><a href="file-manager-nautilus">File manager Nautilus</a></li>
+</ul>
+
+<h2 id="installazionerimozione-pacchetti-e-applicazioni">Installazione/rimozione pacchetti e applicazioni.</h2>
+
+<p>Ubuntu non ha un software equivalente a windows come <code class="language-plaintext highlighter-rouge">Disinstalla un programma</code> da <code class="language-plaintext highlighter-rouge">Pannello di controllo</code>. Molte applicazioni puoi trovarle su <strong>Ubuntu Software</strong> e da questo centro è possibili disinstallarle.</p>
+
+<p><img src="./images/ubuntu-software.png" alt="language" /></p>
+
+<p>Molte altre invece, trovate sul web, è probabile che tu le abbia installate tramite il comando da terminale:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install</span> <span class="o">[</span>package name].
+</code></pre></div></div>
+
+<p>In questo caso per disinstallarle devi digitare:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt remove <span class="o">[</span>package name].
+<span class="nb">sudo </span>apt autoremove.
+</code></pre></div></div>
+
+<h2 id="file-manager-nautilus">File manager Nautilus</h2>
+
+<p>Nautilus è il file manager di ubuntu. Di default la visualizzazione di file e cartelle è disposta orizzontalmente.
+E’ possibile cambiare la visualizzazione delle cartelle, le opzioni di antemprima dei file ed altre preferenze generali  dai tre tasti in alto a destra.</p>
+
+<p>In alto, centralmente, Nautilus mostra il percorso attuale detto anche <code class="language-plaintext highlighter-rouge">path-address</code> o semplicemente <code class="language-plaintext highlighter-rouge">path</code>. Premendo <code class="language-plaintext highlighter-rouge">Ctrl + L</code>, il path diventa editabile ed è possibile inserire un percorso specifico (utile per raggiungere velocemente una directory).</p>
+
+<p><img src="./images/nautilus-default.png" alt="" /></p>
+
+<p>Personalmente ho preferito abilitare di default l’opzione del path editabile. Se vuoi farlo pure tu digita da terminale:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gsettings <span class="nb">set </span>org.gnome.nautilus.preferences always-use-location-entry <span class="nb">true</span>
+</code></pre></div></div>
+
+<p>Se vuoi tornare all’opzione di default digita:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gsettings <span class="nb">set </span>org.gnome.nautilus.preferences always-use-location-entry <span class="nb">false</span>
+</code></pre></div></div>
+
+<p>Inoltre ho impostato la visualizzazione di file nascoti e, dal menu’ <code class="language-plaintext highlighter-rouge">preferenze/viste/viste a elenco</code>, l’opzione <code class="language-plaintext highlighter-rouge">Consentire l'espansione delle cartelle</code>. Il risultato è il seguente.</p>
+
+<p><img src="./images/nautilus-custom.png" alt="" /></p>
+
+<p>Un’altra cosa molto utile è richiamare il file manager da terminale. per far ciò basta digitare da terminale</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nautilus <span class="nb">.</span>
+</code></pre></div></div>
+
+<p>In questo modo aprirà tramite il file manager il path attuale a cui punta il terminale</p>
+
+<p><img src="./images/nautilus-bash.gif" alt="" /></p>
+
+<p><strong>Osservazione:</strong> E’ sempre possibile richiamare un’applicazione da terminale digitando il nome di esecuzione (che non coincide in generale con il nome esteso)</p>
+
+<p>sudo apt remove [package name].
+sudo apt autoremove</p>
+
+<h2 id="rimozione-di-ubuntu-da-dual-boot-tramite-windows">Rimozione di Ubuntu da dual-boot tramite Windows</h2>
+<p>Qualcosa non va con Ubuntu? Vuoi tornare ad avere Windows come unica partizione? Nessun problema.. Una buona guida non dovrebbe solo aiutarti a raggiungere uno scopo ma anche a tornare indietro.</p>
+
+<ul>
+  <li>Clicca con il tasto destro su <code class="language-plaintext highlighter-rouge">start</code> e seleziona “Gestione disco”. Il software “Gestione disco” mostra tutte le partizioni presenti su disco.</li>
+  <li>Tra le partizioni troverai sicuramente <code class="language-plaintext highlighter-rouge">(C:)</code> ovvero la partizione principale Windows e altre partizioni che potranno essere identificate con il nome <code class="language-plaintext highlighter-rouge">(Disco 0 partizione 0)</code>, <code class="language-plaintext highlighter-rouge">(Disco 0 partizione 4)</code> e così via.. Tra queste partizioni dovresti cercare una partizione che abbia una dimensione considerevole o, per essere più precisi, quella che hai impostato per ubuntu in fase di installazione dual-boot. Se ad esempio hai riservato <code class="language-plaintext highlighter-rouge">100Gb</code> per ubuntu in fase di installazione, sarà la partizione da <code class="language-plaintext highlighter-rouge">100Gb</code> ad dover essere eliminata. Non toccare le partizioni da qualche centinaia di <code class="language-plaintext highlighter-rouge">Mb</code> o pochi <code class="language-plaintext highlighter-rouge">Gb</code>, potrebbero essere riservate al sistema Windows.<br /></li>
+</ul>
+
+<p><strong>Nota</strong>: Nella scheda centrale di “Gestione disco” trovate una descrizione dettagliata delle partizioni. Dovresti essere in grado di individuare facilmente la <code class="language-plaintext highlighter-rouge">Partizione Primaria</code> che non rappresenta <code class="language-plaintext highlighter-rouge">(C:)</code></p>
+
+<p>Una volta individuata clicca con il tasto destro sulla partizione e seleziona <code class="language-plaintext highlighter-rouge">Elimina Volume..</code>
+A questo punto non ti resta che estendere il volume <code class="language-plaintext highlighter-rouge">(C:)</code> (l’unica partizione valida) comprendendo la partizione non più allocata e ti ritroverai nella condizione esatta prima dell’installazione in dual boot di Ubunutu. Per far ciò clicca con il tasto destro  sulla partizione <code class="language-plaintext highlighter-rouge">(C:)</code> e seleziona la voce <code class="language-plaintext highlighter-rouge">Estendi Volume..</code></p>
+
+<p><img src="./images/remove-ubuntu-partition.gif" alt="" /></p>
+
+:ET

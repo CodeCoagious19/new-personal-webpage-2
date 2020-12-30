@@ -1,0 +1,425 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.21.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="it" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Lezione 05 | Build &amp; Run</title>
+<meta name="description" content="Lezione python">
+
+
+  <meta name="author" content="Simone Di Ricco">
+  
+  <meta property="article:author" content="Simone Di Ricco">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="it_IT">
+<meta property="og:site_name" content="Build & Run">
+<meta property="og:title" content="Lezione 05">
+<meta property="og:url" content="/python/lezione-05">
+
+
+  <meta property="og:description" content="Lezione python">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2020-12-30T00:38:49+01:00">
+
+
+
+  <meta property="article:modified_time" content="2020-07-27T00:00:00+02:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="/python/lezione-05">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Simone Di Ricco",
+      "url": "/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Build & Run Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logo2.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          Build & Run
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/pages/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/tutorial/">Tutorial</a>
+            </li><li class="masthead__menu-item">
+              <a href="/python/lezione-01/">Corsi</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Lezione 05">
+    <meta itemprop="description" content="Lezione python">
+    <meta itemprop="datePublished" content="2020-12-30T00:38:49+01:00">
+    <meta itemprop="dateModified" content="2020-07-27T00:00:00+02:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Lezione 05
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Indice della pagina</h4></header>
+              <ul class="toc__menu"><li><a href="#pypdf2---copia-pdf">PyPDF2 - Copia PDF</a></li><li><a href="#pypdf2---merge-all-pdf">PyPDF2 - Merge All pdf</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="pypdf2---copia-pdf">PyPDF2 - Copia PDF</h2>
+
+<p>Il seguente script prende in input un pdf “input.pdf” e ne produce una copia sul file “Output.pdf” 
+Faremo uso della proprietà della classe <em>PdfFileReader</em>:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">numPages</code>: Restituisce il numero delle pagine del file pdf dell’istanza (della classe <em>PdfFileReader</em>) si cui si legge la proprietà</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">PyPDF2</span>
+
+<span class="n">pdfInput</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"pdf/input.pdf"</span><span class="p">,</span> <span class="s">"rb"</span><span class="p">)</span>
+
+<span class="n">reader1</span> <span class="o">=</span> <span class="n">PyPDF2</span><span class="p">.</span><span class="n">PdfFileReader</span><span class="p">(</span><span class="n">pdfInput</span><span class="p">)</span> 
+
+<span class="n">pdfOutput</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"pdf/Output.pdf"</span><span class="p">,</span> <span class="s">"wb"</span><span class="p">)</span>
+
+<span class="n">writer1</span> <span class="o">=</span> <span class="n">PyPDF2</span><span class="p">.</span><span class="n">PdfFileWriter</span><span class="p">()</span> 
+
+<span class="c1">#Copia delle pagine dell'oggetto (classe) pdf &lt;reader1&gt; nell'oggetto (classe) pdf &lt;writer1&gt;
+</span><span class="k">for</span> <span class="n">numeroPagina</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">reader1</span><span class="p">.</span><span class="n">numPages</span><span class="p">):</span>
+    <span class="n">page</span> <span class="o">=</span> <span class="n">reader1</span><span class="p">.</span><span class="n">getPage</span><span class="p">(</span><span class="n">numeroPagina</span><span class="p">)</span>
+    <span class="n">writer1</span><span class="p">.</span><span class="n">addPage</span><span class="p">(</span><span class="n">page</span><span class="p">)</span>
+
+<span class="n">writer1</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">pdfOutput</span><span class="p">)</span>
+
+<span class="c1">#aChiudo i File
+</span><span class="n">pdfInput</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">pdfOutput</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><img src="./images/pdf-2.gif" alt="" /></p>
+
+<h2 id="pypdf2---merge-all-pdf">PyPDF2 - Merge All pdf</h2>
+
+<p>Il seguente script unisce tutti i file pdf presenti nella root directory salvandoli con un nome stabilito dall’utente.
+Faremo uso di:</p>
+<ul>
+  <li><strong>Modulo os</strong> è un modulo che contiene funzioni per interagire con il sistema operativo per la manipolazione di file e processi, <a href="https://docs.python.org/3/library/os.html">os — Miscellaneous operating system interfaces</a>.<br />
+<strong>Nota:</strong><br />
+Per questo esercizio importeremo solo il <em>metodo</em> <code class="language-plaintext highlighter-rouge">listdir()</code> del modulo os:
+    <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">listdir</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">listdir(path)</code>: Metodo del modulo <strong>os</strong>. Elenca file e cartelle specificate nella path-directory come parametro. Se non viene specificato nessun parametro restituisce i file della root-directory. Viene restituita una <strong>lista</strong> <br />
+<a href="w3big.com">Python3 os.listdir () method</a></p>
+  </li>
+  <li><strong>Metodi su stringa</strong><br />
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">endswith(myString)</code>: Restituisce <em>true</em> se la stringa a cui applichiamo il metodo termina con la stringa indicata come parametro, <em>myString</em></li>
+    </ul>
+  </li>
+</ul>
+
+<p>Altre funzionalità del modulo <strong>PyPDF2</strong>.<br /></p>
+<ul>
+  <li>classe <code class="language-plaintext highlighter-rouge">PdfFileMerger</code>: Inizializza un oggetto <strong>PdfFileMerger</strong>. <strong>PdfFileMerger</strong> unisce più PDF in un unico PDF. 
+Restituisce un’istanza della classe <strong>PdfFileMerger</strong>, <a href="https://pythonhosted.org/PyPDF2/PdfFileMerger.html">PyPDF2 - The PdfFileMerger Class</a>.</li>
+  <li>metodo <code class="language-plaintext highlighter-rouge">append(myPDF)</code> della classe <code class="language-plaintext highlighter-rouge">PdfFileMerger</code>: Concatena tutte le pagine di un oggetto PDF passato come parametro, <em>myPDF</em>, alla fine del file PDF a cui si applica il metodo</li>
+</ul>
+
+<p>Riporto lo script completo:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#Merge all pdf files
+</span>
+<span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">listdir</span>
+<span class="kn">import</span> <span class="nn">PyPDF2</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"**********************************************"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Unisco i file pdf presenti in questa directory"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"**********************************************"</span><span class="p">)</span>
+
+<span class="c1">#Non devo specificare &lt;os.listdir&gt; poichè ho spcificato l'importazione &lt;from os import listdir&gt;
+#Se avessi usato &lt;import os&gt; avrei dovuto scrivere &lt;os.listdir&gt;
+#listdir restituisce file e cartelle in formato &lt;lista&gt;
+</span><span class="n">listaFiles</span> <span class="o">=</span> <span class="n">listdir</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">nomeFile</span> <span class="ow">in</span> <span class="n">listaFiles</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">nomeFile</span><span class="p">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">'.pdf'</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">nomeFile</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+
+<span class="c1">#chiedo all'utente come vuole chiamare il file di output
+</span><span class="k">print</span><span class="p">(</span><span class="s">"Salvo il risultato con il nome:"</span><span class="p">)</span>
+<span class="n">nomeFileDestinazione</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+<span class="c1">#Apro il file in scrittura binaria
+</span><span class="n">PDF_Destinazione</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">nomeFileDestinazione</span><span class="p">,</span> <span class="s">"wb"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+
+<span class="n">merger</span> <span class="o">=</span> <span class="n">PyPDF2</span><span class="p">.</span><span class="n">PdfFileMerger</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Elaborazione di.."</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">nomeFile</span> <span class="ow">in</span> <span class="n">listaFiles</span><span class="p">:</span>
+    <span class="c1">#Elaboro solo i file con estensione ".pdf"
+</span>    <span class="k">if</span> <span class="n">nomeFile</span><span class="p">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">'.pdf'</span><span class="p">):</span>
+        <span class="c1">#stampo il nome del file
+</span>        <span class="k">print</span><span class="p">(</span><span class="n">nomeFile</span><span class="p">)</span>
+        <span class="c1">#lo apro in lettura binaria
+</span>        <span class="n">pdfFileInput</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">nomeFile</span><span class="p">,</span> <span class="s">"rb"</span><span class="p">)</span>
+        <span class="c1">#creo un'istanza della classe &lt;PdfFileReader&gt; sul file appena aperto
+</span>        <span class="n">PDF_Reader</span> <span class="o">=</span> <span class="n">PyPDF2</span><span class="p">.</span><span class="n">PdfFileReader</span><span class="p">(</span><span class="n">pdfFileInput</span><span class="p">)</span>
+        <span class="c1">#Appendo il file PDF in coda all'oggetto merger
+</span>        <span class="n">merger</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">PDF_Reader</span><span class="p">)</span>
+        <span class="c1">#chiudo il file aperto
+</span>        <span class="n">pdfFileInput</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+
+<span class="c1">#Operazione di scrittura
+</span><span class="k">print</span><span class="p">(</span><span class="s">"Scrittura su: "</span> <span class="o">+</span> <span class="n">nomeFileDestinazione</span><span class="p">)</span>
+<span class="n">merger</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">PDF_Destinazione</span><span class="p">)</span>
+<span class="n">PDF_Destinazione</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"Finito.."</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><img src="./images/mergeAllPdf.gif" alt="" /></p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Aggiornato:</strong> <time datetime="2020-07-27">July 27, 2020</time></p>
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/python/lezione-04" class="pagination--pager" title="Lezione 04
+">Precedente</a>
+    
+    
+      <a href="/python/lezione-06" class="pagination--pager" title="Lezione 06
+">Prossima</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Inserisci termini di ricerca..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Segui:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/CodeCoagious19" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Simone Di Ricco. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

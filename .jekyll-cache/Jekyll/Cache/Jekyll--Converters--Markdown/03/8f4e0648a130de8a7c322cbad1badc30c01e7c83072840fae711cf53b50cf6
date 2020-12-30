@@ -1,0 +1,129 @@
+I"�,<h2 id="costrutto-condizionale-ifelse">Costrutto condizionale <code class="language-plaintext highlighter-rouge">if...else</code></h2>
+
+<p>Le istruzioni condizionali vengono utilizzate per eseguire un blocco di codice solo nel caso in cui una condizione risulti <em>true</em> o <em>false</em></p>
+
+<p>Sintassi costrutto <code class="language-plaintext highlighter-rouge">if</code> esteso:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">condition1</span><span class="p">:</span>
+    <span class="c1">#code 01
+</span>    <span class="c1">#..
+</span><span class="k">elif</span> <span class="n">condition2</span><span class="p">:</span>
+    <span class="c1">#code 02
+</span>    <span class="c1">#..
+</span><span class="k">else</span><span class="p">:</span>
+    <span class="c1">#code 03
+</span>    <span class="c1">#..
+</span></code></pre></div></div>
+
+<p>Esempio:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">"Inserisci due numeri.."</span><span class="p">)</span>
+
+<span class="n">primoValore</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+<span class="n">secondoValore</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Il primo valore inserito, "</span> <span class="o">+</span> <span class="n">primoValore</span> <span class="o">+</span> <span class="s">" è maggiore del secondo valore inserito, "</span> <span class="o">+</span> <span class="n">secondoValore</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">b</span> <span class="o">&gt;</span> <span class="n">a</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Il secondo valore inserito, "</span> <span class="o">+</span> <span class="n">secondoValore</span> <span class="o">+</span> <span class="s">" è maggiore del primo valore inserito, "</span> <span class="o">+</span> <span class="n">primoValore</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"i due valori inseriti sono uguali"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Notare che per il costrutto <code class="language-plaintext highlighter-rouge">if</code> in python, la <code class="language-plaintext highlighter-rouge">condition</code> è priva di parentesi tonde <code class="language-plaintext highlighter-rouge">( )</code> comuni invece a molti altri linguaggi di programmazione; l’operatore <code class="language-plaintext highlighter-rouge">:</code> è usato come terminatore della <code class="language-plaintext highlighter-rouge">condition</code> e l’indentazione è necessaria per racchiudere la porzione di codice condizionato da <code class="language-plaintext highlighter-rouge">if</code>.</p>
+
+<h2 id="costrutto-iterativo-for">Costrutto iterativo <code class="language-plaintext highlighter-rouge">for</code></h2>
+
+<p>Un ciclo <code class="language-plaintext highlighter-rouge">for</code> viene utilizzato per iterare su una sequenza (che può essere una lista, una tupla, un dizionario, un insieme o una stringa).</p>
+
+<p>È meno simile alla <em>keyword</em> <code class="language-plaintext highlighter-rouge">for</code> in altri linguaggi di programmazione e funziona più come un metodo iteratore che si trova in altri linguaggi di programmazione orientati agli oggetti.</p>
+
+<p><a href="https://www.w3schools.com/python/python_for_loops.asp">w3schools - Python For Loops</a></p>
+
+<p>Sintassi:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#Sintassi 1:
+</span><span class="k">for</span> <span class="n">target_list</span> <span class="ow">in</span> <span class="n">expression_list</span><span class="p">:</span>
+    <span class="c1">#code
+</span></code></pre></div></div>
+
+<p>Esempio:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">numero</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">numero</span><span class="o">*</span><span class="n">numero</span><span class="p">)</span>
+
+<span class="c1"># 1
+# 4
+# 9
+# 16
+# 25
+</span>
+<span class="k">for</span> <span class="n">frutto</span> <span class="ow">in</span> <span class="p">[</span><span class="s">"banana"</span><span class="p">,</span> <span class="s">"mela"</span><span class="p">,</span> <span class="s">"pera"</span><span class="p">]:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">frutto</span><span class="p">)</span>
+
+<span class="c1"># banana
+# mela
+# pera
+</span></code></pre></div></div>
+
+<h2 id="indentazione-python">Indentazione Python</h2>
+<p>Il linguaggio python, a differenza di altri linguaggi come C/C++, Javascript .. Non utilizza delimitatori di blocco codice come <code class="language-plaintext highlighter-rouge">{ }</code> ma si affida alla semplice <strong>indentazione</strong>. Rende quindi indispensabile l’uso di un buon editor di testo per evitare problemi di sintassi o semantica (in alcuni casi nemmeno troppo rari). Non utilizza neanche un terminatore di statement come il classico <code class="language-plaintext highlighter-rouge">;</code> ma si affida al carattere <code class="language-plaintext highlighter-rouge">a capo</code>. L’interprete python comunque è in grado di rilevare errori sintattici di indentazione e segnalarlo.</p>
+
+<h2 id="range-function">range() Function</h2>
+
+<p>Per iterare un insieme di codice un numero di volte specificato, possiamo usare la funzione <code class="language-plaintext highlighter-rouge">range ()</code>.
+La funzione  <code class="language-plaintext highlighter-rouge">range (number)</code> restituisce una sequenza di numeri, a partire da 0 per impostazione predefinita, incrementa di 1 (per impostazione predefinita) e termina con un numero specificato tramite il parametro <em>number</em>. In realtà termina con il numero <code class="language-plaintext highlighter-rouge">number - 1</code>.<br />
+La funzione <code class="language-plaintext highlighter-rouge">range ()</code> può accettare 1, 2 o 3 parametri:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">range(number)</code>: <strong>un parametro</strong>, genera una lista numerica incrementale nel range <code class="language-plaintext highlighter-rouge">0 - number-1</code></li>
+  <li><code class="language-plaintext highlighter-rouge">range(numberStart, numberEnd)</code>: <strong>due parametri</strong>, genera una lista numerica incrementale nel range <code class="language-plaintext highlighter-rouge">numberStart - numberEnd-1</code></li>
+  <li><code class="language-plaintext highlighter-rouge">range(numberStart, numberEnd, step)</code>: <strong>tre parametri</strong>, genera una lista numerica con incremento pari a <code class="language-plaintext highlighter-rouge">step</code> nel range <em>massimo</em> <code class="language-plaintext highlighter-rouge">numberStart - numberEnd-1</code></li>
+</ul>
+
+<p><a href="https://www.w3schools.com/python/python_for_loops.asp">w3schools - The range() Function</a></p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>       <span class="c1">#[0, 1, 2, 3, 4]
+</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>    <span class="c1">#[1, 2, 3, 4]
+</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1">#[1, 3]
+</span></code></pre></div></div>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">target_list</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+    <span class="c1">#code
+</span></code></pre></div></div>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># range(number) costruisce una lista da 0 a number-1
+</span><span class="k">for</span> <span class="n">numero</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">numero</span><span class="o">*</span><span class="n">numero</span><span class="p">)</span>
+
+<span class="c1"># 0
+# 1
+# 4
+# 9
+# 16
+</span>
+<span class="k">for</span> <span class="n">numero</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">numero</span><span class="p">)</span>
+
+<span class="c1"># 1
+# 3
+</span></code></pre></div></div>
+
+<p>Nel seguente esempio specifico alla funzione <code class="language-plaintext highlighter-rouge">print()</code> di non utilizzare il terminatore di default <code class="language-plaintext highlighter-rouge">a capo</code> rendendo nullo l’attributo <code class="language-plaintext highlighter-rouge">end</code></p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="n">end</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Esempio:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">numero</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">numero</span><span class="p">)</span> <span class="o">+</span> <span class="s">":"</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">numero</span><span class="o">*</span><span class="n">numero</span><span class="p">)</span>
+
+<span class="c1"># 0:0
+# 1:1
+# 2:4
+# 3:9
+# 4:16
+</span></code></pre></div></div>
+:ET

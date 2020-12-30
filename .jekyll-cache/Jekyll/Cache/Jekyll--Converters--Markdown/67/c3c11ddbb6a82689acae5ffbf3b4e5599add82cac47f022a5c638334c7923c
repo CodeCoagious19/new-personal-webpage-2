@@ -1,0 +1,134 @@
+I"$><h2 id="liste">Liste</h2>
+
+<p>Abbiamo già visto implicitamente un’introduzione al tipo lista e in particolare come creare e iterare sugli elementi di una lista attraverso il ciclo <code class="language-plaintext highlighter-rouge">for</code> e la funzione <code class="language-plaintext highlighter-rouge">range()</code>. Il tipo dato lista è molto importante nel linguaggio python.</p>
+
+<p>Le liste sono un tipo di dato utilizzato per memorizzare diversi elementi in una singola variabile.</p>
+
+<p>Le liste sono uno dei 4 tipi di dati incorporati in Python utilizzati per memorizzare raccolte di dati, gli altri 3 sono Tuple, Set e Dictionary, tutti con qualità e utilizzo diversi.</p>
+
+<p>Vediamo le caratteristiche principali delle liste:</p>
+
+<ul>
+  <li>Le liste possono contenere qualsiasi tipo di dato</li>
+  <li>Gli elementi della lista sono indicizzati, il primo elemento ha indice [0], il secondo elemento ha indice [1] .. A differenza della maggior parte dei linguaggi si possono usare anche indici negativi, [-1] si riferisce all’ultimo elemento, [-2] si riferisce al penultimo elemento ecc.</li>
+  <li>Gli elementi in una lista sono ordinati e l’ordine è stabilito dall’indice.</li>
+  <li>Dopo la creazione, è possibile aggiungere elementi, cambiare il valore degli elementi già esistenti o rimuoverli</li>
+  <li>Dal momento che le liste sono indicizzate è possibile avere elementi duplicati</li>
+  <li>La funzione <code class="language-plaintext highlighter-rouge">len()</code> ritorna il numero degli elementi presenti in una lista</li>
+  <li>L’operatore <code class="language-plaintext highlighter-rouge">[::]</code> permette lo <em>slicing</em> di liste ovvero la creazione di porzioni di liste a partire dalla lista a cui si applica l’operatore <code class="language-plaintext highlighter-rouge">[::]</code></li>
+</ul>
+
+<p><a href="https://www.w3schools.com/python/python_lists.asp">w3schools - Python Lists</a></p>
+
+<h2 id="accesso-agli-elementi-di-una-lista">Accesso agli elementi di una lista</h2>
+
+<p>L’accesso agli elementi di una lista si effettua tramite l’operatore <code class="language-plaintext highlighter-rouge">[]</code></p>
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#indici     0         1       2       3            4
+#indici    -5        -4      -3      -2           -1
+</span><span class="n">myList</span> <span class="o">=</span> <span class="p">[</span><span class="s">"banana"</span><span class="p">,</span> <span class="s">"kiwi"</span><span class="p">,</span> <span class="s">"mela"</span><span class="p">,</span> <span class="s">"mandarino"</span><span class="p">,</span> <span class="s">"cachi"</span><span class="p">]</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">myList</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>  <span class="c1">#mela
+</span><span class="k">print</span><span class="p">(</span><span class="n">myList</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="c1">#cachi
+</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">myList</span><span class="p">))</span> <span class="c1">#5
+</span></code></pre></div></div>
+
+<h2 id="modifica-del-valore-degli-elementi-in-una-lista">Modifica del valore degli elementi in una lista.</h2>
+
+<p>Per cambiare il valore degli elementi in una lista si utilizza l’operatore <code class="language-plaintext highlighter-rouge">[]</code></p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#indici     0         1       2       3            4
+#indici    -5        -4      -3      -2           -1
+</span><span class="n">myList</span> <span class="o">=</span> <span class="p">[</span><span class="s">"banana"</span><span class="p">,</span> <span class="s">"kiwi"</span><span class="p">,</span> <span class="s">"mela"</span><span class="p">,</span> <span class="s">"mandarino"</span><span class="p">,</span> <span class="s">"cachi"</span><span class="p">]</span>
+
+<span class="n">myList</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s">"arancia"</span>
+<span class="n">myList</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s">"pera"</span>
+<span class="k">print</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span>
+
+<span class="n">myList</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s">"mandorla"</span><span class="p">,</span> <span class="s">"nocciola"</span><span class="p">]</span> 
+<span class="k">print</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="aggiunta-di-elementi-in-una-lista">Aggiunta di elementi in una lista</h2>
+
+<p>Sono disponibili i metodi:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">append(elem)</code>: Appende <em>elem</em> in coda alla lista</li>
+  <li><code class="language-plaintext highlighter-rouge">insert(index, elem)</code>: Inserisce (senza nessun replace) <em>elem</em> alla posizione <em>index</em> facendo scalare di una posizione gli elementi dalla posizione <em>index</em></li>
+  <li><code class="language-plaintext highlighter-rouge">extend(otherList)</code>: Appende in coda gli elementi della lista passata come parametro, <em>otherList</em></li>
+</ul>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">myList</span> <span class="o">=</span> <span class="p">[</span><span class="s">"banana"</span><span class="p">,</span> <span class="s">"kiwi"</span><span class="p">,</span> <span class="s">"mela"</span><span class="p">,</span> <span class="s">"mandarino"</span><span class="p">,</span> <span class="s">"cachi"</span><span class="p">]</span>
+<span class="n">myList2</span> <span class="o">=</span> <span class="p">[</span><span class="s">"mandorla"</span><span class="p">,</span> <span class="s">"nocciola"</span><span class="p">,</span> <span class="s">"noce"</span><span class="p">]</span>
+
+<span class="n">myList</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">"anguria"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span> <span class="c1">#['banana', 'kiwi', 'mela', 'mandarino', 'cachi', 'anguria']
+</span>
+<span class="n">myList</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s">"melone"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span> <span class="c1">#['banana', 'kiwi', 'melone', 'mela', 'mandarino', 'cachi', 'anguria']
+</span>
+<span class="n">myList</span><span class="p">.</span><span class="n">extend</span><span class="p">(</span><span class="n">myList2</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span> <span class="c1">#['banana', 'kiwi', 'melone', 'mela', 'mandarino', 'cachi', 'anguria', 'mandorla', 'nocciola', 'noce']
+</span></code></pre></div></div>
+
+<h2 id="rimozione-di-elementi-in-una-lista">Rimozione di elementi in una lista</h2>
+
+<p>Sono disponibili i metodi:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">remove(elem)</code> : Toglie <em>elem</em> dalla lista</li>
+  <li><code class="language-plaintext highlighter-rouge">pop(?index)</code>: Toglie l’elemento corrispondente all’indice <em>index</em> passato come parametro opzionale. Se non viene passato nessun parametro toglie l’ultimo elemento. E’ possibile ottenere questo risultato anche con il comando <code class="language-plaintext highlighter-rouge">del</code>, specificando l’elemento, <code class="language-plaintext highlighter-rouge">del myList[index]</code></li>
+  <li><code class="language-plaintext highlighter-rouge">clear()</code>: Svuota la lista. La lista esiste ma è vuota. E’ possibile ottenere questo risultato anche con il comando <code class="language-plaintext highlighter-rouge">del</code> specificando il nome della lista <code class="language-plaintext highlighter-rouge">del myList</code> ma in questo caso elimina anche l’identificatore</li>
+</ul>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">myList</span> <span class="o">=</span> <span class="p">[</span><span class="s">'banana'</span><span class="p">,</span> <span class="s">'kiwi'</span><span class="p">,</span> <span class="s">'melone'</span><span class="p">,</span> <span class="s">'mela'</span><span class="p">,</span> <span class="s">'mandarino'</span><span class="p">,</span> <span class="s">'cachi'</span><span class="p">,</span> <span class="s">'anguria'</span><span class="p">,</span> <span class="s">'mandorla'</span><span class="p">,</span> <span class="s">'nocciola'</span><span class="p">,</span> <span class="s">'noce'</span><span class="p">]</span>
+
+<span class="n">myList</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="s">"mandarino"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span> <span class="c1">#['banana', 'kiwi', 'melone', 'mela', 'cachi', 'anguria', 'mandorla', 'nocciola', 'noce']
+</span>
+<span class="n">myList</span><span class="p">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span> <span class="c1">#['banana', 'kiwi', 'mela', 'cachi', 'anguria', 'mandorla', 'nocciola', 'noce']
+</span><span class="n">myList</span><span class="p">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span> <span class="c1">#['banana', 'kiwi', 'mela', 'cachi', 'anguria', 'mandorla', 'nocciola']
+</span><span class="k">del</span> <span class="n">myList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> 
+<span class="k">print</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span> <span class="c1">#['kiwi', 'mela', 'cachi', 'anguria', 'mandorla', 'nocciola']
+</span>
+<span class="n">myList</span><span class="p">.</span><span class="n">clear</span><span class="p">()</span> 
+<span class="k">print</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span> <span class="c1">#[]
+</span>
+<span class="n">myList</span> <span class="o">=</span> <span class="p">[</span><span class="s">'banana'</span><span class="p">,</span> <span class="s">'kiwi'</span><span class="p">,</span> <span class="s">'melone'</span><span class="p">,</span> <span class="s">'mela'</span><span class="p">,</span> <span class="s">'mandarino'</span><span class="p">,</span> <span class="s">'cachi'</span><span class="p">,</span> <span class="s">'anguria'</span><span class="p">,</span> <span class="s">'mandorla'</span><span class="p">,</span> <span class="s">'nocciola'</span><span class="p">,</span> <span class="s">'noce'</span><span class="p">]</span>
+<span class="k">del</span> <span class="n">myList</span>
+<span class="k">print</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span> <span class="c1">#NameError: name 'myList' is not defined
+</span></code></pre></div></div>
+
+<h2 id="creazione-di-sotto-liste-slicing-">Creazione di sotto liste, <strong>slicing</strong> <br /></h2>
+
+<p>Sintassi:<br />
+<code class="language-plaintext highlighter-rouge">mySubList = myList[?startIndex: ?endIndex: ?Step]</code>: Ritorna una sotto lista a partire dalla lista a cui si applica lo slicing (<em>myList</em>). L’operatore <code class="language-plaintext highlighter-rouge">[]</code> può ricevere tre parametri opzionali separati da <code class="language-plaintext highlighter-rouge">:</code>. Il primo rappresenta l’indice di partenza (incluso), il secondo l’indice di fine (non incluso) e il terzo il passo. Se il primo parametro non è specificato si assume <code class="language-plaintext highlighter-rouge">0</code> come valore di partenza. Se il secondo parametro non è specificato si assume <code class="language-plaintext highlighter-rouge">len(myList) - 1</code> come valore di fine cioè l’ultimo elemento della lista. Se il terzo parametro non è specificato si assume un incremento positivo unitario</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#indici     0         1       2       3            4
+#indici    -5        -4      -3      -2           -1
+</span><span class="n">myList</span> <span class="o">=</span> <span class="p">[</span><span class="s">"banana"</span><span class="p">,</span> <span class="s">"kiwi"</span><span class="p">,</span> <span class="s">"mela"</span><span class="p">,</span> <span class="s">"mandarino"</span><span class="p">,</span> <span class="s">"cachi"</span><span class="p">]</span>
+
+<span class="n">mySubList</span> <span class="o">=</span> <span class="n">myList</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">mySubList</span><span class="p">)</span>  <span class="c1">#['kiwi', 'mela', 'mandarino', 'cachi']
+</span><span class="n">mySubList</span> <span class="o">=</span> <span class="n">myList</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">mySubList</span><span class="p">)</span> <span class="c1">#['mandarino', 'cachi']
+</span>
+<span class="n">mySubList</span> <span class="o">=</span> <span class="n">myList</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">mySubList</span><span class="p">)</span> <span class="c1">#['mela', 'mandarino']
+</span>
+<span class="n">mySubList</span> <span class="o">=</span> <span class="n">myList</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">mySubList</span><span class="p">)</span> <span class="c1">#['banana', 'mela', 'cachi']
+</span>
+<span class="c1">#Restituisce una copia &lt;non profonda&gt; di una lista
+#Non valido per liste annidate
+</span><span class="n">mySubList</span> <span class="o">=</span> <span class="n">myList</span><span class="p">[:]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">mySubList</span><span class="p">)</span> <span class="c1">#["banana", "kiwi", "mela", "mandarino", "cachi"]
+</span>
+<span class="c1">#Ordinamento inverso
+</span><span class="n">mySubList</span> <span class="o">=</span> <span class="n">myList</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> 
+<span class="k">print</span><span class="p">(</span><span class="n">mySubList</span><span class="p">)</span> <span class="c1">#['cachi', 'mandarino', 'mela', 'kiwi', 'banana']
+</span></code></pre></div></div>
+:ET

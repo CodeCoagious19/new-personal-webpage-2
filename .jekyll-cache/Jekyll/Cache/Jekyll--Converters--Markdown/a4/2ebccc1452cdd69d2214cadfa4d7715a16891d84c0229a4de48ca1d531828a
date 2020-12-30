@@ -1,0 +1,117 @@
+I"�(<h2 id="pypdf2---copia-pdf">PyPDF2 - Copia PDF</h2>
+
+<p>Il seguente script prende in input un pdf “input.pdf” e ne produce una copia sul file “Output.pdf” 
+Faremo uso della proprietà della classe <em>PdfFileReader</em>:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">numPages</code>: Restituisce il numero delle pagine del file pdf dell’istanza (della classe <em>PdfFileReader</em>) si cui si legge la proprietà</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">PyPDF2</span>
+
+<span class="n">pdfInput</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"pdf/input.pdf"</span><span class="p">,</span> <span class="s">"rb"</span><span class="p">)</span>
+
+<span class="n">reader1</span> <span class="o">=</span> <span class="n">PyPDF2</span><span class="p">.</span><span class="n">PdfFileReader</span><span class="p">(</span><span class="n">pdfInput</span><span class="p">)</span> 
+
+<span class="n">pdfOutput</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"pdf/Output.pdf"</span><span class="p">,</span> <span class="s">"wb"</span><span class="p">)</span>
+
+<span class="n">writer1</span> <span class="o">=</span> <span class="n">PyPDF2</span><span class="p">.</span><span class="n">PdfFileWriter</span><span class="p">()</span> 
+
+<span class="c1">#Copia delle pagine dell'oggetto (classe) pdf &lt;reader1&gt; nell'oggetto (classe) pdf &lt;writer1&gt;
+</span><span class="k">for</span> <span class="n">numeroPagina</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">reader1</span><span class="p">.</span><span class="n">numPages</span><span class="p">):</span>
+    <span class="n">page</span> <span class="o">=</span> <span class="n">reader1</span><span class="p">.</span><span class="n">getPage</span><span class="p">(</span><span class="n">numeroPagina</span><span class="p">)</span>
+    <span class="n">writer1</span><span class="p">.</span><span class="n">addPage</span><span class="p">(</span><span class="n">page</span><span class="p">)</span>
+
+<span class="n">writer1</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">pdfOutput</span><span class="p">)</span>
+
+<span class="c1">#aChiudo i File
+</span><span class="n">pdfInput</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">pdfOutput</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><img src="./images/pdf-2.gif" alt="" /></p>
+
+<h2 id="pypdf2---merge-all-pdf">PyPDF2 - Merge All pdf</h2>
+
+<p>Il seguente script unisce tutti i file pdf presenti nella root directory salvandoli con un nome stabilito dall’utente.
+Faremo uso di:</p>
+<ul>
+  <li><strong>Modulo os</strong> è un modulo che contiene funzioni per interagire con il sistema operativo per la manipolazione di file e processi, <a href="https://docs.python.org/3/library/os.html">os — Miscellaneous operating system interfaces</a>.<br />
+<strong>Nota:</strong><br />
+Per questo esercizio importeremo solo il <em>metodo</em> <code class="language-plaintext highlighter-rouge">listdir()</code> del modulo os:
+    <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">listdir</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">listdir(path)</code>: Metodo del modulo <strong>os</strong>. Elenca file e cartelle specificate nella path-directory come parametro. Se non viene specificato nessun parametro restituisce i file della root-directory. Viene restituita una <strong>lista</strong> <br />
+<a href="w3big.com">Python3 os.listdir () method</a></p>
+  </li>
+  <li><strong>Metodi su stringa</strong><br />
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">endswith(myString)</code>: Restituisce <em>true</em> se la stringa a cui applichiamo il metodo termina con la stringa indicata come parametro, <em>myString</em></li>
+    </ul>
+  </li>
+</ul>
+
+<p>Altre funzionalità del modulo <strong>PyPDF2</strong>.<br /></p>
+<ul>
+  <li>classe <code class="language-plaintext highlighter-rouge">PdfFileMerger</code>: Inizializza un oggetto <strong>PdfFileMerger</strong>. <strong>PdfFileMerger</strong> unisce più PDF in un unico PDF. 
+Restituisce un’istanza della classe <strong>PdfFileMerger</strong>, <a href="https://pythonhosted.org/PyPDF2/PdfFileMerger.html">PyPDF2 - The PdfFileMerger Class</a>.</li>
+  <li>metodo <code class="language-plaintext highlighter-rouge">append(myPDF)</code> della classe <code class="language-plaintext highlighter-rouge">PdfFileMerger</code>: Concatena tutte le pagine di un oggetto PDF passato come parametro, <em>myPDF</em>, alla fine del file PDF a cui si applica il metodo</li>
+</ul>
+
+<p>Riporto lo script completo:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#Merge all pdf files
+</span>
+<span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">listdir</span>
+<span class="kn">import</span> <span class="nn">PyPDF2</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"**********************************************"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Unisco i file pdf presenti in questa directory"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"**********************************************"</span><span class="p">)</span>
+
+<span class="c1">#Non devo specificare &lt;os.listdir&gt; poichè ho spcificato l'importazione &lt;from os import listdir&gt;
+#Se avessi usato &lt;import os&gt; avrei dovuto scrivere &lt;os.listdir&gt;
+#listdir restituisce file e cartelle in formato &lt;lista&gt;
+</span><span class="n">listaFiles</span> <span class="o">=</span> <span class="n">listdir</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">nomeFile</span> <span class="ow">in</span> <span class="n">listaFiles</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">nomeFile</span><span class="p">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">'.pdf'</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">nomeFile</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+
+<span class="c1">#chiedo all'utente come vuole chiamare il file di output
+</span><span class="k">print</span><span class="p">(</span><span class="s">"Salvo il risultato con il nome:"</span><span class="p">)</span>
+<span class="n">nomeFileDestinazione</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+<span class="c1">#Apro il file in scrittura binaria
+</span><span class="n">PDF_Destinazione</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">nomeFileDestinazione</span><span class="p">,</span> <span class="s">"wb"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+
+<span class="n">merger</span> <span class="o">=</span> <span class="n">PyPDF2</span><span class="p">.</span><span class="n">PdfFileMerger</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Elaborazione di.."</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">nomeFile</span> <span class="ow">in</span> <span class="n">listaFiles</span><span class="p">:</span>
+    <span class="c1">#Elaboro solo i file con estensione ".pdf"
+</span>    <span class="k">if</span> <span class="n">nomeFile</span><span class="p">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">'.pdf'</span><span class="p">):</span>
+        <span class="c1">#stampo il nome del file
+</span>        <span class="k">print</span><span class="p">(</span><span class="n">nomeFile</span><span class="p">)</span>
+        <span class="c1">#lo apro in lettura binaria
+</span>        <span class="n">pdfFileInput</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">nomeFile</span><span class="p">,</span> <span class="s">"rb"</span><span class="p">)</span>
+        <span class="c1">#creo un'istanza della classe &lt;PdfFileReader&gt; sul file appena aperto
+</span>        <span class="n">PDF_Reader</span> <span class="o">=</span> <span class="n">PyPDF2</span><span class="p">.</span><span class="n">PdfFileReader</span><span class="p">(</span><span class="n">pdfFileInput</span><span class="p">)</span>
+        <span class="c1">#Appendo il file PDF in coda all'oggetto merger
+</span>        <span class="n">merger</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">PDF_Reader</span><span class="p">)</span>
+        <span class="c1">#chiudo il file aperto
+</span>        <span class="n">pdfFileInput</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+
+<span class="c1">#Operazione di scrittura
+</span><span class="k">print</span><span class="p">(</span><span class="s">"Scrittura su: "</span> <span class="o">+</span> <span class="n">nomeFileDestinazione</span><span class="p">)</span>
+<span class="n">merger</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">PDF_Destinazione</span><span class="p">)</span>
+<span class="n">PDF_Destinazione</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"Finito.."</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><img src="./images/mergeAllPdf.gif" alt="" /></p>
+
+:ET

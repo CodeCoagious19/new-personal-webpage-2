@@ -1,0 +1,92 @@
+I"�<h2 id="introduzione-al-modulo-pypdf2">Introduzione al modulo PyPDF2</h2>
+
+<p>Il seguente script tratterà l’elaborazione di file pdf. Saremo in grado quindi di generare un file pdf con nome predefinito “Output.pdf” che è la copia della prima pagina di un pdf con nome “input.pdf” ricevuto in input</p>
+
+<p>Faremo uso del modulo aggiuntivo <a href="https://pythonhosted.org/PyPDF2/">PyPDF2</a> da installare da terminale tramite il comando <code class="language-plaintext highlighter-rouge">pip install PyPDF2</code></p>
+
+<p>Utilizzeremo le funzioni standard Python di apertuta e chiusura file:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">open(myFile, mode)</code>: apre un file e lo restituisce come oggetto.
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">myfile</code> indica il nome comprensivo del path del file da aprire</li>
+      <li><code class="language-plaintext highlighter-rouge">mode</code> indica la modalità di apertura del file
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">mode = "r"</code> modalità lettura</li>
+          <li><code class="language-plaintext highlighter-rouge">mode = "rb"</code> modalità lettura binaria</li>
+          <li><code class="language-plaintext highlighter-rouge">mode = "w"</code> modalità scrittura</li>
+          <li><code class="language-plaintext highlighter-rouge">mode = "wb"</code> modalità scrittura binaria</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">close()</code>: chiude un file aperto. È necessario chiudere sempre i file aperti poichè in alcuni casi, a causa del buffering, le modifiche apportate a un file potrebbero non essere visualizzate finché non si chiude il file.</li>
+</ul>
+
+<p><a href="https://www.w3schools.com/python/ref_func_open.asp">w3schools - Python open() Function</a><br />
+<a href="https://www.w3schools.com/python/ref_file_close.asp">w3schools - Python close() Function</a><br /></p>
+
+<p>Del modulo aggiuntivo <strong>PyPDF2</strong> utilizzeremo le classi:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">PdfFileReader(myPdf)</code>: Chiama il costruttore della classe <em>PdfFileReader</em> che inzializza in lettura il file oggetto pdf <em>myPdf</em> ricevuto come parametro e restituisce un’istanza della classe <em>PdfFileReader</em><br />
+<a href="https://pythonhosted.org/PyPDF2/PdfFileReader.html">The PdfFileReader Class</a><br />
+<strong>Metodi</strong><br />
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">getPage(pageNumber)</code>: restituisce una pagina in base al numero <em>pageNumber</em> passato come parametro<br /></li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">PdfFileWriter()</code>: Chiama il costruttore della classe <em>PdfFileWriter()</em> che inizializza in scrittura un file oggetto pdf e restituisce un’istanza della classe <em>PdfFileWriter()</em><br />
+<a href="https://pythonhosted.org/PyPDF2/PdfFileWriter.html">The PdfFileWriter Class</a><br />
+<strong>Metodi</strong><br />
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">addPage(page)</code>: Aggiunge una pagina PDF,  all’istanza della classe <em>PdfFileWriter</em> a cui si applica il metodo. La pagina viene solitamente acquisita da un’istanza di <em>PdfFileReader</em>.</li>
+      <li><code class="language-plaintext highlighter-rouge">write(myPdf)</code>: Scrive (su disco, da ram a rom) la raccolta di pagine aggiunte a questo oggetto come file PDF, riceve come parametro l’oggetto pdf da scrivere, <em>myPdf</em>.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Nota:</strong> Le “funzioni/classi” di un modulo devono essere invocate sempre specificando il nome del modulo.</p>
+
+<p>Esempio:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">PyPDF2</span>
+<span class="n">pdfInput</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"pdf/input.pdf"</span><span class="p">,</span> <span class="s">"rb"</span><span class="p">)</span>
+<span class="c1">#PyPDF2 è il nome del modulo, PdfFileReader è il nome della classe del modulo PyPDF2
+</span><span class="n">reader1</span> <span class="o">=</span> <span class="n">PyPDF2</span><span class="p">.</span><span class="n">PdfFileReader</span><span class="p">(</span><span class="n">pdfInput</span><span class="p">)</span> 
+</code></pre></div></div>
+
+<p>Script completo</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">PyPDF2</span>
+
+<span class="c1">#Apro il file &lt;input.pdf&gt; all'interno della cartella &lt;pdf&gt; in modalità lettura binaria
+#Restituisco un oggetto all'interno della variabile &lt;pdfInput&gt;
+</span><span class="n">pdfInput</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"pdf/input.pdf"</span><span class="p">,</span> <span class="s">"rb"</span><span class="p">)</span>
+<span class="c1">#Restituisco un'istanza della classe &lt;PdfFileReader&gt; all'interno della variabile &lt;reader1&gt;
+</span><span class="n">reader1</span> <span class="o">=</span> <span class="n">PyPDF2</span><span class="p">.</span><span class="n">PdfFileReader</span><span class="p">(</span><span class="n">pdfInput</span><span class="p">)</span> 
+
+<span class="c1">#apro un file &lt;Output.pdf&gt; all'interno della cartella &lt;pdf&gt; in modalità scrittura binaria
+#Restituisco un oggetto all'interno della variabile &lt;pdfOutput&gt;
+</span><span class="n">pdfOutput</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"pdf/Output.pdf"</span><span class="p">,</span> <span class="s">"wb"</span><span class="p">)</span>
+<span class="c1">#Restituisco un'istanza della classe &lt;PyPDF2.PdfFileWriter&gt; all'interno della variabile &lt;writer1&gt;
+</span><span class="n">writer1</span> <span class="o">=</span> <span class="n">PyPDF2</span><span class="p">.</span><span class="n">PdfFileWriter</span><span class="p">()</span> 
+
+<span class="c1">#Prelevo la pagina numero &lt;0&gt; e ritorno un oggetto pdf di una pagina all'interno della variabile &lt;pag0&gt;
+</span><span class="n">pag0</span> <span class="o">=</span> <span class="n">reader1</span><span class="p">.</span><span class="n">getPage</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1">#Aggiungo in coda pag0 all'istanza &lt;writer1&gt; (della classe PdfFileWriter) 
+#Ripeto l'operazione per tre volte
+</span><span class="n">writer1</span><span class="p">.</span><span class="n">addPage</span><span class="p">(</span><span class="n">pag0</span><span class="p">)</span>
+<span class="n">writer1</span><span class="p">.</span><span class="n">addPage</span><span class="p">(</span><span class="n">pag0</span><span class="p">)</span>
+<span class="n">writer1</span><span class="p">.</span><span class="n">addPage</span><span class="p">(</span><span class="n">pag0</span><span class="p">)</span>
+
+<span class="c1">#Scrittura su disco dell'istanza della classe &lt;writer1&gt; su &lt;pdfOutput&gt; l'oggetto in scrittura corrispondente a "Output.pdf"
+</span><span class="n">writer1</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">pdfOutput</span><span class="p">)</span>
+
+<span class="c1">#aChiudo i File
+</span><span class="n">pdfInput</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">pdfOutput</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><img src="./images/pdf-1.gif" alt="" /></p>
+
+:ET

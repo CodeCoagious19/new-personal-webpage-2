@@ -1,0 +1,82 @@
+I"�<h2 id="primo-script">Primo script</h2>
+
+<p>Ogni file python ha un’estensione <code class="language-plaintext highlighter-rouge">.py</code>.</p>
+
+<p>Per l’esecuzione di uno script python è possibile lanciare il file creato con l’estensione <code class="language-plaintext highlighter-rouge">.py</code> (esempio <code class="language-plaintext highlighter-rouge">test.py</code>) direttamente dal terminale digitando il comando per l’invocazione dell’interprete python <code class="language-plaintext highlighter-rouge">python3</code> ad esempio <code class="language-plaintext highlighter-rouge">python3 test.py</code> all’interno della cartella contenente il file <code class="language-plaintext highlighter-rouge">test.py</code> oppure attraverso l’estensione appena installata per VS code <code class="language-plaintext highlighter-rouge">Run/Start Debugging</code></p>
+
+<p>Ecco l’esecuzione del primo script python</p>
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">'ciao mondo'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><img src="./images/ciao-mondo-python.gif" alt="" /></p>
+
+<h2 id="aggiunta-di-moduli">Aggiunta di moduli</h2>
+
+<p>Per l’aggiunta di un modulo che rientra nella libreria standard python basta semplicemente digitare:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="o">&lt;</span><span class="n">nomeModulo</span><span class="o">&gt;</span>
+</code></pre></div></div>
+<p>A volte tuttavia potremmo aver bisogno di un modulo non standard disponibile sul web. Per installarlo possiamo far ricorso al pacchetto <code class="language-plaintext highlighter-rouge">pip</code> che permette la gestione e l’installazione dei moduli aggiuntivi python.</p>
+
+<p>Supponiamo di voler scaricare il modulo <code class="language-plaintext highlighter-rouge">PyPDF2</code> per la gestione dei PDF. Digitare da terminale</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install </span>PyPDF2
+</code></pre></div></div>
+
+<p>Qualora si avessero dubbi sul nome del modulo o sul comando esatto, niente paura, il browser ci è di supporto</p>
+
+<p><img src="./images/pip-install.gif" alt="" /></p>
+
+<h2 id="introduzione-a-webbrowser">Introduzione a webbrowser</h2>
+
+<p>Il seguente script aprirà una località su google.maps digitata come input dall’utente.</p>
+
+<p>Utilizzeremo il comando <code class="language-plaintext highlighter-rouge">input()</code> che permette l’acquisizione dati da tastiera e la funzione <code class="language-plaintext highlighter-rouge">open</code> del modulo python <code class="language-plaintext highlighter-rouge">webbrowser</code>. <br />
+La funzione <code class="language-plaintext highlighter-rouge">open</code> permette di aprire un certo <code class="language-plaintext highlighter-rouge">url</code> specificato come parametro tra gli apici. Il parametro è quindi passato come una stringa e come tale valgono tutte le operazioni e i metodi applicabili su stringa tra cui l’operatore <code class="language-plaintext highlighter-rouge">+</code> utilizzato per concatenare due o più stringhe .</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">input()</code>: consente l’acquisizione dati da tastiera dell’utente.</li>
+  <li><code class="language-plaintext highlighter-rouge">webbrowser.open(myUrl)</code>: Apre l’indirizzo web specificato dal parametro <em>myUrl</em>. Il parametro specificato viene passato come stringa</li>
+  <li><code class="language-plaintext highlighter-rouge">+</code>: Operatore di concatenazione stringhe</li>
+</ul>
+
+<p>Ecco lo script completo:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">webbrowser</span>
+<span class="n">destinazione</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+<span class="n">webbrowser</span><span class="p">.</span><span class="nb">open</span><span class="p">(</span><span class="s">'https://www.google.com/maps'</span> <span class="o">+</span> <span class="s">'/place/'</span> <span class="o">+</span> <span class="n">destinazione</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><img src="./images/maps-script.gif" alt="" /></p>
+
+<p>E’ possibile ridurre ancora il codice</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">webbrowser</span>
+<span class="n">webbrowser</span><span class="p">.</span><span class="nb">open</span><span class="p">(</span><span class="s">'https://www.google.com/maps'</span> <span class="o">+</span> <span class="s">'/place/'</span> <span class="o">+</span> <span class="nb">input</span><span class="p">())</span>
+</code></pre></div></div>
+
+<h2 id="come-rendo-eseguibile-un-file-python">Come rendo eseguibile un file python?</h2>
+
+<h2 id="linux">Linux</h2>
+
+<p>Aggiungere la seguente linea di codice in testa allo script:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env python3
+</span></code></pre></div></div>
+
+<p>Ad esempio:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env python3
+</span><span class="kn">import</span> <span class="nn">webbrowser</span>
+<span class="n">webbrowser</span><span class="p">.</span><span class="nb">open</span><span class="p">(</span><span class="s">'https://www.google.com/maps'</span> <span class="o">+</span> <span class="s">'/place/'</span> <span class="o">+</span> <span class="nb">input</span><span class="p">())</span>
+</code></pre></div></div>
+
+<p>E’ sufficiente rendere il file <em>eseguibile</em> (all’interno delle proprietà del file sezione “permessi”) e lanciarlo da terminale.</p>
+
+<p><img src="./images/python-executable-linux.gif" alt="" /></p>
+
+<h2 id="commenti">Commenti</h2>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># questo è un commento e verrà ignorato dall'interprete
+</span><span class="k">print</span><span class="p">(</span><span class="s">'ciao'</span><span class="p">)</span>
+</code></pre></div></div>
+:ET
