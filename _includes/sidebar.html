@@ -17,3 +17,15 @@
   {% endif %}
   </div>
 {% endif %}
+
+<!--
+<div class="sidebar sticky">  
+  {% for lesson in site[page.name_collection] %}
+    {% if page.url == lesson.url %}
+      <h3><a class="active side-bar-element" href="{{ lesson.url }}">{{ lesson.title }}</a></h3>
+    {% else %}
+      <a class="side-bar-element" href="{{ lesson.url }}">{{ lesson.title }}</a>
+    {% endif %}
+  {% endfor %}
+</div>
+-->

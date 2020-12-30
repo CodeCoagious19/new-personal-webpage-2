@@ -1,6 +1,7 @@
 ---
 title: "Lezione 01"
 permalink: /python/lezione-01
+name_collection: python
 
 layout: single
 excerpt: "Lezione python"

@@ -38,7 +38,7 @@ feature_row:
     excerpt: "Free to use however you want under the MIT License. Clone it, fork it, customize it... whatever!"
     url: "/python/index/"
     btn_class: "btn--primary"
-    btn_label: "Inizia"    
+    btn_label: "Inizia"   
 ---
 
 {% include feature_row %}

@@ -280,8 +280,22 @@ defaults:
       share: false
       related: true
       toc: false
+  # _python
+  - scope:
+      path: ""
+      type: python
+    values:
+      layout: single
+      read_time: false
+      author_profile: false
+      share: false
+      comments: false
+      sidebar:
+        nav: "python"
 
 collections:
   python:
+    name_collection: python
     output: true
     permalink: /:collection/:path/
+
