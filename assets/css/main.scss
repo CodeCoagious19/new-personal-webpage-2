@@ -6,3 +6,39 @@
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
+
+
+.archive__item {
+    //background: wheat;
+    display: flex;
+    flex-flow: column;
+    height: 500px;
+    align-items: center;
+    border: 2px solid rgba(128, 128, 128, 0.411);
+    border-radius: 5px;
+}
+
+//image
+.archive__item-teaser {
+    flex: 0 0 150px;
+    width: 150px;
+    //background: yellowgreen;
+}
+
+
+
+
+.feature__item .archive__item-body {
+    flex: 1 1 250px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.archive__item-excerpt {
+    flex: 1 1 50px;
+    overflow-y: auto;
+    height: 100px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
