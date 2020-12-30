@@ -1,10 +1,13 @@
 ---
-layout: single
 title: "Lezione 03"
 permalink: /python/lezione-03
+
+layout: single
 excerpt: "Lezione python"
 last_modified_at: 2020-07-27
+read_time: true
 toc: true
+author_profile: false
 ---
 
 ## Introduzione al modulo PyPDF2

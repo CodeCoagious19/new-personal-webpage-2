@@ -1,4 +1,10 @@
 var store = [{
+        "title": "Indice delle lezioni",
+        "excerpt":"Questa sezione dovrebbe contenere l’indice delle lezioni  ","categories": [],
+        "tags": [],
+        "url": "/python/index",
+        "teaser": null
+      },{
         "title": "Lezione 01",
         "excerpt":"Prerequisiti Conoscenza di un linguaggio qualsiasi OOP come C++ o Javascript Corso Python Python è un linguaggio di programmazione di più “alto livello” rispetto alla maggior parte degli altri linguaggi, orientato a oggetti, adatto, tra gli altri usi, a sviluppare applicazioni distribuite, scripting, computazione numerica e system testing. Ideato da...","categories": [],
         "tags": [],

@@ -12,7 +12,7 @@ excerpt: >
   A flexible two-column Jekyll theme. Perfect for building personal sites, blogs, and portfolios.<br />
   <small><a href="https://github.com/mmistakes/minimal-mistakes/releases/tag/4.21.0">Latest release v4.21.0</a></small>
 feature_row:
-  - image_path: /assets/images/ISO_C++_Logo.svg
+  - image_path: /assets/images/cpp-logo-200x200.png
     alt: "customizable"
     title: "Super customizable"
     excerpt: "Everything from the menus, sidebars, comments, and more can be configured or set with YAML Front Matter."
@@ -37,7 +37,7 @@ feature_row:
 
 {% include feature_row %}
 
-eii
+Questa pagina dovrebbe essere l'appendice di tutti i corsi
 
-[inizia](/python/lezione-01)
+[inizia](/python/index)
 

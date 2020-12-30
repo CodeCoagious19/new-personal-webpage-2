@@ -1,4 +1,4 @@
-I"ì
+I"$	
 <div class="feature__wrapper">
 
   
@@ -6,7 +6,7 @@
       <div class="archive__item">
         
           <div class="archive__item-teaser">
-            <img src="/assets/images/ISO_C++_Logo.svg" alt="customizable" />
+            <img src="/assets/images/cpp-logo-200x200.png" alt="customizable" />
             
           </div>
         
@@ -89,8 +89,8 @@
 
 </div>
 
-<p>eii</p>
+<p>Questa pagina dovrebbe essere lâ€™appendice di tutti i corsi</p>
 
-<p><a href="/python/lezione-01">inizia</a></p>
+<p><a href="/python/index">inizia</a></p>
 
 :ET
