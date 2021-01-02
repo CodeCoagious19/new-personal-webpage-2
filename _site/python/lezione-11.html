@@ -1,0 +1,500 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.21.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="it" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Lezione 11 | Build &amp; Run</title>
+<meta name="description" content="Lezione python">
+
+
+  <meta name="author" content="Simone Di Ricco">
+  
+  <meta property="article:author" content="Simone Di Ricco">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="it_IT">
+<meta property="og:site_name" content="Build & Run">
+<meta property="og:title" content="Lezione 11">
+<meta property="og:url" content="/python/lezione-11">
+
+
+  <meta property="og:description" content="Lezione python">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-01-02T20:31:10+01:00">
+
+
+
+  <meta property="article:modified_time" content="2020-07-27T00:00:00+02:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="/python/lezione-11">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Simone Di Ricco",
+      "url": "/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Build & Run Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--corso">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logo2.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          Build & Run
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/pages/about/">Chi sono</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/tutorial/">Tutorial</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/corsi/">Corsi</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+<div class="corso sidebar sticky">
+  
+  
+  <header>
+    <h4 class="corso course__title">
+      Python - Corso Completo
+    </h4>
+  </header>
+  <ul class="corso lesson__items">
+  
+      <li ><a href="/python/index">Indice delle lezioni</a></li>
+  
+      <li ><a href="/python/lezione-01">Lezione 01</a></li>
+  
+      <li ><a href="/python/lezione-02">Lezione 02</a></li>
+  
+      <li ><a href="/python/lezione-03">Lezione 03</a></li>
+  
+      <li ><a href="/python/lezione-04">Lezione 04</a></li>
+  
+      <li ><a href="/python/lezione-05">Lezione 05</a></li>
+  
+      <li ><a href="/python/lezione-06">Lezione 06</a></li>
+  
+      <li ><a href="/python/lezione-07">Lezione 07</a></li>
+  
+      <li ><a href="/python/lezione-08">Lezione 08</a></li>
+  
+      <li ><a href="/python/lezione-09">Lezione 09</a></li>
+  
+      <li ><a href="/python/lezione-10">Lezione 10</a></li>
+  
+      <li  class="active"><a href="/python/lezione-11">Lezione 11</a></li>
+  
+      <li ><a href="/python/lezione-12">Lezione 12</a></li>
+  
+      <li ><a href="/python/lezione-13">Lezione 13</a></li>
+  
+      <li ><a href="/python/lezione-14">Lezione 14</a></li>
+  
+  </ul>
+  
+</div>
+
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Lezione 11">
+    <meta itemprop="description" content="Lezione python">
+    <meta itemprop="datePublished" content="2021-01-02T20:31:10+01:00">
+    <meta itemprop="dateModified" content="2020-07-27T00:00:00+02:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Lezione 11
+</h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minuto/i di lettura
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Indice della pagina</h4></header>
+              <ul class="toc__menu"><li><a href="#costrutto-condizionale-ifelse">Costrutto condizionale if...else</a></li><li><a href="#costrutto-iterativo-for">Costrutto iterativo for</a></li><li><a href="#indentazione-python">Indentazione Python</a></li><li><a href="#range-function">range() Function</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="costrutto-condizionale-ifelse">Costrutto condizionale <code class="language-plaintext highlighter-rouge">if...else</code></h2>
+
+<p>Le istruzioni condizionali vengono utilizzate per eseguire un blocco di codice solo nel caso in cui una condizione risulti <em>true</em> o <em>false</em></p>
+
+<p>Sintassi costrutto <code class="language-plaintext highlighter-rouge">if</code> esteso:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">condition1</span><span class="p">:</span>
+    <span class="c1">#code 01
+</span>    <span class="c1">#..
+</span><span class="k">elif</span> <span class="n">condition2</span><span class="p">:</span>
+    <span class="c1">#code 02
+</span>    <span class="c1">#..
+</span><span class="k">else</span><span class="p">:</span>
+    <span class="c1">#code 03
+</span>    <span class="c1">#..
+</span></code></pre></div></div>
+
+<p>Esempio:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">"Inserisci due numeri.."</span><span class="p">)</span>
+
+<span class="n">primoValore</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+<span class="n">secondoValore</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Il primo valore inserito, "</span> <span class="o">+</span> <span class="n">primoValore</span> <span class="o">+</span> <span class="s">" è maggiore del secondo valore inserito, "</span> <span class="o">+</span> <span class="n">secondoValore</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">b</span> <span class="o">&gt;</span> <span class="n">a</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Il secondo valore inserito, "</span> <span class="o">+</span> <span class="n">secondoValore</span> <span class="o">+</span> <span class="s">" è maggiore del primo valore inserito, "</span> <span class="o">+</span> <span class="n">primoValore</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"i due valori inseriti sono uguali"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Notare che per il costrutto <code class="language-plaintext highlighter-rouge">if</code> in python, la <code class="language-plaintext highlighter-rouge">condition</code> è priva di parentesi tonde <code class="language-plaintext highlighter-rouge">( )</code> comuni invece a molti altri linguaggi di programmazione; l’operatore <code class="language-plaintext highlighter-rouge">:</code> è usato come terminatore della <code class="language-plaintext highlighter-rouge">condition</code> e l’indentazione è necessaria per racchiudere la porzione di codice condizionato da <code class="language-plaintext highlighter-rouge">if</code>.</p>
+
+<h2 id="costrutto-iterativo-for">Costrutto iterativo <code class="language-plaintext highlighter-rouge">for</code></h2>
+
+<p>Un ciclo <code class="language-plaintext highlighter-rouge">for</code> viene utilizzato per iterare su una sequenza (che può essere una lista, una tupla, un dizionario, un insieme o una stringa).</p>
+
+<p>È meno simile alla <em>keyword</em> <code class="language-plaintext highlighter-rouge">for</code> in altri linguaggi di programmazione e funziona più come un metodo iteratore che si trova in altri linguaggi di programmazione orientati agli oggetti.</p>
+
+<p><a href="https://www.w3schools.com/python/python_for_loops.asp">w3schools - Python For Loops</a></p>
+
+<p>Sintassi:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#Sintassi 1:
+</span><span class="k">for</span> <span class="n">target_list</span> <span class="ow">in</span> <span class="n">expression_list</span><span class="p">:</span>
+    <span class="c1">#code
+</span></code></pre></div></div>
+
+<p>Esempio:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">numero</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">numero</span><span class="o">*</span><span class="n">numero</span><span class="p">)</span>
+
+<span class="c1"># 1
+# 4
+# 9
+# 16
+# 25
+</span>
+<span class="k">for</span> <span class="n">frutto</span> <span class="ow">in</span> <span class="p">[</span><span class="s">"banana"</span><span class="p">,</span> <span class="s">"mela"</span><span class="p">,</span> <span class="s">"pera"</span><span class="p">]:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">frutto</span><span class="p">)</span>
+
+<span class="c1"># banana
+# mela
+# pera
+</span></code></pre></div></div>
+
+<h2 id="indentazione-python">Indentazione Python</h2>
+<p>Il linguaggio python, a differenza di altri linguaggi come C/C++, Javascript .. Non utilizza delimitatori di blocco codice come <code class="language-plaintext highlighter-rouge">{ }</code> ma si affida alla semplice <strong>indentazione</strong>. Rende quindi indispensabile l’uso di un buon editor di testo per evitare problemi di sintassi o semantica (in alcuni casi nemmeno troppo rari). Non utilizza neanche un terminatore di statement come il classico <code class="language-plaintext highlighter-rouge">;</code> ma si affida al carattere <code class="language-plaintext highlighter-rouge">a capo</code>. L’interprete python comunque è in grado di rilevare errori sintattici di indentazione e segnalarlo.</p>
+
+<h2 id="range-function">range() Function</h2>
+
+<p>Per iterare un insieme di codice un numero di volte specificato, possiamo usare la funzione <code class="language-plaintext highlighter-rouge">range ()</code>.
+La funzione  <code class="language-plaintext highlighter-rouge">range (number)</code> restituisce una sequenza di numeri, a partire da 0 per impostazione predefinita, incrementa di 1 (per impostazione predefinita) e termina con un numero specificato tramite il parametro <em>number</em>. In realtà termina con il numero <code class="language-plaintext highlighter-rouge">number - 1</code>.<br />
+La funzione <code class="language-plaintext highlighter-rouge">range ()</code> può accettare 1, 2 o 3 parametri:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">range(number)</code>: <strong>un parametro</strong>, genera una lista numerica incrementale nel range <code class="language-plaintext highlighter-rouge">0 - number-1</code></li>
+  <li><code class="language-plaintext highlighter-rouge">range(numberStart, numberEnd)</code>: <strong>due parametri</strong>, genera una lista numerica incrementale nel range <code class="language-plaintext highlighter-rouge">numberStart - numberEnd-1</code></li>
+  <li><code class="language-plaintext highlighter-rouge">range(numberStart, numberEnd, step)</code>: <strong>tre parametri</strong>, genera una lista numerica con incremento pari a <code class="language-plaintext highlighter-rouge">step</code> nel range <em>massimo</em> <code class="language-plaintext highlighter-rouge">numberStart - numberEnd-1</code></li>
+</ul>
+
+<p><a href="https://www.w3schools.com/python/python_for_loops.asp">w3schools - The range() Function</a></p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>       <span class="c1">#[0, 1, 2, 3, 4]
+</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>    <span class="c1">#[1, 2, 3, 4]
+</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1">#[1, 3]
+</span></code></pre></div></div>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">target_list</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+    <span class="c1">#code
+</span></code></pre></div></div>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># range(number) costruisce una lista da 0 a number-1
+</span><span class="k">for</span> <span class="n">numero</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">numero</span><span class="o">*</span><span class="n">numero</span><span class="p">)</span>
+
+<span class="c1"># 0
+# 1
+# 4
+# 9
+# 16
+</span>
+<span class="k">for</span> <span class="n">numero</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">numero</span><span class="p">)</span>
+
+<span class="c1"># 1
+# 3
+</span></code></pre></div></div>
+
+<p>Nel seguente esempio specifico alla funzione <code class="language-plaintext highlighter-rouge">print()</code> di non utilizzare il terminatore di default <code class="language-plaintext highlighter-rouge">a capo</code> rendendo nullo l’attributo <code class="language-plaintext highlighter-rouge">end</code></p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="n">end</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Esempio:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">numero</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">numero</span><span class="p">)</span> <span class="o">+</span> <span class="s">":"</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">numero</span><span class="o">*</span><span class="n">numero</span><span class="p">)</span>
+
+<span class="c1"># 0:0
+# 1:1
+# 2:4
+# 3:9
+# 4:16
+</span></code></pre></div></div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Aggiornato:</strong> <time datetime="2020-07-27">July 27, 2020</time></p>
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/python/lezione-10" class="pagination--pager" title="Lezione 10
+">Precedente</a>
+    
+    
+      <a href="/python/lezione-12" class="pagination--pager" title="Lezione 12
+">Prossima</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Inserisci termini di ricerca..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Segui:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/CodeCoagious19" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Simone Di Ricco. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

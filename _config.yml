@@ -285,12 +285,14 @@ defaults:
       path: ""
       type: python
     values:
-      layout: single
-      read_time: false
-      author_profile: true
+      name: Python - Corso Completo
+      name_collection: python
+      layout: corso
+      toc: true
+      read_time: true
+      author_profile: false
       share: false
       comments: false
-      sidebar_enable: false
       sidebar:
         nav: "python"
 

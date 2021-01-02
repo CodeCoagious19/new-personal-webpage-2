@@ -7,59 +7,104 @@
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
 
-$material-red-400: #ef5350;
+//----------------------------------------------------------------------------
+//Material - Colors
+
+//purple
 $material-purple-400: #ab47bc;
-$material-deep-purple-400:#7e57c2;
-$material-indigo-400: #5c6bc0;
-$material-light-blue-400: #29b6f6; 
-$material-light-blue-grey-400: #78909c;
-
-
-$material-red-300: #e57373;
+//deep-purple
 $material-deep-purple-300: #9575cd;
+$material-deep-purple-400:#7e57c2;
+
+//red
+$material-red-300: #e57373;
+$material-red-400: #ef5350;
+
+//indigo
 $material-indigo-300: #7986cb;
+$material-indigo-400: #5c6bc0;
 
+//light-blue
+$material-light-blue-400: #29b6f6;
 
+//-greylight-blue
+$material-light-blue-grey-400: #78909c;
+//----------------------------------------------------------------------------
+
+//----------------------------------------------------------------------------
+//General font-size
+
+//Font-size - Screen Desktop Large
+@media (min-width: 80em){
+    html {
+        font-size: 20px;
+    }
+}
+//Font-size - Screen Desktop Medium
+@media (min-width: 64em){
+    html {
+        font-size: 20px;
+    }
+}
+//Font-size - Screen Desktop Small
+@media (min-width: 48em){
+    html {
+        font-size: 20px;
+    }
+}
+//Font-size - Screen Mobile
+html {
+    font-size: 20px;
+}
+//----------------------------------------------------------------------------
+
+//----------------------------------------------------------------------------
+//CARD
+
+//Card
+//Screen Desktop
 @media (min-width: 37.5em){
-.feature__item {
-    margin-bottom: 1rem;
+    .feature__item {
+        margin-bottom: 1rem;
+    }
 }
-}
-
 .feature__item {
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-    //background: cornsilk;
     margin-bottom: 1rem;
-    //border-bottom: 2px solid rgba(128, 128, 128, 0.2);
     border-radius: 5px;
 }
 
+//Card >>> card-container
+//Screen Desktop
+@media (min-width: 37.5em){
+    .feature__item .archive__item {
+        height: 450px;
+    }
+}
+//Card >>> card-container
 .feature__item .archive__item {
-    //background: wheat;
     display: flex;
     flex-flow: column;
     height: 450px;
     align-items: center;
-
 }
 
-@media (min-width: 37.5em){
-    .feature__item .archive__item {
-        //background: wheat;
-        height: 450px;
-    }
-}
-
-//image
-.feature__item .archive__item-teaser {
+//Card >>> card-container >>> image-container
+.feature__item .archive__item .archive__item-teaser {
     padding: 20px;
     flex: 0 0 150px;
     width: 150px;
-    //background: yellowgreen;
 }
 
-//body
-.feature__item .archive__item-body {
+//Card >>> card-container >>> body-container
+//Screen Desktop
+@media (min-width: 37.5em){
+    .feature__item .archive__item .archive__item-body {
+        flex: 1 1 300px;
+    }
+}
+//Card >>> card-container >>> body-container
+.feature__item .archive__item .archive__item-body {
     text-align: center;
     flex: 1 1 300px;
     display: flex;
@@ -67,112 +112,152 @@ $material-indigo-300: #7986cb;
     align-items: center;
 }
 
-@media (min-width: 37.5em){
-    .feature__item .archive__item-body {
-        flex: 1 1 300px;
-    }
-}
-
-.feature__wrapper .archive__item-title {
+//Card >>> card-container >>> body-container >>> Title
+.feature__item .archive__item .archive__item-body .archive__item-title {
     margin-left: 20px;
     margin-right: 20px;
 }
 
-//body >>> description
-.feature__item .archive__item-excerpt {
+//Card >>> card-container >>> body-container >>> excerpt-container
+.feature__item .archive__item .archive__item-body .archive__item-excerpt {
     flex: 1 1 50px;
     overflow-y: auto;
     margin: 0 20px 20px 20px;
-    //border-bottom: 2px solid rgba(128, 128, 128, 0.2);
+}
+
+//Card >>> card-container >>> body-container >>> excerpt-container scrollbar (width)
+/* width */
+.feature__item .archive__item .archive__item-body .archive__item-excerpt::-webkit-scrollbar {
+    width: 5px;
+}
+  
+//Card >>> card-container >>> body-container >>> excerpt-container scrollbar (Track)
+.feature__item .archive__item .archive__item-body .archive__item-excerpt::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+   
+//Card >>> card-container >>> body-container >>> excerpt-container scrollbar (Handle)
+.feature__item .archive__item .archive__item-body .archive__item-excerpt::-webkit-scrollbar-thumb {
+    background: rgba(128, 128, 128, 0.5);
+    border-radius: 4px;
+}
+
+//Card >>> card-container >>> body-container >>> excerpt-container >>> excerpt content
+.feature__item .archive__item .archive__item-body .archive__item-excerpt+p {
+    margin-top: 10px;
+}
+//----------------------------------------------------------------------------
+
+//----------------------------------------------------------------------------
+//List of lesson - Left Sidebar
+
+@media (min-width: 64em){
+    .sidebar.sticky {
+        overflow-y: auto;
+        max-height: 60vh;
+        border: 1px solid rgba(128, 128, 128, 0.5);
+        border-radius: 4px;
+        overflow-y: overlay;
+        position: inherit;
+        opacity: unset;
+        //display: block;
+    }
+}
+
+.sidebar.sticky {
+    //display: none;
 }
 
 /* width */
-.feature__item .archive__item-excerpt::-webkit-scrollbar {
-    width: 5px;
+.sidebar.sticky::-webkit-scrollbar {
+    width: 0.25rem;
   }
   
   /* Track */
-.feature__item .archive__item-excerpt::-webkit-scrollbar-track {
+.sidebar.sticky::-webkit-scrollbar-track {
     //box-shadow: inset 0 0 1px grey; 
-    border-radius: 10px;
+    //border-radius: 2px;
   }
    
   /* Handle */
-.feature__item .archive__item-excerpt::-webkit-scrollbar-thumb {
-    background: rgba(128, 128, 128, 0.5);
-    border-radius: 4px;
+.sidebar.sticky::-webkit-scrollbar-thumb {
+    background: rgb(209, 209, 209);
+    //border-radius: 2px;
   }
 
-.archive__item-excerpt+p {
-    margin-top: 10px;
-}
-
-
-
-
-@media (min-width: 80em){
-html {
-    font-size: 20px;
-}
-}
-@media (min-width: 64em){
-html {
-    font-size: 20px;
-}
-}
-@media (min-width: 48em){
-html {
-    font-size: 20px;
-}
-}
-
-html {
-    font-size: 20px;
+.corso header {
+    margin: 0;
+    padding: 1rem 0 1rem 0;
+    border-radius: 4px;
+    background: #393e46;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
 }
 
 h4.course__title {
     margin-top: 0px;
+    color: white;
 }
 
 ul.lesson__items {
     list-style: none;
-    /* padding-right: 0px; */
-    padding: 0px;
-    
+    padding: 0px; 
+    margin: 0px; 
+}
+
+ul.lesson__items li {
+    text-decoration: none;
+    color: #393e46;
+    font-weight: bold;
+    line-height: 1.5;
+    border-bottom: 1px solid #cecfd1;
+    margin: 0px;
+    padding: 0.5rem;
 }
 
 ul.lesson__items li a{
     text-decoration: none;
 }
 
-
-@media (min-width: 64em){
-.sidebar__right {
-     position: unset; 
-    /* top: 0; */
-    /* right: 0; */
-     width: unset;
-     margin-right: unset; 
-     padding-left: unset;
-   
+ul.lesson__items li.active{
+    opacity: none;
+    background: #0092ca;
+    color: white;
+    border-radius: 4px;
 }
+
+ul.lesson__items li.active a{
+    color: white;
+}
+//----------------------------------------------------------------------------
+
+//----------------------------------------------------------------------------
+//List of paragraph - Right Sidebar
+@media (min-width: 64em){
+    .sidebar__right {
+        position: unset; 
+        width: unset;
+        margin-right: unset; 
+        padding-left: unset;
+    
+    }
 }
 
 @media (min-width: 80em){
     .sidebar__right {
          position: unset; 
-        /* top: 0; */
-        /* right: 0; */
          width: unset;
          margin-right: unset; 
          padding-left: unset;
        
     }
-    }
+}
 
  @media (min-width: 80em){
-.page {
-    width: calc(100% - 300px);
-    padding-right: 200px; 
+    .page {
+        width: calc(100% - 300px);
+        padding-right: 200px; 
+    }
 }
-}
+
+
