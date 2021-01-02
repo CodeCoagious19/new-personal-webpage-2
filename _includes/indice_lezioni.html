@@ -7,12 +7,16 @@
       {{ page.name }}
     </h4>
   </header>
-  <ul class="corso lesson__items">
+  <ul class="corso lesson__items" id="move__scrollbar">
   {% for lesson in site[page.name_collection] %}
-      <li {% if lesson.url == page.url %} class="active"{% endif %}><a href="{{ lesson.url }}">{{ lesson.title }}</a></li>
+      <li {% if lesson.url == page.url %} class="active" id ="lesson__active" {% endif %}><a href="{{ lesson.url }}">{{ lesson.title }}</a></li>
   {% endfor %}
   </ul>
   {% endif %}
 </div>
 {% endif %}
 
+<script>
+  var lesson__active = document.getElementById("lesson__active");
+  lesson__active.scrollIntoViewIfNeeded(true);
+</script>
