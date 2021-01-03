@@ -1,0 +1,26 @@
+//----------------------------------------------------------------------------
+//General font-size
+
+//Font-size - Screen Desktop Large
+@media (min-width: 80em){
+    html {
+        font-size: 20px;
+    }
+}
+//Font-size - Screen Desktop Medium
+@media (min-width: 64em){
+    html {
+        font-size: 20px;
+    }
+}
+//Font-size - Screen Desktop Small
+@media (min-width: 48em){
+    html {
+        font-size: 20px;
+    }
+}
+//Font-size - Screen Mobile
+html {
+    font-size: 20px;
+}
+//----------------------------------------------------------------------------
