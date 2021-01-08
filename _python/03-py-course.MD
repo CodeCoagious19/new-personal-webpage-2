@@ -1,5 +1,5 @@
 ---
-title: "Lezione 03"
+title: "03 - Modulo pyPDF2"
 permalink: /python/lezione-03
 excerpt: "Lezione python"
 last_modified_at: 2020-07-27

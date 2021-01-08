@@ -1,23 +1,23 @@
 var store = [{
         "title": "Indice delle lezioni",
-        "excerpt":"Questa sezione dovrebbe contenere l’indice delle lezioni  ","categories": [],
-        "tags": [],
+        "excerpt":"Questa sezione dovrebbe contenere l’indice delle lezioni capito?   ","categories": [],
+        "tags": ["cap1","cap2"],
         "url": "/python/index",
         "teaser": null
       },{
-        "title": "Lezione 01",
+        "title": "01 - Setup Iniziale",
         "excerpt":"Prerequisiti Conoscenza di un linguaggio qualsiasi OOP come C++ o Javascript Corso Python Python è un linguaggio di programmazione di più “alto livello” rispetto alla maggior parte degli altri linguaggi, orientato a oggetti, adatto, tra gli altri usi, a sviluppare applicazioni distribuite, scripting, computazione numerica e system testing. Ideato da...","categories": [],
         "tags": [],
         "url": "/python/lezione-01",
         "teaser": null
       },{
-        "title": "Lezione 02",
+        "title": "02 - Primo script, moduli Python e altro",
         "excerpt":"Primo script Ogni file python ha un’estensione .py. Per l’esecuzione di uno script python è possibile lanciare il file creato con l’estensione .py (esempio test.py) direttamente dal terminale digitando il comando per l’invocazione dell’interprete python python3 ad esempio python3 test.py all’interno della cartella contenente il file test.py oppure attraverso l’estensione...","categories": [],
         "tags": [],
         "url": "/python/lezione-02",
         "teaser": null
       },{
-        "title": "Lezione 03",
+        "title": "03 - Modulo pyPDF2",
         "excerpt":"Introduzione al modulo PyPDF2 Il seguente script tratterà l’elaborazione di file pdf. Saremo in grado quindi di generare un file pdf con nome predefinito “Output.pdf” che è la copia della prima pagina di un pdf con nome “input.pdf” ricevuto in input Faremo uso del modulo aggiuntivo PyPDF2 da installare da...","categories": [],
         "tags": [],
         "url": "/python/lezione-03",

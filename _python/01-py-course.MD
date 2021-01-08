@@ -1,5 +1,5 @@
 ---
-title: "Lezione 01"
+title: "01 - Setup Iniziale"
 permalink: /python/lezione-01
 excerpt: "Lezione python"
 last_modified_at: 2020-07-27

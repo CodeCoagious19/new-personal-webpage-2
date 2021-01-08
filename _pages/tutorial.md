@@ -14,14 +14,14 @@ feature_row:
   - image_path: /assets/images/ubuntu-logo.png
     alt: ""
     title: "Ubuntu"
-    excerpt: "Guida per principianti all'installazione, post-installazione e rimozione di un sistema operativo open source e didatticamente molto istruttivo."
+    excerpt: "Tutto su Ubuntu. Dall'installazione in dual boot alla configurazione  alla rimozione"
     url: ""
     btn_class: "btn--primary"
     btn_label: "Inizia"
   - image_path: /assets/images/github-jekyll-logo.png
     alt: ""
     title: "GitHub Pages & Jekyll"
-    excerpt: "Guida alla creazione di siti statici con GitHub Pages e Jekyll"
+    excerpt: "Guida alla creazione di siti statici utilizzando Markdown, Jekyll e GitHub"
     url: ""
     btn_class: "btn--primary"
     btn_label: "Inizia"

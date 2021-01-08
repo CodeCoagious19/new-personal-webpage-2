@@ -1,70 +1,194 @@
 //----------------------------------------------------------------------------
 //CARD
 
-//Card
-//Screen Desktop
+//Wrapper
+//Features
+.feature__wrapper {
+    //nothing
+}
+//Wrapper
+//Mobile
+.feature__wrapper {
+    display: flex;
+    flex-flow: column;
+}
+//Wrapper
+//Desktop
 @media (min-width: 37.5em){
-    .feature__item {
-        margin-bottom: 1rem;
+    .feature__wrapper {
+        display: flex;
+        flex-flow: column;
     }
 }
+//----------------------------------------------------------------------------
+
+//----------------------------------------------------------------------------
+//Card
+//Features
 .feature__item {
+    //effetto card
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
     margin-bottom: 1rem;
     border-radius: 5px;
 }
+//Card
+//Mobile
+.feature__item {
+    width: 100%;
+}
+//Card
+//Screen Desktop
+@media (min-width: 37.5em){
+    .feature__item {
+        width: 100%;
+    }
+}
+//----------------------------------------------------------------------------
 
+//----------------------------------------------------------------------------
+//Card >>> card-container
+//Features
+.feature__item .archive__item {
+
+}
+//Card >>> card-container
+//Mobile
+.feature__item .archive__item {
+    display: flex;
+    flex-flow: column;
+    height: 400px;
+    align-items: center;
+}
 //Card >>> card-container
 //Screen Desktop
 @media (min-width: 37.5em){
     .feature__item .archive__item {
-        height: 450px;
+        display: flex;
+        flex-flow: row;
+        height: 250px;
+        align-items: center;
     }
 }
-//Card >>> card-container
-.feature__item .archive__item {
-    display: flex;
-    flex-flow: column;
-    height: 450px;
-    align-items: center;
-}
+//----------------------------------------------------------------------------
 
+//----------------------------------------------------------------------------
 //Card >>> card-container >>> image-container
+//Features
 .feature__item .archive__item .archive__item-teaser {
-    padding: 20px;
+
+}
+//Card >>> card-container >>> image-container
+//Mobile
+.feature__item .archive__item .archive__item-teaser {
+    padding: 1rem;
     flex: 0 0 150px;
     width: 150px;
 }
-
-//Card >>> card-container >>> body-container
-//Screen Desktop
+//Card >>> card-container >>> image-container
+//Desktop
 @media (min-width: 37.5em){
-    .feature__item .archive__item .archive__item-body {
-        flex: 1 1 300px;
+    .feature__item .archive__item .archive__item-teaser {
+        padding: 2rem;
+        flex: 0 0 200px;
+        width: 200px;
     }
 }
+//----------------------------------------------------------------------------
+
+//----------------------------------------------------------------------------
 //Card >>> card-container >>> body-container
+//Features
 .feature__item .archive__item .archive__item-body {
-    text-align: center;
-    flex: 1 1 300px;
     display: flex;
     flex-flow: column;
+}
+//Card >>> card-container >>> body-container
+//Mobile
+.feature__item .archive__item .archive__item-body {
+    flex: 1 1 auto;
+    max-height: 250px;
     align-items: center;
 }
+//Card >>> card-container >>> body-container
+//Desktop
+@media (min-width: 37.5em){
+    .feature__item .archive__item .archive__item-body {
+        flex: 1 1 auto;
+        border-left: 1px solid rgba(128, 128, 128, 0.5);
+        padding-left: 2rem;
+        max-height: 250px;
+        align-items: baseline;
+    }
+}
+//----------------------------------------------------------------------------
 
+//----------------------------------------------------------------------------
 //Card >>> card-container >>> body-container >>> Title
+//Features
 .feature__item .archive__item .archive__item-body .archive__item-title {
-    margin-left: 20px;
-    margin-right: 20px;
+    text-align: center;
 }
+//Card >>> card-container >>> body-container >>> Title
+//Mobile
+.feature__item .archive__item .archive__item-body .archive__item-title {
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+}
+//Card >>> card-container >>> body-container >>> Title
+//Desktop
+@media (min-width: 37.5em){
+    .feature__item .archive__item .archive__item-body .archive__item-title {
+        margin-top: 1rem;
 
+    }
+}
+//----------------------------------------------------------------------------
+
+//----------------------------------------------------------------------------
 //Card >>> card-container >>> body-container >>> excerpt-container
+//Features
 .feature__item .archive__item .archive__item-body .archive__item-excerpt {
-    flex: 1 1 50px;
-    overflow-y: auto;
-    margin: 0 20px 20px 20px;
-}
 
+    margin: 0;
+}
+//Card >>> card-container >>> body-container >>> excerpt-container
+//Mobile
+.feature__item .archive__item .archive__item-body .archive__item-excerpt {
+    flex: 1 1 4rem;
+    overflow-y: auto;
+}
+//Card >>> card-container >>> body-container >>> excerpt-container
+//Desktop
+@media (min-width: 37.5em){
+    .feature__item .archive__item .archive__item-body .archive__item-excerpt {
+        
+        flex: 1 1 4rem;
+    }
+}
+//----------------------------------------------------------------------------
+
+//----------------------------------------------------------------------------
+//Card >>> card-container >>> body-container >>> excerpt-container >>> paragraph
+//Features
+.feature__item .archive__item .archive__item-body .archive__item-excerpt p {
+    text-align: left;
+}
+//Card >>> card-container >>> body-container >>> excerpt-container >>> paragraph
+//Mobile
+.feature__item .archive__item .archive__item-body .archive__item-excerpt p {
+    margin: 0.25rem;
+}
+//Card >>> card-container >>> body-container >>> excerpt-container >>> paragraph
+//Mobile
+@media (min-width: 37.5em){
+    .feature__item .archive__item .archive__item-body .archive__item-excerpt p {
+        text-align: left;
+        margin: 0;
+    }
+}
+//----------------------------------------------------------------------------
+
+//----------------------------------------------------------------------------
 //Card >>> card-container >>> body-container >>> excerpt-container scrollbar (width)
 /* width */
 .feature__item .archive__item .archive__item-body .archive__item-excerpt::-webkit-scrollbar {
@@ -81,9 +205,24 @@
     background: rgba(128, 128, 128, 0.5);
     border-radius: 4px;
 }
+//----------------------------------------------------------------------------
 
+//----------------------------------------------------------------------------
 //Card >>> card-container >>> body-container >>> excerpt-container >>> excerpt content
 .feature__item .archive__item .archive__item-body .archive__item-excerpt+p {
-    margin-top: 10px;
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
 }
 //----------------------------------------------------------------------------
+
+
+@media (min-width: 37.5em){
+.feature__item:nth-child(3n + 2) {
+    clear: none;
+    margin-left: 0;
+}
+}
+.feature__item:nth-child(3n + 3) {
+    clear: none;
+    margin-left: 0;
+}

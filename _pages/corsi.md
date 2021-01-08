@@ -14,7 +14,7 @@ feature_row:
   - image_path: /assets/images/cpp-logo-350x350.png
     alt: "customizable"
     title: "C++ - Corso per esempi"
-    excerpt: "Everything from the menus, sidebars, comments, and more can be configured or set with YAML Front Matter. learn about cpp class and cpp standard for automotive system or embedded io programming languages"
+    excerpt: "Corso per esempi da principiante a intermdedio"
     url: "/docs/configuration/"
     btn_class: "btn--primary"
     btn_label: "Inizia"

@@ -1,0 +1,131 @@
+//----------------------------------------------------------------------------
+//List of lesson - Right Sidebar
+
+
+//Main container
+//Features
+.corso.page .corso.sidebar {
+  border: 1px solid rgba(128, 128, 128, 0.5);
+  border-radius: 4px;
+  opacity: unset;
+  margin-top: 1rem;
+  margin: 1rem;
+}
+
+//Main container
+//Mobile
+.corso.page .corso.sidebar {
+  display: none;
+}
+
+
+//Main container
+//Desktop
+@media (min-width: 80em){
+    .corso.page .corso.sidebar {
+        max-height: 60vh;
+        position: inherit;
+        display: flex;
+        flex-flow: column;
+
+    }
+}
+//----------------------------------------------------------------------------
+
+//----------------------------------------------------------------------------
+//Header container
+//Features
+.corso.page .corso.sidebar header {
+  margin: 0;
+  padding: 1rem 0 1rem 0;
+  background: #393e46;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}
+//----------------------------------------------------------------------------
+
+
+
+.corso.page .corso.sidebar header h4.course__title.corso {
+    margin-top: 0px;
+    color: white;
+}
+
+.corso.page .corso.sidebar ul.lesson__items {
+    overflow-y: overlay;
+    list-style: none;
+    padding: 0px; 
+    margin: 0px; 
+}
+
+
+/* width */
+.corso.page .corso.sidebar ul.lesson__items::-webkit-scrollbar {
+    width: 0.5rem;
+}
+  
+  /* Track */
+.corso.page .corso.sidebar ul.lesson__items::-webkit-scrollbar-track {
+    //box-shadow: inset 0 0 1px grey; 
+    //border-radius: 2px;
+  }
+   
+  /* Handle */
+  .corso.page .corso.sidebar ul.lesson__items::-webkit-scrollbar-thumb {
+    background: rgb(209, 209, 209);
+    //border-radius: 2px;
+  }
+
+/*
+// width 
+::-webkit-scrollbar {
+    width: 20px;
+    background: blue;
+  
+  }
+  
+  // Track 
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px black; 
+    border-radius: 10px;
+    background: blue;
+  }
+   
+  // Handle 
+  ::-webkit-scrollbar-thumb {
+    background: red; 
+    border-radius: 10px;
+  }
+  
+  // Handle on hover 
+  ::-webkit-scrollbar-thumb:hover {
+    background: black; 
+  }
+*/
+
+ul.lesson__items li {
+    
+    text-decoration: none;
+    color: #393e46;
+    font-weight: bold;
+    line-height: 1.5;
+    border-bottom: 1px solid #cecfd1;
+    margin: 0px;
+    padding: 0.5rem;
+}
+
+ul.lesson__items li a{
+    text-decoration: none;
+}
+
+ul.lesson__items li.active{
+    opacity: none;
+    background: #0092ca;
+    color: white;
+    //border-radius: 4px;
+}
+
+ul.lesson__items li.active a{
+    color: white;
+}
+//----------------------------------------------------------------------------
