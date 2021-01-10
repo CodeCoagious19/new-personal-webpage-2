@@ -1,15 +1,15 @@
+@import "minimal-mistakes/skins/air.scss";
+
 //----------------------------------------------------------------------------
 //List of lesson - Right Sidebar
-
 
 //Main container
 //Features
 .corso.page .corso.sidebar {
-  border: 1px solid rgba(128, 128, 128, 0.5);
-  border-radius: 4px;
   opacity: unset;
-  margin-top: 1rem;
-  margin: 1rem;
+  margin: 0 1rem 1rem 1rem;
+  padding: 0 6px 0 6px;
+  width: 25%;
 }
 
 //Main container
@@ -18,16 +18,14 @@
   display: none;
 }
 
-
 //Main container
 //Desktop
-@media (min-width: 80em){
+@media (min-width: 64em){
     .corso.page .corso.sidebar {
-        max-height: 60vh;
+        height: max-content;
         position: inherit;
         display: flex;
         flex-flow: column;
-
     }
 }
 //----------------------------------------------------------------------------
@@ -37,95 +35,86 @@
 //Features
 .corso.page .corso.sidebar header {
   margin: 0;
-  padding: 1rem 0 1rem 0;
-  background: #393e46;
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
+  padding: 1rem;
+  background: $dark-gray-air-theme;
+  height: 10rem;
+  border-radius: 1px;
+  box-shadow: 0 2px 5px 0 $dark-black-high-trasparency-016-air-theme, 0 2px 10px 0 $dark-black-high-trasparency-012-air-theme;
 }
 //----------------------------------------------------------------------------
 
 
-
-.corso.page .corso.sidebar header h4.course__title.corso {
+//----------------------------------------------------------------------------
+//Header Title
+//Features
+.corso.page .corso.sidebar header h1.course__title.corso {
     margin-top: 0px;
-    color: white;
+    color: $main-white-air-theme;
 }
+//----------------------------------------------------------------------------
 
+//----------------------------------------------------------------------------
+//Container list of lesson
+//Features
 .corso.page .corso.sidebar ul.lesson__items {
+    max-height: 60vh;
     overflow-y: overlay;
     list-style: none;
     padding: 0px; 
     margin: 0px; 
 }
+//----------------------------------------------------------------------------
 
-
-/* width */
+//----------------------------------------------------------------------------
+//Scrollbar Container list of lesson
+//width 
 .corso.page .corso.sidebar ul.lesson__items::-webkit-scrollbar {
     width: 0.5rem;
 }
-  
-  /* Track */
-.corso.page .corso.sidebar ul.lesson__items::-webkit-scrollbar-track {
-    //box-shadow: inset 0 0 1px grey; 
-    //border-radius: 2px;
-  }
    
-  /* Handle */
-  .corso.page .corso.sidebar ul.lesson__items::-webkit-scrollbar-thumb {
-    background: rgb(209, 209, 209);
-    //border-radius: 2px;
-  }
-
-/*
-// width 
-::-webkit-scrollbar {
-    width: 20px;
-    background: blue;
-  
-  }
-  
-  // Track 
-  ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px black; 
-    border-radius: 10px;
-    background: blue;
-  }
-   
-  // Handle 
-  ::-webkit-scrollbar-thumb {
-    background: red; 
-    border-radius: 10px;
-  }
-  
-  // Handle on hover 
-  ::-webkit-scrollbar-thumb:hover {
-    background: black; 
-  }
-*/
-
-ul.lesson__items li {
-    
-    text-decoration: none;
-    color: #393e46;
-    font-weight: bold;
-    line-height: 1.5;
-    border-bottom: 1px solid #cecfd1;
-    margin: 0px;
-    padding: 0.5rem;
-}
-
-ul.lesson__items li a{
-    text-decoration: none;
-}
-
-ul.lesson__items li.active{
-    opacity: none;
-    background: #0092ca;
-    color: white;
-    //border-radius: 4px;
-}
-
-ul.lesson__items li.active a{
-    color: white;
+//Handle 
+.corso.page .corso.sidebar ul.lesson__items::-webkit-scrollbar-thumb {
+  background: $border-color;
 }
 //----------------------------------------------------------------------------
+
+//----------------------------------------------------------------------------
+//Lesson element
+//Features
+.corso.page .corso.sidebar ul.lesson__items li {
+    text-decoration: none;
+    color: $dark-gray-air-theme;
+    font-weight: bold;
+    line-height: 1.5;
+    border-bottom: 1px solid $border-color;
+    margin: 0px;
+    padding: 0.5rem;
+    margin-left: 1.5rem;
+    border-radius: 1px;
+}
+.corso.page .corso.sidebar ul.lesson__items li:hover {
+  box-shadow: 0 2px 5px 0 $dark-black-high-trasparency-016-air-theme, 0 2px 10px 0 $dark-black-high-trasparency-012-air-theme;
+}
+
+//Lesson element link.active
+//Features
+.corso.page .corso.sidebar ul.lesson__items li.active{
+  opacity: none;
+  background: $light-blue-air-theme;
+  color: $main-white-air-theme;
+}
+//----------------------------------------------------------------------------
+
+//----------------------------------------------------------------------------
+//Lesson element link
+//Features
+.corso.page .corso.sidebar ul.lesson__items li a{
+    text-decoration: none;
+}
+
+
+.corso.page .corso.sidebar ul.lesson__items li.active a{
+  color: $main-white-air-theme;
+}
+//----------------------------------------------------------------------------
+

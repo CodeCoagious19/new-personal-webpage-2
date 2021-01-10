@@ -1,0 +1,171 @@
+I"�F<p><strong>Attenzione!</strong><br />
+Questa lezione sembrerà troppo approfondita e allo stesso tempo vaga considerato l’argomento che sto per trattare. Non preoccuparti se non capisci granchè, cerca comunque di cogliere il meccanismo di funzionamento dell’esempio che riporto in fondo alla lezione. Più avanti tratteremo questi argomenti in modo più dettagliato e diventerà tutto chiaro. Preferisco comunque affrontare questi argomenti “avanzati” fin da subito per evitare di basare l’apprendimento di Javascript sul solo comando <code class="language-plaintext highlighter-rouge">console.log()</code>. Mi sembra giusto passare all’interazione con html fin da subito per intuire con la pratica le potenzialità di questo linguaggio</p>
+
+<h2 id="introduzione-al-dom">Introduzione al DOM</h2>
+
+<p>E’ utile introdurre fin da subito il concetto di DOM per scrivere codice Javascript in grado di interagire con la pagina html altrimenti saremmo costretti ad utilizzare per tutto il corso <code class="language-plaintext highlighter-rouge">console.log()</code> e non vederne un’applicazione pratica.</p>
+
+<p>In informatica il Document Object Model (spesso abbreviato come DOM), letteralmente modello a oggetti del documento, è una forma di rappresentazione dei documenti strutturati come modello orientato agli oggetti. È lo standard ufficiale del W3C per la rappresentazione di documenti strutturati in maniera da essere neutrali sia per la lingua che per la piattaforma. È inoltre la base per una vasta gamma di interfacce di programmazione delle applicazioni, alcune di esse standardizzate dal W3C.</p>
+
+<p>Nativamente supportato dai browser per modificare gli elementi di un documento HTML, DOM è un modo per accedere e aggiornare dinamicamente il contenuto, la struttura e lo stile dei documenti. Per le numerose incompatibilità dovute al diverso tipo di gestione di DOM dai vari browser, il W3C ha stabilito delle specifiche standard.</p>
+
+<p><img src="./images/DOM.png" alt="" /></p>
+
+<p><a href="https://it.wikipedia.org/wiki/Document_Object_Model">Wikipedia - Document Object Model</a></p>
+
+<p>Nelle lezioni precedenti abbiamo già utilizzato il concetto di DOM. Un esempio è la stampa diretta sulla pagina html:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="dl">"</span><span class="s2">ciao mondo</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Il “comando” <code class="language-plaintext highlighter-rouge">document.write()</code> è in realtà un <strong>oggetto Javscript</strong> <code class="language-plaintext highlighter-rouge">document</code> a cui si applica un <strong>metodo</strong> <code class="language-plaintext highlighter-rouge">write()</code> ovvero una funzione richiamabile solo nel contesto di un particolare oggetto (DOM = Document Object Model).</p>
+
+<h2 id="introduzione-alla-libreria-jquery">Introduzione alla libreria JQuery</h2>
+
+<p>Vediamo anche il metodo per aggiungere librerie esterne, necessario qualora volessimo utilizzare funzioni particolari di Javascript non presenti nel linguaggio standard. Installeremo JQuery perchè è una libreria popolare molto utilizzata proprio per la manipolazione del DOM ovvero degli elementi (oggetti) html.</p>
+
+<p>jQuery è una libreria JavaScript per applicazioni web, distribuita come software libero, distribuito sotto i termini della Licenza MIT. Nasce con l’obiettivo di semplificare la selezione, la manipolazione, la gestione degli eventi e l’animazione di elementi DOM in pagine HTML, nonché semplificare l’uso di funzionalità AJAX, la gestione degli eventi e la manipolazione dei CSS.</p>
+
+<p>Le sue caratteristiche permettono agli sviluppatori JavaScript di astrarre le interazioni a basso livello con i contenuti delle pagine HTML. L’approccio di tipo modulare di jQuery consente la creazione semplificata di applicazioni web e contenuti dinamici versatili. Nel 2020, jQuery risulta la libreria JavaScript più utilizzata in Internet, ovvero è presente nel 74,4% dei primi 10 milioni di siti Internet più popolari secondo W3Techs.</p>
+
+<p><a href="https://it.wikipedia.org/wiki/JQuery">Wikipedia - JQuery</a></p>
+
+<p>Scaricate quindi la libreria JQeury da <a href="https://jquery.com/download/">JQuery - download</a></p>
+
+<p>Una volta scaricato il file è necessario copiarlo nella root del progetto e creare un collegamento al file html. 
+Vediamo le funzioni base della libreria JQuery. Le approfondiremo quando necessario più avanti nel corso</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">$()</code>: Selettore di elementi html. E’ possibile selezionare un elemento tramite il suo <code class="language-plaintext highlighter-rouge">id</code>, la sua <code class="language-plaintext highlighter-rouge">classe</code>, un <code class="language-plaintext highlighter-rouge">attributo</code>..</li>
+</ul>
+
+<p>Alcuni metodi:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">val()</code>: legge/scrive l’attributo <code class="language-plaintext highlighter-rouge">value</code> dell’elemento selezionato</li>
+  <li><code class="language-plaintext highlighter-rouge">click(functionName)</code>: aggiunge l’evento click all’elemento selezionato e chiama la funzione <code class="language-plaintext highlighter-rouge">functionName</code></li>
+</ul>
+
+<p>Vediamo un esempio:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1.0"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Document<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;style&gt;</span>
+        <span class="nt">table</span><span class="p">{</span><span class="nl">border</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">dashed</span> <span class="no">black</span><span class="p">}</span>
+    <span class="nt">&lt;/style&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;table&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Nome<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span> <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">id=</span><span class="s">"myName"</span><span class="nt">&gt;</span> <span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Nuovo Nome<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span> <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">id=</span><span class="s">"new-name"</span><span class="nt">&gt;</span> <span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/table&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">value=</span><span class="s">"OK"</span> <span class="na">id=</span><span class="s">"btn-ok"</span><span class="nt">&gt;</span>
+
+    <span class="c">&lt;!-- Collegamento alla libreria JQuery.--&gt;</span> 
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"jquery-3.5.1.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+    <span class="nt">&lt;script&gt;</span>        
+        <span class="kd">function</span> <span class="nx">cambiaNome</span><span class="p">(){</span>
+            <span class="c1">//Seleziono l'elemento con id "new-name" e ne prelevo il valore con il metodo "val()"</span>
+            <span class="c1">//Memorizzo il risultato in una variabile di nome "nuovoNome"</span>
+            <span class="nx">nuovoNome</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">#new-name</span><span class="dl">"</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span> 
+            <span class="c1">//Assegno all'elemento con id "myName" il valore associato alla variabile "nuovoNome"</span>
+            <span class="nx">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">#myName</span><span class="dl">"</span><span class="p">).</span><span class="nx">val</span><span class="p">(</span><span class="nx">nuovoNome</span><span class="p">);</span> 
+            <span class="c1">//Pulisco il contenuto del valore dell'elemento con id "new-name"</span>
+            <span class="nx">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">#new-name</span><span class="dl">"</span><span class="p">).</span><span class="nx">val</span><span class="p">(</span><span class="dl">""</span><span class="p">);</span> 
+        <span class="p">}</span>
+        
+       <span class="c1">//Associo all'elemento con id "btn-ok" un evento.</span>
+       <span class="c1">//Al click sull'elemento con id "btn-ok" scatta la funzione "cambiaNome"</span>
+        <span class="nx">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">#btn-ok</span><span class="dl">"</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="nx">cambiaNome</span><span class="p">)</span>
+        
+    <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p><img src="./images/JQuery-esempio.gif" alt="" /></p>
+
+<p><strong>ATTENZIONE:</strong> Il simbolo <code class="language-plaintext highlighter-rouge">$</code> è un alias che sta per <code class="language-plaintext highlighter-rouge">jQuery</code>.E’ importante saperlo perchè ci sono altre librerie che utilizzano il simbolo <code class="language-plaintext highlighter-rouge">$</code> e potrebbero quindi generare un conflitto. Per ovviare a ciò è possibile utilizzare il nome originale <code class="language-plaintext highlighter-rouge">jQuery</code> al posto del suo alias <code class="language-plaintext highlighter-rouge">$</code>.</p>
+
+<p>Con il comando <code class="language-plaintext highlighter-rouge">$.noConflict()</code> è possibile eliminare la definizione dell’ alias <code class="language-plaintext highlighter-rouge">$</code> evitando quindi conflitti di ogni genere. A quel punto dovremmo però utilizzare necessariamente <code class="language-plaintext highlighter-rouge">jQuery</code> al posto di <code class="language-plaintext highlighter-rouge">$</code></p>
+
+<h2 id="dom-ed-eventi">DOM ed Eventi</h2>
+<p>Appena la pagina va in esecuzione il browser deve costruire il DOM ma nel contempo potrebbe già partire il codice Javascript e l’esecuzione potrebbe portare a qualche errore in certi casi a causa di asincronismo. L’esempio di sopra potrebbe essere uno di questi. Per ovviare a ciò è necessario racchiudere l’evento all’interno di una funzione anonima:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="c1">//evento</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>Vediamolo applicato all’esempio di prima:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1.0"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Document<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;style&gt;</span>
+        <span class="nt">table</span><span class="p">{</span><span class="nl">border</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">dashed</span> <span class="no">black</span><span class="p">}</span>
+    <span class="nt">&lt;/style&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;table&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Nome<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span> <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">id=</span><span class="s">"myName"</span><span class="nt">&gt;</span> <span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Nuovo Nome<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span> <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">id=</span><span class="s">"new-name"</span><span class="nt">&gt;</span> <span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/table&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">value=</span><span class="s">"OK"</span> <span class="na">id=</span><span class="s">"btn-ok"</span><span class="nt">&gt;</span>
+
+    <span class="c">&lt;!-- Collegamento alla libreria JQuery.--&gt;</span> 
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"jquery-3.5.1.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+    <span class="nt">&lt;script&gt;</span>        
+        <span class="kd">function</span> <span class="nx">cambiaNome</span><span class="p">(){</span>
+
+            <span class="nx">nuovoNome</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">#new-name</span><span class="dl">"</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span> 
+            <span class="c1">//Assegno all'elemento con id "myName" il valore associato alla variabile "nuovoNome"</span>
+            <span class="nx">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">#myName</span><span class="dl">"</span><span class="p">).</span><span class="nx">val</span><span class="p">(</span><span class="nx">nuovoNome</span><span class="p">);</span> 
+            <span class="c1">//Pulisco il contenuto del valore dell'elemento con id "new-name"</span>
+            <span class="nx">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">#new-name</span><span class="dl">"</span><span class="p">).</span><span class="nx">val</span><span class="p">(</span><span class="dl">""</span><span class="p">);</span> 
+        <span class="p">}</span>
+        
+        <span class="c1">//L'evento sarà pronto a scattare soltanto quando la struttura del DOM sarà preparata</span>
+        <span class="nx">$</span><span class="p">(</span> <span class="kd">function</span><span class="p">(){</span> 
+            <span class="nx">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">#btn-ok</span><span class="dl">"</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="nx">cambiaNome</span><span class="p">)</span>
+        <span class="p">});</span>
+    <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+<p>In questo modo si ha la sicurezza che il codice javascript e quindi l’evento possa scattare solo dopo la creazione del DOM. Il che non significa che comprende il caricamento di tutti gli oggetti come immagini, video o alcune formattazioni testuali ma solo la struttura html come oggetto Javascript che è tuttavia sufficiente al corretto funzionamento del codice Javascript. <br />
+Altri metodi equivalenti:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">().</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span> <span class="p">(){</span>
+    <span class="c1">//event</span>
+<span class="p">})</span>
+<span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span> <span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="c1">//event</span>
+<span class="p">})</span>
+<span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="c1">//event</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+:ET

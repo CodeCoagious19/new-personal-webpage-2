@@ -1,0 +1,58 @@
+I"#<h2 id="primo-script">Primo script</h2>
+
+<p>Come integro codice javascript all’interno di una pagina html?</p>
+<ul>
+  <li>Modo 1: E’ possibile inserire codice Javascript direttamente all’interno della pagina html tramite il tag <code class="language-plaintext highlighter-rouge">&lt;script&gt;&lt;/script&gt;</code>.</li>
+  <li>Modo 2: E’ possibile creare un collegamento con un file esterno con estensione <code class="language-plaintext highlighter-rouge">.js</code> che rappresenterà il file contente codice Javascript. Per creare tale collegamento è necessario inserire prima della chiusura del <code class="language-plaintext highlighter-rouge">body</code> il seguente link-tag
+    <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"main.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p><strong>Modo 1: Codice Javascript interno alla pagina html</strong><br /></p>
+
+<p><code class="language-plaintext highlighter-rouge">File html</code></p>
+<pre><code class="language-HTML">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;script&gt;
+        //Stampa "ciao mondo" direttamente nella pagina html
+        document.write("ciao mondo");
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>Una volta creato il file è possibile aprirlo direttamente con un web browser o tramite l’estensione di VS code <em>live server</em> che permette di lanciare l’aggiornamento della pagina in automatico quando si salva il file</p>
+
+<p><img src="./images/vs-code-live-server.gif" alt="" /></p>
+
+<p><strong>Modo 2: Collegamento al file javascript main.js</strong> <br /></p>
+
+<p><code class="language-plaintext highlighter-rouge">File html</code></p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1.0"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Document<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"main.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">File JS</code></p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//Stampa "ciao mondo" direttamente nella pagina html</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="dl">"</span><span class="s2">ciao mondo</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Il modo migliore è sempre quello di creare file separati per dividere il contesto tra html / css / Javascript soprattutto per progetti grandi e strutturati. In questo corso per motivi di praticità invece utilizzeremo spesso codice Javascript all’interno della pagina html</p>
+
+:ET

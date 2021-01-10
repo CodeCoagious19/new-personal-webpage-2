@@ -295,10 +295,48 @@ defaults:
       comments: false
       sidebar:
         nav: "python"
+  # _cpp
+  - scope:
+      path: ""
+      type: cpp
+    values:
+      name: C++ per esempi
+      name_collection: cpp
+      layout: corso
+      toc: true
+      read_time: true
+      author_profile: false
+      share: false
+      comments: false
+      sidebar:
+        nav: "cpp"
+  # _Javascript
+  - scope:
+      path: ""
+      type: javascript-modulo-base
+    values:
+      permalink: /:collection/:path/
+      name: Javascript - Modulo Base
+      name_collection: javascript-modulo-base
+      layout: corso
+      toc: true
+      read_time: true
+      author_profile: false
+      share: false
+      comments: false
+      sidebar:
+        nav: "javascript-modulo-base"
 
 collections:
   python:
     name_collection: python
     output: true
     permalink: /:collection/:path/
-
+  cpp:
+    name_collection: cpp
+    output: true
+    permalink: /:collection/:path/
+  javascript-modulo-base:
+    name_collection: javascript-modulo-base
+    output: true
+    permalink: /:collection/:path/

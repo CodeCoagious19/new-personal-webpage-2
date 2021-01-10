@@ -1,0 +1,98 @@
+I"r.<h2 id="approfondimento---codifica-caratteri-javascript">Approfondimento - Codifica caratteri Javascript</h2>
+
+<p>Questa parte per adesso potrebbe essere troppo approfondita, è possibile saltarla senza pregiudicare il corso</p>
+
+<h2 id="ascii">ASCII</h2>
+
+<p>ASCII (acronimo di American Standard Code for Information Interchange, Codice Standard Americano per lo Scambio di Informazioni) è un codice per la codifica di caratteri. Lo standard ASCII è stato pubblicato dall’American National Standards Institute (ANSI) nel 1968</p>
+
+<p>Con US-ASCII si intende un sistema di codifica dei caratteri a 7 bit, comunemente utilizzato nei calcolatori, proposto dall’ingegnere dell’IBM Bob Bemer nel 1961, e successivamente accettato come standard dall’ISO, con il nome di ISO/IEC 646.</p>
+
+<p>Alla specifica iniziale basata su codici di 7 bit fecero seguito negli anni molte proposte di estensione ad 8 bit e quindi 256 caratteri, con lo scopo di raddoppiare il numero di caratteri rappresentabili. Nei PC IBM si fa per l’appunto uso di una di queste estensioni, ormai standard de facto, chiamata extended ASCII o high ASCII. In questo ASCII esteso, i caratteri aggiunti sono vocali accentate, simboli semigrafici e altri simboli di uso meno comune. I caratteri di ASCII esteso sono codificati nei cosiddetti codepage. Ogni paese presentò la sua proposta di ASCII esteso per rappresentare e codificare tutti i caratteri aggiuntivi relativi alla lingua creando non pochi problemi di comunicazione tra continenti. C’era quindi bisogno di uno standard nuovo e unico per tutto il mondo. Nasce quindi l’UNICODE.</p>
+
+<p><a href="https://it.wikipedia.org/wiki/ASCII">Wikipedia - ASCII</a></p>
+
+<h2 id="unicode">Unicode</h2>
+
+<p>Unicode è stato creato per risolvere i limiti dei tradizionali schemi di codifica dei caratteri Ad esempio , sebbene i caratteri definiti nella ISO 8859-1 siano ampiamente utilizzati in paesi diversi, spesso si verifica incompatibilità tra paesi diversi. Molti metodi di codifica tradizionali hanno un problema comune, ovvero consentono ai computer di gestire un ambiente bilingue (di solito utilizzando lettere latine e le loro lingue native), ma non possono supportare un ambiente multilingue allo stesso tempo (riferendosi a una situazione in cui più lingue possono essere mescolate contemporaneamente).</p>
+
+<p>Unicode era stato originariamente pensato come una codifica a 16 bit (quattro cifre esadecimali) che dava la possibilità di codificare 65.535 (2^16 -1) caratteri. Tanto si riteneva essere sufficiente per rappresentare i caratteri impiegati in tutte le lingue scritte del mondo. Ora invece lo standard Unicode, che tendenzialmente è perfettamente allineato con la norma ISO/IEC 10646, prevede una codifica fino a 21 bit e supporta un repertorio di codici numerici che possono rappresentare circa un milione di caratteri. Ciò appare sufficiente a coprire anche i fabbisogni di codifica di scritti del patrimonio storico dell’umanità, nelle diverse lingue e negli svariati sistemi di segni utilizzati.</p>
+
+<p>Al 2009, solo una piccolissima parte di questa disponibilità di codici è assegnata. Per lo sviluppo dei codici sono infatti previsti 17 “piani” (“planes”, in inglese), da 00 a 10hex, ciascuno con 65.536 posizioni (quattro cifre esadecimali), ma solo i primi tre e gli ultimi tre piani sono ad oggi assegnati[2], e di questi il primo, detto anche BMP, è praticamente sufficiente a coprire tutte le lingue più usate.</p>
+
+<p><img src="./images/Unicode-1.png" alt="" /></p>
+
+<p>Concretamente, questo repertorio di codici numerici è serializzato mediante diversi schemi di ricodifica, che consentono l’uso di codici più compatti per i caratteri usati più di frequente. È previsto l’uso di codifiche con unità da 8 bit (byte), 16 bit (word) e 32 bit (double word), descritte rispettivamente come UTF-8, UTF-16 e UTF-32. UTF-8 è di fatto lo standard successore di ASCII, perfettamente compatibile mentre javascript utilizza l’UTF-16 consentendo di rappresentare un numero elevato di caratteri, 655536. Ciò non significa che per le codifiche UTF-8 e UTF-16 non sia possibile rappresentare tutti i caratteri unicode ma a causa della codifica potrebbe non essere conveniente in certe situazioni utilizzare UTF-8 anzichè UTF-16. In certe situazioni infatti UTF-8 potrebbe aver bisogno di 3 byte per rappresentare un certo carattere mentre UTF-16 soltanto 2. Dipende dalla frequenza e natura dei caratteri.</p>
+
+<p>Si rirprenda il template html:</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1.0"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Document<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>Alla riga</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+<p>E’ indicata la codifica necessaria per la trasmissione e visualizzazione corretta dei caratteri.</p>
+
+<p><a href="https://en.wikipedia.org/wiki/Plane_(Unicode)">Wikipedia - Unicode</a> <br />
+<a href="https://en.wikibooks.org/wiki/Unicode/Character_reference/0000-0FFF">Wikibooks - Unicode/Character reference/0000-0FFF</a><br /></p>
+
+<h2 id="caratteri-di-escape">Caratteri di Escape</h2>
+
+<p>Il backslash <code class="language-plaintext highlighter-rouge">\</code> indica la presenza di un carattere escape che non sarebbe possibile inserire direttamente con un editor di testo poichè verrebbe interpretato come un comando.</p>
+
+<p>Vediamo qualche carattere di escape:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">\n</code>: a capo</li>
+  <li><code class="language-plaintext highlighter-rouge">\t</code>: tab</li>
+  <li><code class="language-plaintext highlighter-rouge">\b</code>: Backspace</li>
+  <li><code class="language-plaintext highlighter-rouge">\r</code>: Carriage return</li>
+  <li><code class="language-plaintext highlighter-rouge">\\</code>: Backslash</li>
+  <li><code class="language-plaintext highlighter-rouge">\'</code>: Single quote</li>
+  <li><code class="language-plaintext highlighter-rouge">\"</code>: Double quote</li>
+</ul>
+
+<p>Introdotti gli escape è possibile vedere come inserire un carattere UNICODE tramite il suo codice identificatico: <code class="language-plaintext highlighter-rouge">\u{codice_unicode}</code></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="dl">"</span><span class="se">\</span><span class="s2">u{1234}</span><span class="dl">"</span><span class="p">;</span> <span class="c1">// ሴ === 1234 codice unicode, 1 carattere</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="p">(</span><span class="nx">str</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="p">(</span><span class="nx">str</span><span class="p">,</span> <span class="nx">str</span><span class="p">.</span><span class="nx">lenght</span><span class="p">);</span> <span class="c1">//ሴ, 1</span>
+
+<span class="c1">//Attenzione!! la codifica UTF-16 non raggiunge direttamnte il carattere stampato qui di seguito</span>
+<span class="c1">//Utilizza quindi 2 caratteri Javascript</span>
+<span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="dl">"</span><span class="se">\</span><span class="s2">u{1F600}</span><span class="dl">"</span><span class="p">;</span> <span class="c1">// 😀 === 1F600 codice unicode, 2 caratteri</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="p">(</span><span class="nx">str</span><span class="p">,</span> <span class="nx">str</span><span class="p">.</span><span class="nx">lenght</span><span class="p">);</span> <span class="c1">//😀, 2</span>
+</code></pre></div></div>
+
+<p>Posso risalire al codice unicode tramite il metodo <code class="language-plaintext highlighter-rouge">charCodeAt(index)</code> che restituisce il codice unicode del carattere specificato da <code class="language-plaintext highlighter-rouge">index</code>.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="dl">"</span><span class="se">\</span><span class="s2">u{1F600}</span><span class="dl">"</span><span class="p">;</span> <span class="c1">// 😀 === 1F600 codice unicode 2 caratteri</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="p">(</span><span class="nx">str</span><span class="p">);</span> <span class="c1">//😀</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="nx">strCharCodeAt</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span> <span class="c1">//55357 56832</span>
+</code></pre></div></div>
+
+<p>C’è anche il metodo che più completo <code class="language-plaintext highlighter-rouge">charCodePointAt(index)</code> che restituisce il codice unicode che <em>inizia</em> da <code class="language-plaintext highlighter-rouge">index</code>. Questo è necessario per quei caratteri che non possono essere rappresentati da UTF-16 e che quindi sono necessari “due caratteri” Javascript</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="dl">"</span><span class="se">\</span><span class="s2">u{1F600}</span><span class="dl">"</span><span class="p">;</span> <span class="c1">// 😀 === 1F600 codice unicode 2 caratteri</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="p">(</span><span class="nx">str</span><span class="p">);</span> <span class="c1">//😀</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">codePointAt</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span> <span class="c1">// 128512 === 1F600 </span>
+</code></pre></div></div>
+
+<p>Posso usare l’unicode anche per il nome di variabili! Da evitare.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="err">\</span><span class="nx">u</span><span class="p">{</span><span class="mi">1</span><span class="nx">f68</span><span class="p">}</span> <span class="o">=</span> <span class="mi">2017</span><span class="p">;</span> <span class="c1">// Ὠ</span>
+</code></pre></div></div>
+
+:ET

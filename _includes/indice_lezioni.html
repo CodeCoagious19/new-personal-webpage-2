@@ -3,9 +3,9 @@
   {% if page.author_profile or layout.author_profile %}{% include author-profile.html %}{% endif %}
   {% if page.sidebar %}
   <header>
-    <h4 class="corso course__title">
+    <h1 class="corso course__title">
       {{ page.name }}
-    </h4>
+    </h1>
   </header>
   <ul class="corso lesson__items" id="move__scrollbar">
   {% for lesson in site[page.name_collection] %}

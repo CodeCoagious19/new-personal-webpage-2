@@ -1,0 +1,435 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.21.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="it" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>10- Conversione di tipo, implicita e espicita | Build &amp; Run</title>
+<meta name="description" content="Javascript">
+
+
+  <meta name="author" content="Simone Di Ricco">
+  
+  <meta property="article:author" content="Simone Di Ricco">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="it_IT">
+<meta property="og:site_name" content="Build & Run">
+<meta property="og:title" content="10- Conversione di tipo, implicita e espicita">
+<meta property="og:url" content="/javascript-modulo-base/10-js-modulo-base/">
+
+
+  <meta property="og:description" content="Javascript">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-01-10T19:54:39+01:00">
+
+
+
+  <meta property="article:modified_time" content="2021-01-10T00:00:00+01:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="/javascript-modulo-base/10-js-modulo-base/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Simone Di Ricco",
+      "url": "/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Build & Run Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--corso">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logo2.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          Build & Run
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/pages/about/">Chi sono</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/tutorial/">Tutorial</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/corsi/">Corsi</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+
+
+  <article class="corso page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="10- Conversione di tipo, implicita e espicita">
+    <meta itemprop="description" content="Javascript">
+    <meta itemprop="datePublished" content="2021-01-10T19:54:39+01:00">
+    <meta itemprop="dateModified" content="2021-01-10T00:00:00+01:00">
+
+    <div class="corso page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">10- Conversione di tipo, implicita e espicita
+</h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          8 minuto/i di lettura
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="corso page__content" itemprop="text">
+        
+          <aside class="corso sidebar__right ">
+            <nav class="corso toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Indice della pagina</h4></header>
+              <ul class="toc__menu"><li><a href="#type-conversion">Type conversion</a></li><li><a href="#conversione-esplicita">Conversione esplicita</a></li><li><a href="#conversione-implicita">Conversione implicita</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="type-conversion">Type conversion</h2>
+
+<p>JavaScript è un linguaggio con tipi assegnati dinamicamente. Questo significa che non si va a specificare il tipo di dato che una variabile conterrà quando viene dichiarata e anche che il tipo di un dato viene convertito automaticamente a seconda delle necessità durante l’esecuzione dello script. Nelle espressioni che coinvolgono valori numerici e stringhe con l’operatore + JavaScript converte i valori numerici in stringhe (conversione implicita). 
+Vediamo come formalizzare questi concetti e distinguere tra conversioni esplicite e implicite.</p>
+
+<h2 id="conversione-esplicita">Conversione esplicita</h2>
+
+<p>E’ una pratica di buona programmazione far riferimento a conversioni esplicite come trattamento di errori o ricezione dati dall’esterno anche quando “sembra” che non sia necessario. La conversione esplicita forza un tipo e previene in molti casi errori di mal interpretazione dei dati.
+Vediamo alcune soluzioni disponibili per la conversione esplicita tra tipi in Javascript.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">String(value)</code>: converte <code class="language-plaintext highlighter-rouge">value</code> (qualsiasi tipo) in un tipo <code class="language-plaintext highlighter-rouge">String</code></li>
+  <li><code class="language-plaintext highlighter-rouge">value.toString()</code>: metodo che converte <code class="language-plaintext highlighter-rouge">value</code> in una stringa (equivalente a <code class="language-plaintext highlighter-rouge">String(value)</code>)</li>
+  <li><code class="language-plaintext highlighter-rouge">Number(value)</code>: converte <code class="language-plaintext highlighter-rouge">value</code> in un tipo <code class="language-plaintext highlighter-rouge">Number</code></li>
+  <li><code class="language-plaintext highlighter-rouge">parseInt(value)</code> - converte <code class="language-plaintext highlighter-rouge">value</code> in un tipo <code class="language-plaintext highlighter-rouge">Number</code> e ritorna la parte intera</li>
+  <li><code class="language-plaintext highlighter-rouge">parseInt(value)</code> - converte <code class="language-plaintext highlighter-rouge">value</code> in un tipo <code class="language-plaintext highlighter-rouge">Number</code> e ritorna la parte frazionaria</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//Number to string - String(value)</span>
+<span class="kd">let</span> <span class="nx">value</span> <span class="o">=</span> <span class="mi">45</span><span class="p">;</span>
+<span class="nb">String</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span> <span class="c1">//ritorna la stringa '45'</span>
+
+<span class="c1">//Boolean to string - String(value)</span>
+<span class="kd">let</span> <span class="nx">value2</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<span class="nb">String</span><span class="p">(</span><span class="nx">value2</span><span class="p">);</span> <span class="c1">//ritorna la stringa 'false'</span>
+
+<span class="c1">//Metodo alternativo - toString();</span>
+<span class="kd">let</span> <span class="nx">value3</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">(</span><span class="nx">value3</span><span class="p">).</span><span class="nx">toString</span><span class="p">();</span> <span class="c1">//ritorna la stringa 'false'</span>
+
+<span class="c1">//String to number - Number(string)</span>
+<span class="kd">let</span> <span class="nx">string</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">45</span><span class="dl">'</span><span class="p">;</span>
+<span class="nb">Number</span><span class="p">(</span><span class="nx">string</span><span class="p">);</span> <span class="c1">//ritorna il numero 45</span>
+
+<span class="c1">//Boolean to number - Number(string)</span>
+<span class="kd">let</span> <span class="nx">myBool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="nb">Number</span><span class="p">(</span><span class="nx">myBool</span><span class="p">);</span> <span class="c1">//1ritorna il numero 1</span>
+
+<span class="nb">parseInt</span><span class="p">(</span><span class="dl">'</span><span class="s1">100.31</span><span class="dl">'</span><span class="p">);</span> <span class="c1">//100</span>
+<span class="nb">parseFloat</span><span class="p">(</span><span class="dl">'</span><span class="s1">100.31</span><span class="dl">'</span><span class="p">);</span> <span class="c1">//31</span>
+</code></pre></div></div>
+
+<h2 id="conversione-implicita">Conversione implicita</h2>
+
+<p>Anche se è sconsigliato affidarsi alle conversioni implicite, cioè quelle che Javascript effettua implicitamente incontrando in una espressione due o più valori appartenenti a tipi diversi, è bene conoscerle per difendersi e saperle trattare. In alcuni semplici casi non è comunque sbagliato utilizzarle.</p>
+
+<p>Riporto un esempio qui sotto:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Type coercion</span>
+
+<span class="kd">const</span> <span class="nx">nome</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">marco</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">cognome</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">rossi</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">eta</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">sposato</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">nome</span> <span class="o">+</span> <span class="dl">'</span><span class="s1"> </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">cognome</span> <span class="o">+</span> <span class="dl">'</span><span class="s1"> ha </span><span class="dl">'</span> <span class="o">+</span>  <span class="nx">eta</span> <span class="o">+</span> <span class="dl">'</span><span class="s1"> anni. </span><span class="dl">'</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">é sposato? </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">sposato</span><span class="p">);</span>
+
+<span class="cm">/*
+Console:
+---------------
+marco rossi ha 20 anni. E' sposato? false
+*/</span>
+</code></pre></div></div>
+
+<p>Notiamo che la variabile <code class="language-plaintext highlighter-rouge">eta</code> è stata convertita da tipo <code class="language-plaintext highlighter-rouge">numero</code> a tipo <code class="language-plaintext highlighter-rouge">stringa</code> e la variabile <code class="language-plaintext highlighter-rouge">sposato</code> è stata convertita da <code class="language-plaintext highlighter-rouge">boolean</code> a <code class="language-plaintext highlighter-rouge">stringa</code> in modo implicito da javascript. Queste sono conversioni effettuate in modo automatico da javascript poichè nella stessa espressione si trovano tipi diversi.</p>
+
+
+        
+      </section>
+      
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Aggiornato:</strong> <time datetime="2021-01-10">January 10, 2021</time></p>
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/javascript-modulo-base/09-js-modulo-base/" class="pagination--pager" title="09- Codifica caratteri. ASCII &amp; Unicode
+">Precedente</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Prossima</a>
+    
+  </nav>
+
+    </div>
+    
+<div class="corso sidebar sticky">
+  
+  
+  <header>
+    <h1 class="corso course__title">
+      Javascript - Modulo Base
+    </h1>
+  </header>
+  <ul class="corso lesson__items" id="move__scrollbar">
+  
+      <li ><a href="/javascript-modulo-base/00-js-modulo-base/">00 - Introduzione e setup pt1</a></li>
+  
+      <li ><a href="/javascript-modulo-base/01-js-modulo-base/">01 - Introduzione e setup pt2</a></li>
+  
+      <li ><a href="/javascript-modulo-base/02-js-modulo-base/">02 - Primo script</a></li>
+  
+      <li ><a href="/javascript-modulo-base/03-js-modulo-base/">02 - Browser console, alert & prompt</a></li>
+  
+      <li ><a href="/javascript-modulo-base/04-js-modulo-base/">04 - Introduzione al DOM e jQuery</a></li>
+  
+      <li ><a href="/javascript-modulo-base/05-js-modulo-base/">05 - Variabili e tipi di dato</a></li>
+  
+      <li ><a href="/javascript-modulo-base/06-js-modulo-base/">06 - Stringhe. Operatori proprietà e metodi</a></li>
+  
+      <li ><a href="/javascript-modulo-base/07-js-modulo-base/">07 - Esercitazione. Conta parole</a></li>
+  
+      <li ><a href="/javascript-modulo-base/08-js-modulo-base/">08 - Rappresentazione dei numeri in fixed e floating point</a></li>
+  
+      <li ><a href="/javascript-modulo-base/09-js-modulo-base/">09- Codifica caratteri. ASCII & Unicode</a></li>
+  
+      <li  class="active" id ="lesson__active" ><a href="/javascript-modulo-base/10-js-modulo-base/">10- Conversione di tipo, implicita e espicita</a></li>
+  
+  </ul>
+  
+</div>
+
+
+<script>
+  var lesson__active = document.getElementById("lesson__active");
+  lesson__active.scrollIntoViewIfNeeded(true);
+</script>
+
+    
+  </article>
+
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Inserisci termini di ricerca..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Segui:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/CodeCoagious19" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Simone Di Ricco. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

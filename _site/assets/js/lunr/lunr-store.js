@@ -1,7 +1,79 @@
 var store = [{
+        "title": "C++ per esempi",
+        "excerpt":"Raccolta di esempi in C++ ordinati secondo difficoltà Area e perimetro di un rettangolo Restituisce area e perimetro di un rettangolo dati base e altezza immessi da tastiera #include &lt;iostream&gt; using namespace std; int main() { cout &lt;&lt; \"Title: Area e perimetro di un rettangolo\" &lt;&lt; '\\n' &lt;&lt; \"Description: Restituisce...","categories": [],
+        "tags": [],
+        "url": "/cpp/cpp-per-esempi",
+        "teaser": null
+      },{
+        "title": "00 - Introduzione e setup pt1",
+        "excerpt":"Prerequisiti al corso Prima di iniziare questo modulo, dovresti avere familiarità con i linguaggi HTML e CSS. Approccio al corso Questo corso è stato scritto con l’intento di imparare il linguaggio attraverso esempi pratici. Se all’inizio pensate di trovare troppo pesanti alcuni capitoli puramente “teorici” vi capisco, lo penserei anch’io...","categories": [],
+        "tags": [],
+        "url": "/javascript-modulo-base/00-js-modulo-base/",
+        "teaser": null
+      },{
+        "title": "01 - Introduzione e setup pt2",
+        "excerpt":"Cenni storici Originariamente sviluppato da Brendan Eich della Netscape Communications con il nome di Mochan e successivamente di LiveScript, in seguito è stato rinominato “JavaScript” ed è stato formalizzato con una sintassi più vicina a quella del linguaggio Java di Sun Microsystems (che nel 2010 è stata acquistata da Oracle)....","categories": [],
+        "tags": [],
+        "url": "/javascript-modulo-base/01-js-modulo-base/",
+        "teaser": null
+      },{
+        "title": "02 - Primo script",
+        "excerpt":"Primo script Come integro codice javascript all’interno di una pagina html? Modo 1: E’ possibile inserire codice Javascript direttamente all’interno della pagina html tramite il tag &lt;script&gt;&lt;/script&gt;. Modo 2: E’ possibile creare un collegamento con un file esterno con estensione .js che rappresenterà il file contente codice Javascript. Per creare...","categories": [],
+        "tags": [],
+        "url": "/javascript-modulo-base/02-js-modulo-base/",
+        "teaser": null
+      },{
+        "title": "02 - Browser console, alert & prompt",
+        "excerpt":"Console - Browser Web La console è uno strumento molto utile in fase di sviluppo software all’interno del browser web. Segnala errori e warning sintattici dell’interprete javascript ed è molto utilizzata in fase di debug. E’ uno strumento interattivo, permette quindi la generazione di script Javascript in real-time e di...","categories": [],
+        "tags": [],
+        "url": "/javascript-modulo-base/03-js-modulo-base/",
+        "teaser": null
+      },{
+        "title": "04 - Introduzione al DOM e jQuery",
+        "excerpt":"Attenzione! Questa lezione sembrerà troppo approfondita e allo stesso tempo vaga considerato l’argomento che sto per trattare. Non preoccuparti se non capisci granchè, cerca comunque di cogliere il meccanismo di funzionamento dell’esempio che riporto in fondo alla lezione. Più avanti tratteremo questi argomenti in modo più dettagliato e diventerà tutto...","categories": [],
+        "tags": [],
+        "url": "/javascript-modulo-base/04-js-modulo-base/",
+        "teaser": null
+      },{
+        "title": "05 - Variabili e tipi di dato",
+        "excerpt":"Variabili Javascript Le variabili sono utilizzate per rappresentano dei valori attraverso un nome simbolico chiamato identificatore. var cognome = 'Rossi'; let nome = 'Mario'; const eta = 25; pi = 3.14; Esistono tre tipi di keyword per la dichiarazione di variabili/costanti in JS. var: Questa sintassi può essere usata per...","categories": [],
+        "tags": [],
+        "url": "/javascript-modulo-base/05-js-modulo-base/",
+        "teaser": null
+      },{
+        "title": "06 - Stringhe. Operatori proprietà e metodi",
+        "excerpt":"Stringhe Una stringa è un tipo di dato formato da zero o più caratteri racchiusi tra virgolette doppie \" \", singole ' ' o tramite accento grave. È possibile chiamare qualsiasi metodo dell’oggetto String su una stringa. const saluto = 'Ciao a tutti'; //Stringa multi-line. Attenzione all'apice -accento grave- var...","categories": [],
+        "tags": [],
+        "url": "/javascript-modulo-base/06-js-modulo-base/",
+        "teaser": null
+      },{
+        "title": "07 - Esercitazione. Conta parole",
+        "excerpt":"Conta parole Il seguente esempio conta le parole inserite in un certo input testuale. Faremo uso dell’evento keypress che scatta ad ogni tasto premuto e del metodo su stringa split() &lt;!DOCTYPE html&gt; &lt;html lang=\"en\"&gt; &lt;head&gt; &lt;meta charset=\"UTF-8\"&gt; &lt;meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"&gt; &lt;title&gt;Document&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;h1&gt;Conta parole&lt;/h1&gt; &lt;table&gt; &lt;td&gt;Testo:&lt;/td&gt; &lt;tr&gt; &lt;td&gt;&lt;textarea...","categories": [],
+        "tags": [],
+        "url": "/javascript-modulo-base/07-js-modulo-base/",
+        "teaser": null
+      },{
+        "title": "08 - Rappresentazione dei numeri in fixed e floating point",
+        "excerpt":"Approfondimento - Rappresentazione numerica in Javascript Questa parte per adesso potrebbe essere troppo “approfondita”, è possibile saltarla senza pregiudicare il corso Numeri in Fixed Point Per il tipo nativo Number Javascript utilizza 64 bit per la memorizzazione in ram sia per i numeri interi sia per i numeri decimali a...","categories": [],
+        "tags": [],
+        "url": "/javascript-modulo-base/08-js-modulo-base/",
+        "teaser": null
+      },{
+        "title": "09- Codifica caratteri. ASCII & Unicode",
+        "excerpt":"Approfondimento - Codifica caratteri Javascript Questa parte per adesso potrebbe essere troppo approfondita, è possibile saltarla senza pregiudicare il corso ASCII ASCII (acronimo di American Standard Code for Information Interchange, Codice Standard Americano per lo Scambio di Informazioni) è un codice per la codifica di caratteri. Lo standard ASCII è...","categories": [],
+        "tags": [],
+        "url": "/javascript-modulo-base/09-js-modulo-base/",
+        "teaser": null
+      },{
+        "title": "10- Conversione di tipo, implicita e espicita",
+        "excerpt":"Type conversion JavaScript è un linguaggio con tipi assegnati dinamicamente. Questo significa che non si va a specificare il tipo di dato che una variabile conterrà quando viene dichiarata e anche che il tipo di un dato viene convertito automaticamente a seconda delle necessità durante l’esecuzione dello script. Nelle espressioni...","categories": [],
+        "tags": [],
+        "url": "/javascript-modulo-base/10-js-modulo-base/",
+        "teaser": null
+      },{
         "title": "Indice delle lezioni",
-        "excerpt":"Questa sezione dovrebbe contenere l’indice delle lezioni capito?   ","categories": [],
-        "tags": ["cap1","cap2"],
+        "excerpt":"Questa sezione dovrebbe contenere l’indice delle lezioni   ","categories": [],
+        "tags": [],
         "url": "/python/index",
         "teaser": null
       },{

@@ -1,0 +1,67 @@
+I"/<h2 id="type-conversion">Type conversion</h2>
+
+<p>JavaScript è un linguaggio con tipi assegnati dinamicamente. Questo significa che non si va a specificare il tipo di dato che una variabile conterrà quando viene dichiarata e anche che il tipo di un dato viene convertito automaticamente a seconda delle necessità durante l’esecuzione dello script. Nelle espressioni che coinvolgono valori numerici e stringhe con l’operatore + JavaScript converte i valori numerici in stringhe (conversione implicita). 
+Vediamo come formalizzare questi concetti e distinguere tra conversioni esplicite e implicite.</p>
+
+<h2 id="conversione-esplicita">Conversione esplicita</h2>
+
+<p>E’ una pratica di buona programmazione far riferimento a conversioni esplicite come trattamento di errori o ricezione dati dall’esterno anche quando “sembra” che non sia necessario. La conversione esplicita forza un tipo e previene in molti casi errori di mal interpretazione dei dati.
+Vediamo alcune soluzioni disponibili per la conversione esplicita tra tipi in Javascript.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">String(value)</code>: converte <code class="language-plaintext highlighter-rouge">value</code> (qualsiasi tipo) in un tipo <code class="language-plaintext highlighter-rouge">String</code></li>
+  <li><code class="language-plaintext highlighter-rouge">value.toString()</code>: metodo che converte <code class="language-plaintext highlighter-rouge">value</code> in una stringa (equivalente a <code class="language-plaintext highlighter-rouge">String(value)</code>)</li>
+  <li><code class="language-plaintext highlighter-rouge">Number(value)</code>: converte <code class="language-plaintext highlighter-rouge">value</code> in un tipo <code class="language-plaintext highlighter-rouge">Number</code></li>
+  <li><code class="language-plaintext highlighter-rouge">parseInt(value)</code> - converte <code class="language-plaintext highlighter-rouge">value</code> in un tipo <code class="language-plaintext highlighter-rouge">Number</code> e ritorna la parte intera</li>
+  <li><code class="language-plaintext highlighter-rouge">parseInt(value)</code> - converte <code class="language-plaintext highlighter-rouge">value</code> in un tipo <code class="language-plaintext highlighter-rouge">Number</code> e ritorna la parte frazionaria</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//Number to string - String(value)</span>
+<span class="kd">let</span> <span class="nx">value</span> <span class="o">=</span> <span class="mi">45</span><span class="p">;</span>
+<span class="nb">String</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span> <span class="c1">//ritorna la stringa '45'</span>
+
+<span class="c1">//Boolean to string - String(value)</span>
+<span class="kd">let</span> <span class="nx">value2</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<span class="nb">String</span><span class="p">(</span><span class="nx">value2</span><span class="p">);</span> <span class="c1">//ritorna la stringa 'false'</span>
+
+<span class="c1">//Metodo alternativo - toString();</span>
+<span class="kd">let</span> <span class="nx">value3</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">(</span><span class="nx">value3</span><span class="p">).</span><span class="nx">toString</span><span class="p">();</span> <span class="c1">//ritorna la stringa 'false'</span>
+
+<span class="c1">//String to number - Number(string)</span>
+<span class="kd">let</span> <span class="nx">string</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">45</span><span class="dl">'</span><span class="p">;</span>
+<span class="nb">Number</span><span class="p">(</span><span class="nx">string</span><span class="p">);</span> <span class="c1">//ritorna il numero 45</span>
+
+<span class="c1">//Boolean to number - Number(string)</span>
+<span class="kd">let</span> <span class="nx">myBool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="nb">Number</span><span class="p">(</span><span class="nx">myBool</span><span class="p">);</span> <span class="c1">//1ritorna il numero 1</span>
+
+<span class="nb">parseInt</span><span class="p">(</span><span class="dl">'</span><span class="s1">100.31</span><span class="dl">'</span><span class="p">);</span> <span class="c1">//100</span>
+<span class="nb">parseFloat</span><span class="p">(</span><span class="dl">'</span><span class="s1">100.31</span><span class="dl">'</span><span class="p">);</span> <span class="c1">//31</span>
+</code></pre></div></div>
+
+<h2 id="conversione-implicita">Conversione implicita</h2>
+
+<p>Anche se è sconsigliato affidarsi alle conversioni implicite, cioè quelle che Javascript effettua implicitamente incontrando in una espressione due o più valori appartenenti a tipi diversi, è bene conoscerle per difendersi e saperle trattare. In alcuni semplici casi non è comunque sbagliato utilizzarle.</p>
+
+<p>Riporto un esempio qui sotto:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Type coercion</span>
+
+<span class="kd">const</span> <span class="nx">nome</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">marco</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">cognome</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">rossi</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">eta</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">sposato</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">nome</span> <span class="o">+</span> <span class="dl">'</span><span class="s1"> </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">cognome</span> <span class="o">+</span> <span class="dl">'</span><span class="s1"> ha </span><span class="dl">'</span> <span class="o">+</span>  <span class="nx">eta</span> <span class="o">+</span> <span class="dl">'</span><span class="s1"> anni. </span><span class="dl">'</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">é sposato? </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">sposato</span><span class="p">);</span>
+
+<span class="cm">/*
+Console:
+---------------
+marco rossi ha 20 anni. E' sposato? false
+*/</span>
+</code></pre></div></div>
+
+<p>Notiamo che la variabile <code class="language-plaintext highlighter-rouge">eta</code> è stata convertita da tipo <code class="language-plaintext highlighter-rouge">numero</code> a tipo <code class="language-plaintext highlighter-rouge">stringa</code> e la variabile <code class="language-plaintext highlighter-rouge">sposato</code> è stata convertita da <code class="language-plaintext highlighter-rouge">boolean</code> a <code class="language-plaintext highlighter-rouge">stringa</code> in modo implicito da javascript. Queste sono conversioni effettuate in modo automatico da javascript poichè nella stessa espressione si trovano tipi diversi.</p>
+
+:ET

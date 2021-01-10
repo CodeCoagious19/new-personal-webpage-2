@@ -32,7 +32,7 @@ sudo apt-get install python3-pip
 
 Per verificare la corretta installazione dell'interprete python digitare da terminale `python3`. In questo modo apriremo inoltre la shell interattiva di python in cui sarà possibile inserire direttamente del codice ed avere una risposta simultanea 
 
-![](/python/images/install-python.gif)
+![](./images/install-python.gif)
 
 ## Configurazione di un IDE
 

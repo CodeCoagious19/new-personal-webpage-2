@@ -7,143 +7,40 @@
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
 
+//Custom CSS
 @import "custom/custom_colors.scss";
 @import "custom/custom_font-size.scss";
 @import "custom/custom_card.scss";
 @import "custom/custom_lessons_sidebar.scss";
-
-
-//----------------------------------------------------------------------------
-//List of lesson - Left Sidebar
-
-
-
-h4.course__title {
-    margin-top: 0px;
-    color: white;
-}
-
-ul.lesson__items {
-    overflow-y: overlay;
-    list-style: none;
-    padding: 0px; 
-    margin: 0px; 
-}
-
-
-/* width */
-ul.lesson__items::-webkit-scrollbar {
-    width: 0.5rem;
-  }
-  
-  /* Track */
-ul.lesson__items::-webkit-scrollbar-track {
-    //box-shadow: inset 0 0 1px grey; 
-    //border-radius: 2px;
-  }
-   
-  /* Handle */
-ul.lesson__items::-webkit-scrollbar-thumb {
-    background: rgb(209, 209, 209);
-    //border-radius: 2px;
-  }
-
-/*
-// width 
-::-webkit-scrollbar {
-    width: 20px;
-    background: blue;
-  
-  }
-  
-  // Track 
-  ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px black; 
-    border-radius: 10px;
-    background: blue;
-  }
-   
-  // Handle 
-  ::-webkit-scrollbar-thumb {
-    background: red; 
-    border-radius: 10px;
-  }
-  
-  // Handle on hover 
-  ::-webkit-scrollbar-thumb:hover {
-    background: black; 
-  }
-*/
-
-ul.lesson__items li {
-    
-    text-decoration: none;
-    color: #393e46;
-    font-weight: bold;
-    line-height: 1.5;
-    border-bottom: 1px solid #cecfd1;
-    margin: 0px;
-    padding: 0.5rem;
-}
-
-ul.lesson__items li a{
-    text-decoration: none;
-}
-
-ul.lesson__items li.active{
-    opacity: none;
-    background: #0092ca;
-    color: white;
-    //border-radius: 4px;
-}
-
-ul.lesson__items li.active a{
-    color: white;
-}
-//----------------------------------------------------------------------------
+@import "custom/custom_table_of_content.scss";
 
 //----------------------------------------------------------------------------
-//List of paragraph - Right Sidebar
-@media (min-width: 64em){
-    .sidebar__right {
-        position: unset; 
-        width: unset;
-        margin-right: unset; 
-        padding-left: unset;
-    
-    }
-}
 
-@media (min-width: 80em){
-    .sidebar__right {
-         position: unset; 
-         width: unset;
-         margin-right: unset; 
-         padding-left: unset;
-       
-    }
-}
+
 
  @media (min-width: 64em){
-    article.corso.page {
+    article.corso.page{
         width: 100%;
         padding-right: 0; 
     }
 }
-
-
 
 article.corso.page {
     display: flex;
     box-sizing: border-box;
 }
 
-.page .page__inner-wrap {
+article.corso.page .page__inner-wrap.corso {
     width: 100%;
+}
+@media (min-width: 64em){
+    article.corso.page .page__inner-wrap.corso {
+        width: 75%;
+    }
 }
 
 @media (min-width: 80em){
-.page .page__inner-wrap {
+article.corso.page .page__inner-wrap.corso {
     width: 75%;
-}
+    }
 }

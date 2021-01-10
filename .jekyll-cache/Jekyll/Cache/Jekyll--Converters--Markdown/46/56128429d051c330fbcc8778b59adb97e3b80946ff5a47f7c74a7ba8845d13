@@ -1,0 +1,81 @@
+I"�<h2 id="console---browser-web">Console - Browser Web</h2>
+
+<p>La console è uno strumento molto utile in fase di sviluppo software all’interno del browser web. Segnala errori e warning sintattici dell’interprete javascript ed è molto utilizzata in fase di debug. E’ uno strumento interattivo, permette quindi la generazione di script Javascript in real-time e di stampare il valore di alcune variabili o strutture dati per monitorare il corretto funzionamento dello script.</p>
+
+<p>Il comando <code class="language-plaintext highlighter-rouge">console.log()</code> (o per meglio dire il metodo <code class="language-plaintext highlighter-rouge">log()</code> dell’oggetto <code class="language-plaintext highlighter-rouge">Console</code>, parleremo più avanti di metodi e oggetti..) stampa un messaggio sulla web console del browser. Il messaggio può essere una semplice stringa (opzionalmente, anche con valori sostituibili), o può essere uno qualsiasi o più oggetti JavaScript.</p>
+
+<p><code class="language-plaintext highlighter-rouge">File html</code></p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1.0"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Document<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;script&gt;</span>
+        <span class="c1">//Stampa "ciao mondo" direttamente nella pagina html</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">ciao mondo</span><span class="dl">"</span><span class="p">);</span>
+    <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p><img src="./images/console-log.gif" alt="" /></p>
+
+<p>Riporto qualche comando (metodo) aggiuntivo della console:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Ciao a tutti</span><span class="dl">'</span><span class="p">);</span>         <span class="c1">//stampa sulla console</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="dl">'</span><span class="s1">Avvertimento</span><span class="dl">'</span><span class="p">);</span>        <span class="c1">//Genera un warning</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="dl">'</span><span class="s1">questo è un errore</span><span class="dl">'</span><span class="p">);</span> <span class="c1">//Genera un errore</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">table</span><span class="p">({</span><span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">simone</span><span class="dl">'</span><span class="p">});</span>     <span class="c1">//Stampa in formato tabella</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>                     <span class="c1">//Pulisce la console</span>
+</code></pre></div></div>
+<p>E’ bene comuqnue precisare che qualsiasi cosa venga stampata sulla console come log, errori o warning non saranno visibili all’utente ma solo in modalità sviluppatore.</p>
+
+<p>Una lista di tutti i metodi applicabili all’oggetto si trova alla pagina <a href="https://developer.mozilla.org/it/docs/Web/API/Console">MDN - Console</a></p>
+
+<h2 id="alert--prompt">Alert &amp; prompt</h2>
+
+<p><code class="language-plaintext highlighter-rouge">alert()</code> mostra una finestra di avviso contenente il testo specificato mentre <code class="language-plaintext highlighter-rouge">prompt()</code> mostra una finestra di dialogo che chiede all’utente di inserire del testo.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1.0"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Document<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;script&gt;</span>
+        <span class="c1">//Salva l'input ricevuto in una variabile cioè un contenitore testuale </span>
+        <span class="nx">myName</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">'</span><span class="s1">Come ti chiami?</span><span class="dl">'</span><span class="p">);</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="dl">"</span><span class="s2">Il tuo nome è ..</span><span class="dl">"</span><span class="p">);</span>
+        <span class="c1">//Stampa il valore testuale contenuto nella variabile</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="nx">myName</span><span class="p">);</span>
+    <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p><img src="./images/alert-prompt.gif" alt="" /></p>
+
+<p>Approfondimenti sul metodo <code class="language-plaintext highlighter-rouge">alert()</code> dell’oggetto <code class="language-plaintext highlighter-rouge">Window</code> li trovate su <a href="https://developer.mozilla.org/it/docs/Web/API/Window/alert">MDN - Window.alert()</a> mentre approfondimenti sul metodo <code class="language-plaintext highlighter-rouge">prompt()</code> dell’oggetto <code class="language-plaintext highlighter-rouge">Window</code> li trovate su <a href="https://developer.mozilla.org/it/docs/Web/API/Window/prompt">MDN - Window.prompt()</a></p>
+
+<h2 id="commenti">Commenti</h2>
+
+<p>I commenti sono linee testuali non processate dall’interprete utili per la documentazione del codice. In javascritp ci sono due tipi di sintassi permesse per l’inserimento dei commenti.</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">// comment</code>: per commenti inline</li>
+  <li><code class="language-plaintext highlighter-rouge">/* comment */</code>: per commenti su linee multiple</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//inline comment</span>
+
+<span class="cm">/*
+multi line comment
+console.log('ciao a tutti');
+*/</span>
+</code></pre></div></div>
+
+:ET

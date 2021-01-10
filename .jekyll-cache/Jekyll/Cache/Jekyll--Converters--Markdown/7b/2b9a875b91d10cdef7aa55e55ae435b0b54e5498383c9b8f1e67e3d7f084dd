@@ -1,0 +1,68 @@
+I"u"<h2 id="approfondimento---rappresentazione-numerica-in-javascript">Approfondimento - Rappresentazione numerica in Javascript</h2>
+
+<p>Questa parte per adesso potrebbe essere troppo “approfondita”, è possibile saltarla senza pregiudicare il corso</p>
+
+<h2 id="numeri-in-fixed-point">Numeri in Fixed Point</h2>
+<p>Per il tipo nativo <code class="language-plaintext highlighter-rouge">Number</code> Javascript utilizza 64 bit per la memorizzazione in ram sia per i numeri interi sia per i numeri decimali a “virgola fissa” (fixed point). Vengono utilizzati 53 bit per la parte intera e i restanti 9 per la parte decimale anche se un numero è intero. Il numero intero (safe) più grande rappresentabile in JS è <code class="language-plaintext highlighter-rouge">MAX_SAFE_INTEGER</code>.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">MAX_SAFE_INTEGER</code>: E’ il numero intero più grande a cui posso applicare un incremento in modo affidabile.</li>
+</ul>
+
+<p>Il metodo <code class="language-plaintext highlighter-rouge">isSafeInteger()</code> applicato all’oggetto <code class="language-plaintext highlighter-rouge">Number</code> ritorna un <code class="language-plaintext highlighter-rouge">boolean</code> che indica se il numero è safe oppure no</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Number</span><span class="p">.</span><span class="nx">MAX_SAFE_INTEGER</span><span class="p">);</span> <span class="c1">//9007199254740991</span>
+<span class="cm">/*
+(property) NumberConstructor.MAX_SAFE_INTEGER: number
+
+The value of the largest integer n such that n and n + 1 are both exactly representable as a Number value. The value of Number.MAX_SAFE_INTEGER is 9007199254740991 2^53 − 1.
+*/</span>
+
+<span class="kd">let</span> <span class="nx">n1</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">.</span><span class="nx">MAX_SAFE_INTEGER</span><span class="p">;</span>      <span class="c1">//OK, safe</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Number</span><span class="p">.</span><span class="nx">isSafeInteger</span><span class="p">(</span><span class="nx">n1</span><span class="p">));</span> <span class="c1">//true</span>
+<span class="kd">let</span> <span class="nx">n2</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">.</span><span class="nx">MAX_SAFE_INTEGER</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>  <span class="c1">//OK, safe</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Number</span><span class="p">.</span><span class="nx">isSafeInteger</span><span class="p">(</span><span class="nx">n2</span><span class="p">));</span> <span class="c1">//true</span>
+<span class="kd">let</span> <span class="nx">n3</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">.</span><span class="nx">MAX_SAFE_INTEGER</span> <span class="o">+</span> <span class="mi">1</span>   <span class="c1">//NO, non safe, il risultato non è affidabile</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Number</span><span class="p">.</span><span class="nx">isSafeInteger</span><span class="p">(</span><span class="nx">n3</span><span class="p">));</span> <span class="c1">//false</span>
+
+</code></pre></div></div>
+
+<h2 id="numeri-in-floating-point">Numeri in Floating Point</h2>
+<p>La rappresentazione dei numeri in “virgola mobile” (floating point) Javascript utilizza lo standard IEEE 754</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//MAX_VALUE rappresenta il più grande numero rappresentabile in virogla mobile</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Number</span><span class="p">.</span><span class="nx">MAX_VALUE</span><span class="p">);</span> <span class="c1">//1.7976931348623157e+308</span>
+
+<span class="c1">//Attenzione!!</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span> <span class="o">==</span> <span class="mf">0.3</span><span class="p">);</span> <span class="c1">//false</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">);</span> <span class="c1">//0.30000000000000004</span>
+</code></pre></div></div>
+<p>Lo standard IEE754 rappresenta i numeri reali e come tale è necessario conoscere ed evitare alcune pratiche di cattivo utilizzo dei numeri reali. In generale con i numeri reali è da evitare l’utilizzo di espressioni di uguglianza. E’ possibile tuttavia trasformare un’espressione di uguaglianza esatta con un’espressione di “vicinanza” definendo un’accuratezza in questo modo:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">accuracy</span> <span class="o">=</span> <span class="mf">0.0000001</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.3</span>  <span class="o">&lt;</span> <span class="nx">accuracy</span><span class="p">);</span> <span class="c1">//true</span>
+</code></pre></div></div>
+
+<p>Il più piccolo valore rappresentabile (vicino allo zero) in floating point è:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Number</span><span class="p">.</span><span class="nx">MIN_VALUE</span><span class="p">);</span> <span class="c1">//5e-324</span>
+</code></pre></div></div>
+
+<p>E’ bene ricordare che la rappresentazione dei numeri con lo standard IEEE 754 è su scala logaritimica quindi non lineare. Questo significa che posso rappresentare numeri estremamente grandi e numeri estremamente piccoli ma la distanza tra due numeri diventa sempre più grande (e quindi meno accurata) mano a mano che i numeri diventano grandi e diventa più piccola (quindi più accurata) mano a mano che i numeri diventano piccoli</p>
+
+<h2 id="not-a-number-nan">Not A Number NaN</h2>
+
+<p>Javascript restituisce <code class="language-plaintext highlighter-rouge">NaN</code> quando valuta che un’espressione non può essere svolta e darebbe errore.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="mi">10</span><span class="o">/</span><span class="dl">"</span><span class="s2">ciao</span><span class="dl">"</span> <span class="p">);</span> <span class="c1">//NaN</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="mi">0</span><span class="o">/</span><span class="mi">0</span> <span class="p">);</span> <span class="c1">//NaN</span>
+</code></pre></div></div>
+
+<p>E’ buona norma evitare NaN in special modo per quelle espressioni numeriche non prevedibili o che ricevono valori dall’esterno. La funzione <code class="language-plaintext highlighter-rouge">isNaN()</code> restituisce un boolean se un dato valore risulta o meno un NaN.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">myVar</span> <span class="o">=</span> <span class="mi">12</span> <span class="o">/</span> <span class="mf">0.9</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="nb">isNaN</span><span class="p">(</span><span class="nx">myVar</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myVar</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+:ET

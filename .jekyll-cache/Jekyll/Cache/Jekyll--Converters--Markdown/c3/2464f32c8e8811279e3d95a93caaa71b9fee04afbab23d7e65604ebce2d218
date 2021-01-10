@@ -1,0 +1,27 @@
+I"�
+<h2 id="prerequisiti-al-corso">Prerequisiti al corso</h2>
+<p>Prima di iniziare questo modulo, dovresti avere familiarità con i linguaggi <a href="">HTML e CSS</a>.</p>
+
+<h2 id="approccio-al-corso">Approccio al corso</h2>
+<p>Questo corso è stato scritto con l’intento di imparare il linguaggio attraverso esempi pratici. Se all’inizio pensate di trovare troppo pesanti alcuni capitoli puramente “teorici” vi capisco, lo penserei anch’io quindi <strong>evitate</strong> con leggerezza queste sezioni.
+Faccio notare anche l’approccio a “Lezioni” brevi che ho preferito rispetto all’approccio classico a “Libro/capitoli” che dal mio punto di vista allunga il tempo di apprendimento specialmente per chi non mastica già un po’ il linguaggio e che comunque può essere seguito parallelamente per approfondimenti. 
+Concludo nella speranza che il corso possa piacervi e risultare snello per l’apprendimento.</p>
+
+<h2 id="strumenti-necessari">Strumenti Necessari</h2>
+
+<p>Per questo corso sarà necessario un <strong>web browser</strong> e un editor di testo. Come web browser utilizzeremo <a href="https://www.google.com/chrome/">Google Chrome</a> mentre come editor di testo utilizzeremo <a href="https://code.visualstudio.com/download">Visual Studio Code</a>.</p>
+
+<h2 id="introduzione">Introduzione</h2>
+
+<p>JavaScript è un linguaggio di scripting cross-platform e object-oriented. È un linguaggio piccolo e leggero. All interno di un ambiente ospite (ad esempio un web browser), JavaScript può essere connesso agli oggetti del suo ambiente per fornire controllo programmatico su di essi.</p>
+
+<p>JavaScript contiene una libreria standard di oggetti come Array, Date e Math, ed una serie di elementi base del linguaggio come operatori, strutture di controllo e dichiarazioni. La base di JavaScript può essere estesa per una varietà di scopi fornendogli oggetti aggiuntivi; ad esempio:</p>
+
+<ul>
+  <li><em>Client-side</em> JavaScript estende il linguaggio base fornendo oggetti per controllare il browser ed il suo Document Object Model (DOM). Per esempio, le estensioni client-side permettono ad una applicazione di inserire elementi in un form HTML e rispondere ad eventi dell’utente come il click del mouse, input nei form e navigazione delle pagine.</li>
+  <li><em>Server-side</em> JavaScript estende il linguaggio base fornendo oggetti rilevanti per eseguire JavaScript in un server. Per esempio le estensioni server-side consentono ad una applicazione di comunicare con un database, forniscono continuità di informazioni da una chiamata ad un altra dell’applicazione, o permettono la manipolazione di files nel server.</li>
+</ul>
+
+<p><a href="https://developer.mozilla.org/it/docs/Web/JavaScript/Guida/Introduzione">MDN - Introduzione</a></p>
+
+:ET
