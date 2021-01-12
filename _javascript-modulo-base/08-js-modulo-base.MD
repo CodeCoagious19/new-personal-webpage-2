@@ -1,6 +1,7 @@
 ---
 title: "08 - Rappresentazione dei numeri in fixed e floating point"
 excerpt: "Javascript"
+permalink: /javascript-modulo-base/08-js-modulo-base
 last_modified_at: 2021-01-10
 ---
 

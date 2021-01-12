@@ -1,0 +1,625 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.21.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="it" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>21 - Visibilità delle variabili | Build &amp; Run</title>
+<meta name="description" content="Javascript">
+
+
+  <meta name="author" content="Simone Di Ricco">
+  
+  <meta property="article:author" content="Simone Di Ricco">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="it_IT">
+<meta property="og:site_name" content="Build & Run">
+<meta property="og:title" content="21 - Visibilità delle variabili">
+<meta property="og:url" content="/javascript-modulo-base/21-js-modulo-base">
+
+
+  <meta property="og:description" content="Javascript">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-01-12T15:37:36+01:00">
+
+
+
+  <meta property="article:modified_time" content="2021-01-10T00:00:00+01:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="/javascript-modulo-base/21-js-modulo-base">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Simone Di Ricco",
+      "url": "/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Build & Run Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--corso">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logo2.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          Build & Run
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/pages/about/">Chi sono</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/tutorial/">Tutorial</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/corsi/">Corsi</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+
+
+  <article class="corso page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="21 - Visibilità delle variabili">
+    <meta itemprop="description" content="Javascript">
+    <meta itemprop="datePublished" content="2021-01-12T15:37:36+01:00">
+    <meta itemprop="dateModified" content="2021-01-10T00:00:00+01:00">
+
+    <div class="corso page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">21 - Visibilità delle variabili
+</h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          22 minuto/i di lettura
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="corso page__content" itemprop="text">
+        
+          <aside class="corso sidebar__right ">
+            <nav class="corso toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Indice della pagina</h4></header>
+              <ul class="toc__menu"><li><a href="#scope">Scope</a></li><li><a href="#visibilità-di-variabili">Visibilità di variabili</a></li><li><a href="#visibilità-globale-global-scope">Visibilità Globale (global scope)</a></li><li><a href="#scope-chaining">Scope Chaining</a></li><li><a href="#visibilità-a-livello-di-blocco-block-scope">Visibilità a livello di blocco (block scope)</a></li><li><a href="#approfondimento---closure-di-una-funzione">Approfondimento - Closure di una funzione</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="scope">Scope</h2>
+
+<p>Lo <em>scope</em> è l’attuale contesto di esecuzione. Il contesto in cui i valori e le espressioni sono “visibili” o possono essere referenziati. Se una variabile o un’altra espressione non è “nell’ambito corrente”, non è disponibile per l’uso. Gli ambiti possono anche essere stratificati in una gerarchia, in modo che gli ambiti figlio abbiano accesso agli ambiti padre, ma non viceversa.</p>
+
+<p>Una funzione funge da chiusura, <em>closure</em> in JavaScript e quindi crea uno scope, in modo che (ad esempio) non sia possibile accedere a una variabile definita esclusivamente all’interno della funzione dall’esterno della funzione o da altre funzioni.</p>
+
+<p><a href="https://developer.mozilla.org/en-US/docs/Glossary/Scope">MDN - Scope</a></p>
+
+<p>Esempio:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* Scope */</span>
+
+<span class="cm">/* Gloabl variable -&gt; Riconosciuta da tutto il programma */</span>
+<span class="kd">let</span> <span class="nx">var1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">function1</span><span class="p">(){</span>
+    <span class="cm">/* Local variable -&gt; ricnosciuta solo nel blocco di codice tra le parentesi {}  in cui è stata dichiarata*/</span>
+    <span class="kd">let</span> <span class="nx">var2</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>         <span class="c1">//qui nasce var2</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">var2</span><span class="p">);</span>     
+<span class="p">}</span>                          <span class="c1">//qui muore var2</span>
+
+<span class="nx">function1</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">var1</span><span class="p">);</span> <span class="c1">//var1 is defined, var1 is global</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">var2</span><span class="p">);</span> <span class="c1">//var2 is not defined</span>
+
+<span class="cm">/*
+Console:
+---------------
+10
+1
+Uncaught ReferenceError: var2 is not defined
+*/</span>
+</code></pre></div></div>
+
+<p>Vediamo un esempio molto più complesso:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* Scope */</span>
+
+<span class="cm">/* Gloabl variable -&gt; Riconosciuta da tutto il programma */</span>
+<span class="kd">let</span> <span class="nx">var1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">function1</span><span class="p">(){</span>
+    <span class="cm">/* Local variable -&gt; ricnosciuta solo nel blocco di codice tra le parentesi {}  in cui è stata dichiarata*/</span>
+    <span class="kd">let</span> <span class="nx">var2</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>         <span class="c1">//qui nasce var2</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">var2 function1 : </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">var2</span><span class="p">);</span>   
+<span class="p">}</span>                          <span class="c1">//qui muore var2</span>
+
+<span class="kd">function</span> <span class="nx">function2</span><span class="p">(){</span>
+    <span class="cm">/* Local variable -&gt;   ricnosciuta solo nel blocco di codice tra le parentesi {}  in cui è stata dichiarata*/</span>
+    <span class="kd">let</span> <span class="nx">var2</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>         <span class="c1">//qui nasce var2 ma è diversa rispetto a quella di prima, è una nuova var2</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">var2 function2 : </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">var2</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">var1: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">var1</span><span class="p">);</span>     <span class="c1">//è riconosciuta anche var1 perchè è stata dichiarata in un blocco più esterno</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">var3</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">var3</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">var3</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">var3: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">var3</span><span class="p">);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">var2 function2: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">var2</span><span class="p">);</span>   <span class="c1">//è riconosciuta anche var2 perchè è stata dichiarata in un blocco più esterno</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">var1: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">var1</span><span class="p">);</span>             <span class="c1">//è riconosciuta anche var1 perchè è stata dichiarata in un blocco più esterno</span>
+    <span class="p">}</span>                                             <span class="c1">//qui muore var3</span>
+<span class="p">}</span>                                                 <span class="c1">//qui muore var2</span>
+
+<span class="nx">function1</span><span class="p">();</span>
+<span class="nx">function2</span><span class="p">();</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">var1: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">var1</span><span class="p">);</span>     <span class="c1">//OK</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">var3: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">var3</span><span class="p">);</span>     <span class="c1">//non riconosciuta</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">var2: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">var2</span><span class="p">);</span>     <span class="c1">//non riconosciuta</span>
+
+<span class="cm">/*
+Console:
+---------------
+var2 function1 : 10
+var2 function2 : 20
+var1: 1
+var3: 0
+var2 function2: 20
+var1: 1
+var1: 1
+Uncaught ReferenceError: var3 is not defined
+*/</span>
+</code></pre></div></div>
+
+<h2 id="visibilità-di-variabili">Visibilità di variabili</h2>
+
+<p>Lo ‘scope’ di una variabile (visibilita’ di una variabile) e’ la sezione di codice 
+in cui essa e’ visibile ed in Javascript e’ regolato con l’uso
+delle funzioni.</p>
+
+<p>NB: non confondere lo scope con il context (contesto) che indica invece l’oggetto
+per il quale una funzione viene eseguita (<code class="language-plaintext highlighter-rouge">this</code>).
+Per una funzione visibile a livello globale cioe’ non contenuta in alcun oggetto 
+questo in realta’ esiste e coincide con ‘window’.</p>
+
+<p>La distinzione e’ tra visibilita’ globale, locale e di blocco.</p>
+
+<h2 id="visibilità-globale-global-scope">Visibilità Globale (global scope)</h2>
+
+<p>E’ quella che ha come riferimento l’intero codice. Sono le variabili/oggetti dichiarate all’esterno di qualunque funzione usate in una funzione senza <code class="language-plaintext highlighter-rouge">var/let</code>. In generale <strong>la visibilita’ globale e’ da evitare</strong></p>
+
+<p>Esempio:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">f_bad</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">//modifica la variabile esterna potenzialmente all'insaputa di chi la chiama</span>
+  <span class="nx">x</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> 
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Prima di invocare f_bad() </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">x</span><span class="p">);</span> <span class="c1">//x = 100</span>
+<span class="nx">f_bad</span><span class="p">();</span>    <span class="c1">//modifica x, da evitare</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Dopo f_bad() </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">x</span><span class="p">);</span> <span class="c1">//x = 2</span>
+</code></pre></div></div>
+
+<p>L’obiettivo delle funzioni è proprio racchiudere il codice in blocchi riutilizzabili. Se modificano/dipendono da variabili esterne/globali questo concetto viene a meno.</p>
+
+<p>Per risolvere questa cosa:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">x</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="c1">//versione corretta di f</span>
+<span class="kd">function</span> <span class="nx">f_good</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">//dichiarazione di una variabile LOCALE (x) distinta da quella globale</span>
+  <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> 
+  <span class="kd">var</span> <span class="nx">y</span><span class="o">=</span><span class="mi">200</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Prima di invocare f_good() </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">x</span><span class="p">);</span> <span class="c1">// x = 100</span>
+<span class="nx">f_good</span><span class="p">();</span> 
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Dopo f_good() </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">x</span><span class="p">);</span> <span class="c1">// x = 100, Ok</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">y</span><span class="p">);</span> <span class="c1">//errore: y not defined; visibile solo a f_good in esecuzione</span>
+</code></pre></div></div>
+
+<h2 id="scope-chaining">Scope Chaining</h2>
+<p>Una varibaile è visibile ai blocchi interni (figli) ma non ai contenitori (padre). I blocchi interni (figli) ereditano tutto dai loro contenitori (padri) ma <em>i padri non conoscono i segreti dei figli</em> ovvero non possono conoscere le variabili/oggetti dichiarati dei figli.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="c1">//FUNZIONI ANNIDATE (nested)</span>
+<span class="kd">function</span> <span class="nx">esterna</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">999</span><span class="p">;</span><span class="c1">// dichiaro una nuova "x" diversa da quella globale</span>
+  <span class="nx">interna</span><span class="p">();</span>
+
+  <span class="c1">//Accedo alla "x" esterna tramite il contest. &lt;window&gt; è il contesto esterno, è il contenitore di tutto</span>
+  <span class="nb">window</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">18</span><span class="p">;</span> 
+  <span class="c1">//interna accede anche allo scope di esterna ma non il viceversa</span>
+  <span class="kd">function</span> <span class="nx">interna</span><span class="p">()</span>
+  <span class="p">{</span>
+    <span class="c1">//code</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="visibilità-a-livello-di-blocco-block-scope">Visibilità a livello di blocco (block scope)</h2>
+
+<p>La visibilità è racchiusa da i delimitatori <code class="language-plaintext highlighter-rouge">{ }</code></p>
+
+<p>Per mantenere la visibilità a livello di blocco è necesario usare <code class="language-plaintext highlighter-rouge">let</code>, <code class="language-plaintext highlighter-rouge">var</code> mantiene soltanto lo scope locale a livello di funzione ma non di blocco <code class="language-plaintext highlighter-rouge">{ }</code></p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">let</code>: Mantiene lo scope delle variabili sia a livello locale (all’interno di una funzione) sia livello di blocco ovvero tra i delimitatori <code class="language-plaintext highlighter-rouge">{ }</code></li>
+  <li><code class="language-plaintext highlighter-rouge">var</code>: Mantiene lo scope delle variabili solo a livello locale (all’interno di una funzione) ma non a livello di blocco ovvero tra i delimitatori <code class="language-plaintext highlighter-rouge">{ }</code></li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//"var" non mantiene la visibilità di blocco</span>
+<span class="kd">var</span> <span class="nx">x</span><span class="o">=</span><span class="mi">5</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mf">0.5</span> <span class="p">)</span>
+<span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">La x ora vale: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">x</span><span class="p">);</span> <span class="c1">//100 o 200!! ATTENZIONE, </span>
+
+<span class="c1">//"let" mantiene la visibilità di blocco</span>
+<span class="nx">x</span><span class="o">=</span><span class="mi">5</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mf">0.5</span> <span class="p">)</span>
+<span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">La x globale vale ancora: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">x</span><span class="p">);</span>  <span class="c1">//5, ok </span>
+</code></pre></div></div>
+
+<h2 id="approfondimento---closure-di-una-funzione">Approfondimento - Closure di una funzione</h2>
+
+<p>Si ricordi:</p>
+
+<p><em>Una funzione funge da chiusura, closure in JavaScript e quindi crea uno scope, in modo che (ad esempio) non sia possibile accedere a una variabile definita esclusivamente all’interno della funzione dall’esterno della funzione o da altre funzioni</em></p>
+
+<p>Applichiamo questo concetto ad un esempio pratico. <br />
+La funzione:
+<code class="language-plaintext highlighter-rouge">setInterval( param1, param2 )</code>: <em>param1</em> è una funzione, <em>param2</em> rappresenta un intervallo di tempo espresso in <code class="language-plaintext highlighter-rouge">ms</code>.
+La funzione <code class="language-plaintext highlighter-rouge">setInterval()</code> chiama la funzione <em>param1</em> ogni <em>param2</em> <code class="language-plaintext highlighter-rouge">ms</code>.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">chiamaMessaggio</span><span class="p">(</span><span class="nx">messaggio</span><span class="p">){</span>
+    <span class="nx">setInterval</span><span class="p">(</span> <span class="kd">function</span><span class="p">(){</span><span class="nx">writeln</span><span class="p">(</span><span class="nx">messaggio</span><span class="p">);},</span> <span class="mi">1000</span><span class="p">);</span> <span class="c1">//uso una funzione anonima</span>
+<span class="p">}</span>
+
+<span class="nx">chiamaMessaggio</span><span class="p">(</span><span class="dl">"</span><span class="s2">il sistema è in fase di spegnimento..</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Ho utilizzato il concetto di <em>closure</em> (e quindi dell’ereditarietà delle variabili/oggetti padre-&gt;figlio) di una funzione per passare un parametro alla funzione (parametro) di <code class="language-plaintext highlighter-rouge">setInterval()</code></p>
+
+<p>Esempio 2:</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">chiamaMessaggio2</span><span class="p">(</span><span class="nx">ilMessaggio</span><span class="p">,</span> <span class="nx">volte</span><span class="p">)</span>
+<span class="p">{</span>
+
+    <span class="kd">let</span> <span class="nx">timer</span> <span class="o">=</span> <span class="nx">setInterval</span><span class="p">(</span> 
+    <span class="kd">function</span> <span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nx">writeln</span><span class="p">(</span><span class="nx">ilMessaggio</span> <span class="o">+</span> <span class="dl">"</span><span class="s2"> </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">volte</span> <span class="o">+</span> <span class="dl">"</span><span class="s2"> secondi...</span><span class="dl">"</span><span class="p">);</span> 
+        <span class="o">--</span><span class="nx">volte</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">volte</span><span class="o">&lt;</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span> <span class="nx">clearInterval</span><span class="p">(</span><span class="nx">timer</span><span class="p">);</span> <span class="nx">writeln</span><span class="p">(</span><span class="dl">"</span><span class="s2">Boom!</span><span class="dl">"</span><span class="p">);}</span>
+    <span class="p">}</span>
+    <span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="nx">chiamaMessaggio2</span><span class="p">(</span><span class="dl">"</span><span class="s2">Sistem Shutdown in </span><span class="dl">"</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p><strong>Approfondimento:</strong> Le funzioni che ricevono come parametri altre funzioni o ritornano altre funzioni prendono il nome di <em>High orderd function</em></p>
+
+
+        
+      </section>
+      
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Aggiornato:</strong> <time datetime="2021-01-10">January 10, 2021</time></p>
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/javascript-modulo-base/20-js-modulo-base" class="pagination--pager" title="20 - Funzioni ricorsive, Funzioni espressione, Hoisting
+">Precedente</a>
+    
+    
+      <a href="/javascript-modulo-base/22-js-modulo-base" class="pagination--pager" title="22 - Array
+">Prossima</a>
+    
+  </nav>
+
+    </div>
+    
+<div class="corso sidebar sticky">
+  
+  
+  <header>
+    <h1 class="corso course__title">
+      Javascript - Modulo Base
+    </h1>
+  </header>
+  <ul class="corso lesson__items" id="move__scrollbar">
+  
+      <li ><a href="/javascript-modulo-base/index">00 - Introduzione e setup pt1</a></li>
+  
+      <li ><a href="/javascript-modulo-base/01-js-modulo-base">01 - Introduzione e setup pt2</a></li>
+  
+      <li ><a href="/javascript-modulo-base/02-js-modulo-base">02 - Primo script</a></li>
+  
+      <li ><a href="/javascript-modulo-base/03-js-modulo-base">02 - Browser console, alert & prompt</a></li>
+  
+      <li ><a href="/javascript-modulo-base/04-js-modulo-base">04 - Introduzione al DOM e jQuery</a></li>
+  
+      <li ><a href="/javascript-modulo-base/05-js-modulo-base">05 - Variabili e tipi di dato</a></li>
+  
+      <li ><a href="/javascript-modulo-base/06-js-modulo-base">06 - Stringhe. Operatori proprietà e metodi</a></li>
+  
+      <li ><a href="/javascript-modulo-base/07-js-modulo-base">07 - Esercitazione. Conta parole</a></li>
+  
+      <li ><a href="/javascript-modulo-base/08-js-modulo-base">08 - Rappresentazione dei numeri in fixed e floating point</a></li>
+  
+      <li ><a href="/javascript-modulo-base/09-js-modulo-base">09- Codifica caratteri. ASCII & Unicode</a></li>
+  
+      <li ><a href="/javascript-modulo-base/10-js-modulo-base">10- Conversione di tipo, implicita e espicita</a></li>
+  
+      <li ><a href="/javascript-modulo-base/11-js-modulo-base">11 - Operatori matematici e oggetto Math</a></li>
+  
+      <li ><a href="/javascript-modulo-base/12-js-modulo-base">12 - Esercitazione - Equazione di II grado</a></li>
+  
+      <li ><a href="/javascript-modulo-base/13-js-modulo-base">13 - Precedenza e associatività degli operatori</a></li>
+  
+      <li ><a href="/javascript-modulo-base/14-js-modulo-base">14 - Operatori Logici e logica booleana</a></li>
+  
+      <li ><a href="/javascript-modulo-base/15-js-modulo-base">15 - Costrutti condizionali. if...else, ternary operator, switch</a></li>
+  
+      <li ><a href="/javascript-modulo-base/16-js-modulo-base">15 - Costrutti iterativi. while, do...while</a></li>
+  
+      <li ><a href="/javascript-modulo-base/17-js-modulo-base">17 - Costrutti iterativi. for, break, continue</a></li>
+  
+      <li ><a href="/javascript-modulo-base/18-js-modulo-base">18 - Funzioni. parametri, parametri di default, ritorno di una funzione</a></li>
+  
+      <li ><a href="/javascript-modulo-base/19-js-modulo-base">19 - Funzioni. Passaggio di oggetti e array. Oggetto Arguments e parametri Rest</a></li>
+  
+      <li ><a href="/javascript-modulo-base/20-js-modulo-base">20 - Funzioni ricorsive, Funzioni espressione, Hoisting</a></li>
+  
+      <li  class="active" id ="lesson__active" ><a href="/javascript-modulo-base/21-js-modulo-base">21 - Visibilità delle variabili</a></li>
+  
+      <li ><a href="/javascript-modulo-base/22-js-modulo-base">22 - Array</a></li>
+  
+      <li ><a href="/javascript-modulo-base/23-js-modulo-base">23 - Array. Qualche metodo</a></li>
+  
+      <li ><a href="/javascript-modulo-base/24-js-modulo-base">24 - Array. Metodi avanzati</a></li>
+  
+      <li ><a href="/javascript-modulo-base/25-js-modulo-base">25 - Introduzione agli oggetti</a></li>
+  
+  </ul>
+  
+</div>
+
+
+<script>
+  var lesson__active = document.getElementById("lesson__active");
+  lesson__active.scrollIntoViewIfNeeded(true);
+</script>
+
+    
+  </article>
+
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Inserisci termini di ricerca..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Segui:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/CodeCoagious19" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Simone Di Ricco. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

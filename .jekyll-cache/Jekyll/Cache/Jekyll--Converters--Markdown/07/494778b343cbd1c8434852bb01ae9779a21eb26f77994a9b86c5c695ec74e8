@@ -1,0 +1,103 @@
+I"S*<h2 id="array">Array</h2>
+
+<p>Gli array sono aggragatori di dati utilizzati per raggruppare elementi appartenenti alla stessa <em>famiglia</em> ed accedere ad uno di essi in lettura o scrittura in modo semplice.</p>
+
+<ul>
+  <li>Ogni elemento dell’array è raggiungibile tramite un numero detto <strong>indice</strong>. L’indice indica la posizione dell’elemento nell’array.</li>
+  <li>La proprietà <code class="language-plaintext highlighter-rouge">lenght</code> restituisce il numero degli elementi in un array</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Dichiarazione e inizializzazione</span>
+<span class="c1">//                 0            1            2</span>
+<span class="kd">const</span> <span class="nx">elementi</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">elemento1</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">elemento2</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">element03</span><span class="dl">"</span><span class="p">];</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">elementi</span><span class="p">);</span>        <span class="c1">//(3) ["elemento1", "elemento2", "element03"]</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">elementi</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>     <span class="c1">//elemento2</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">elementi</span><span class="p">.</span><span class="nx">lenght</span><span class="p">);</span> <span class="c1">//3</span>
+
+<span class="nx">elementi</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Silicio</span><span class="dl">"</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">elementi</span><span class="p">);</span>        <span class="c1">//(3) ["elemento1", "elemento2", "Silicio"]</span>
+
+<span class="c1">// Solo dichiarazione</span>
+<span class="kd">const</span> <span class="nx">mammiferi</span> <span class="o">=</span> <span class="p">[];</span>
+</code></pre></div></div>
+
+<p>Altre sintassi (meno utilizzate ma valide):</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//Array vuoto</span>
+<span class="kd">let</span> <span class="nx">vuoto1</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">();</span>
+<span class="kd">let</span> <span class="nx">vuoto2</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">();</span>
+<span class="kd">let</span> <span class="nx">vuoto3</span> <span class="o">=</span> <span class="p">[];</span> <span class="c1">//da preferire</span>
+
+<span class="kd">let</span> <span class="nx">v1</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>    <span class="c1">//100 elementi pre allocati </span>
+<span class="kd">let</span> <span class="nx">v2</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">(</span><span class="dl">'</span><span class="s1">100</span><span class="dl">'</span><span class="p">);</span>  <span class="c1">//1 elemento stringa, crea confusione</span>
+
+<span class="kd">let</span> <span class="nx">v3</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">31</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">2017</span><span class="p">);</span> <span class="c1">//meno consigliata</span>
+<span class="kd">let</span> <span class="nx">arr3</span> <span class="o">=</span> <span class="p">[</span><span class="mi">31</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2017</span><span class="p">];</span>      <span class="c1">//sintassa più chiara</span>
+</code></pre></div></div>
+
+<p>Alcuni esempi:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">mammiferi</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">tigre</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">scoiattolo</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">orso</span><span class="dl">"</span><span class="p">];</span>
+<span class="nx">mammiferi</span><span class="p">[</span><span class="nx">mammiferi</span><span class="p">.</span><span class="nx">length</span><span class="p">]</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">volpe</span><span class="dl">"</span><span class="p">;</span> <span class="c1">// === mammiferi[3] = "volpe", aggiunge in coda un elemento</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">mammiferi</span><span class="p">);</span> <span class="c1">//(4) ["tigre", "scoiattolo", "orso", "volpe"]</span>
+
+<span class="nx">mammiferi</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">cinghiale</span><span class="dl">"</span><span class="p">;</span> <span class="c1">//aggiunge "cinghiale" al decimo elemento e riempie con elementi vuoti i restanti</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">mammiferi</span><span class="p">,</span> <span class="nx">mammiferi</span><span class="p">.</span><span class="nx">lenght</span><span class="p">);</span> <span class="c1">//(11) ["tigre", "scoiattolo", "orso", "volpe", empty × 6, "cinghiale"] 11</span>
+
+<span class="nx">mammiferi</span><span class="p">.</span><span class="nx">lenght</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">mammiferi</span><span class="p">,</span> <span class="nx">mammiferi</span><span class="p">.</span><span class="nx">lenght</span><span class="p">);</span> <span class="c1">//(11) ["tigre", "scoiattolo", "orso", "volpe", empty × 6, "cinghiale", lenght: 20] 20</span>
+
+<span class="c1">//Iterazione sugli elementi dell'array</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="nx">mammiferi</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">mammiferi</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">!=</span> <span class="kc">undefined</span><span class="p">){</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">mammiferi</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+    <span class="k">else</span><span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">: </span><span class="dl">"</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">non è un mammifero</span><span class="dl">"</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cm">/*
+0: tigre
+1: scoiattolo
+2: orso
+3: volpe
+4: non è un mammifero
+5: non è un mammifero
+6: non è un mammifero
+7: non è un mammifero
+8: non è un mammifero
+9: non è un mammifero
+10: cinghiale
+*/</span>
+</code></pre></div></div>
+
+<h2 id="matrix">Matrix</h2>
+
+<p>Della famiglia degli array ci sono anche le matrici che non sono altro che array di array.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">social</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="dl">"</span><span class="s2">facebook</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">instagram</span><span class="dl">"</span><span class="p">],</span>
+    <span class="p">[</span><span class="dl">"</span><span class="s2">whatsapp</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">telegram</span><span class="dl">"</span><span class="p">],</span>
+    <span class="p">[</span><span class="dl">"</span><span class="s2">tiktok</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">snapchat</span><span class="dl">"</span><span class="p">],</span>
+<span class="p">];</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">social</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">social</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">social</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]);</span>
+
+<span class="cm">/*
+Console:
+---------------
+Esercizio 2
+
+(3) [Array(2), Array(2), Array(2)]
+0: (2) ["facebook", "instagram"]
+1: (2) ["whatsapp", "telegram"]
+2: (2) ["tiktok", "snapchat"]
+
+telegram
+tiktok
+*/</span>
+</code></pre></div></div>
+
+:ET

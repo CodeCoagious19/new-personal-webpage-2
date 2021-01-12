@@ -1,0 +1,94 @@
+I"�;<h2 id="array---metodi-base">Array - Metodi base</h2>
+
+<p>Qualche metodo base applicabile agli array in javascript:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">push(elem)</code> : aggiunge l’elemento <em>elem</em> in coda all’array. Restituisce il numero di elementi dell’array.</li>
+  <li><code class="language-plaintext highlighter-rouge">pop()</code> : rimuove l’ultimo elemento dall’array. Restituisce l’elemento che ha tolto.</li>
+  <li><code class="language-plaintext highlighter-rouge">array.unshift(elem)</code> : aggiunge l’elemento <em>elem</em> in testa all’array. Restituisce il numero di elementi dell’array</li>
+  <li><code class="language-plaintext highlighter-rouge">array.shift()</code> : rimuove il primo elemento dall’array. Restituisce l’elemento che ha tolto</li>
+  <li><code class="language-plaintext highlighter-rouge">indexOf(elem)</code> : Restituisce l’indice dell’ elemento <em>elem</em> nell’array. Se non lo trova restituisce <code class="language-plaintext highlighter-rouge">-1</code></li>
+  <li><code class="language-plaintext highlighter-rouge">slice(startIndex, endIndex);</code> : Restituisce un array derivato dall’array a cui si applica il metodo filtrando gli elementi nel range (<em>startIndex</em> incluso,<em>endIndex</em> escluso).</li>
+  <li><code class="language-plaintext highlighter-rouge">.concat(array2);</code> : Restituisce un array che è la concatenazione dell’array a cui si applica il metodo e <em>array2</em></li>
+  <li><code class="language-plaintext highlighter-rouge">splice(startIndex, nToDelete, elem1, elem2, ...);</code> : Restituisce un array derivato dall’array a cui si applica il metodo aggiungendo <em>elem1</em>, <em>elem2</em>, .. a partire da <em>startIndex</em> ed eliminando i primi <em>nToDelete</em> elementi a partire da <em>startIndex</em>. Se non specifico i parametri <em>elem1</em>, <em>elem2</em>, .. semplicemente elimina gli elementi <em>nToDelete</em>  a partire da <em>startIndex</em>.</li>
+  <li><code class="language-plaintext highlighter-rouge">fill(value, indexStart, indexEnd)</code>: Inserisce <em>value</em> all’interno dell’array tra i parametri opzionali <em>indexStart</em> e <em>indexEnd</em>. Omettendo <em>indexStart</em> e <em>indexEnd</em> riempie tuttto l’array con <em>value</em></li>
+  <li><code class="language-plaintext highlighter-rouge">join()</code> : Trasforma un array in stringa</li>
+  <li><code class="language-plaintext highlighter-rouge">reverse()</code> : Inverte l’ordine degli elementi</li>
+  <li><code class="language-plaintext highlighter-rouge">sort()</code> : Ordinamento lessicografico degli elementi. Ogni elemento viene quindi trattato come una stringa e poi ordinato secondo la precedenza definita dalla rappresentazione in UTF-8 (ASCII)</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//push</span>
+<span class="kd">const</span> <span class="nx">colori</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">rosso</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">verde</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">giallo</span><span class="dl">"</span><span class="p">];</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">colori</span><span class="p">);</span> <span class="c1">//(3) ["rosso", "verde", "giallo"]</span>
+
+<span class="kd">let</span> <span class="nx">newArrayLenght</span> <span class="o">=</span> <span class="nx">colori</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="dl">"</span><span class="s2">blu</span><span class="dl">"</span><span class="p">);</span> <span class="c1">//push ritorna il numero degli elementi dell'array</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">colori</span><span class="p">,</span> <span class="nx">newArrayLenght</span><span class="p">);</span>     <span class="c1">//(4) ["rosso", "verde", "giallo", "blu"] 4</span>
+
+<span class="c1">//pop</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">colori</span><span class="p">);</span> <span class="c1">//(4) ["rosso", "verde", "giallo", "blu"]</span>
+
+<span class="kd">let</span> <span class="nx">lastElement</span> <span class="o">=</span> <span class="nx">colori</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span> <span class="c1">//pop ritorna l'elemento che ha tolto</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">colori</span><span class="p">,</span> <span class="nx">lastElement</span><span class="p">);</span> <span class="c1">//(3) ["rosso", "verde", "giallo"] "blu"</span>
+
+<span class="c1">//unshift</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">colori</span><span class="p">);</span> <span class="c1">//["rosso", "verde", "giallo"]</span>
+
+<span class="nx">newArrayLenght</span> <span class="o">=</span> <span class="nx">colori</span><span class="p">.</span><span class="nx">unshift</span><span class="p">(</span><span class="dl">"</span><span class="s2">gialletto</span><span class="dl">"</span><span class="p">);</span> <span class="c1">//unshift ritorna il numero degli elementi dell'array</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">colori</span><span class="p">,</span> <span class="nx">newArrayLenght</span><span class="p">);</span> <span class="c1">//(4) ["gialletto", "rosso", "verde", "giallo"] 4</span>
+
+<span class="c1">//shift</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">colori</span><span class="p">);</span> <span class="c1">//(4) ["gialletto", "rosso", "verde", "giallo"]</span>
+
+<span class="kd">let</span> <span class="nx">firstElement</span> <span class="o">=</span> <span class="nx">colori</span><span class="p">.</span><span class="nx">shift</span><span class="p">();</span> <span class="c1">//shift ritorna l'elemento che ha tolto</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">colori</span><span class="p">,</span> <span class="nx">firstElement</span><span class="p">);</span> <span class="c1">//(3) ["rosso", "verde", "giallo"] "gialletto"</span>
+
+<span class="c1">//indexOf</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">colori</span><span class="p">);</span> <span class="c1">//(3) ["rosso", "verde", "giallo"] </span>
+
+<span class="kd">let</span> <span class="nx">indexElem</span> <span class="o">=</span> <span class="nx">colori</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="dl">"</span><span class="s2">verde</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">indexElem</span><span class="p">);</span> <span class="c1">//1</span>
+
+<span class="c1">//slice</span>
+<span class="c1">//                0            1           2           3           4</span>
+<span class="kd">const</span> <span class="nx">social</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">facebook</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">instagram</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">whatsapp</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">telegram</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">snapchat</span><span class="dl">"</span><span class="p">];</span>
+<span class="kd">const</span> <span class="nx">messaggi</span> <span class="o">=</span> <span class="nx">social</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">messaggi</span><span class="p">);</span> <span class="c1">//(2) ["whatsapp", "telegram"]</span>
+
+<span class="c1">//concat</span>
+<span class="kd">const</span> <span class="nx">numeriBassi</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">];</span>
+<span class="kd">const</span> <span class="nx">numeriAlti</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">300</span><span class="p">];</span>
+
+<span class="kd">const</span> <span class="nx">tuttiNumeri</span> <span class="o">=</span> <span class="nx">numeriBassi</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">numeriAlti</span><span class="p">);</span> 
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">tuttiNumeri</span><span class="p">);</span> <span class="c1">//(6) [1, 2, 3, 100, 200, 300]</span>
+
+<span class="c1">//splice</span>
+<span class="c1">//poichè il secondo parametro è 0, aggiungerà a partire dall'indice 3 i parametri 50, 60, 70</span>
+<span class="nx">tuttiNumeri</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">);</span> <span class="c1">//poichè il secondo parametro è 0</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">tuttiNumeri</span><span class="p">);</span> <span class="c1">//(9) [1, 2, 3, 50, 60, 70, 100, 200, 300]</span>
+
+<span class="c1">//poichè il secondo parametro è 3, sostituirà 50, 60, 70 con -50, -60, -70</span>
+<span class="nx">tuttiNumeri</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="o">-</span><span class="mi">60</span><span class="p">,</span> <span class="o">-</span><span class="mi">70</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">tuttiNumeri</span><span class="p">);</span> <span class="c1">//(9) [1, 2, 3, -50, -60, -70, 100, 200, 300]</span>
+
+<span class="c1">//fill()</span>
+<span class="kd">const</span> <span class="nx">myArr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">];</span>
+<span class="nx">myArr</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span> 
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myArr</span><span class="p">);</span> <span class="c1">//(7) [1, 0, 0, 1, 5, 5, 7]</span>
+
+<span class="c1">//join()</span>
+<span class="kd">const</span> <span class="nx">paroleTesto</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">ciao</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2"> </span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2"> </span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">tutti</span><span class="dl">"</span><span class="p">];</span> 
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">paroleTesto</span><span class="p">);</span> <span class="c1">//(5) ["ciao", " ", "a", " ", "tutti"]</span>
+
+<span class="nx">conole</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">parole</span><span class="p">.</span><span class="nx">Testo</span><span class="p">.</span><span class="nx">join</span><span class="p">());</span> <span class="c1">// ciao, ,a, ,tutti</span>
+
+<span class="c1">//reverse()</span>
+<span class="kd">const</span> <span class="nx">numeriDispari</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">19</span><span class="p">];</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="p">(</span><span class="nx">numeriDispari</span><span class="p">);</span> <span class="c1">//(10 [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numeriDispari</span><span class="p">.</span><span class="nx">reverse</span><span class="p">());</span> <span class="c1">//(10) [19, 17, 15, 13, 11, 9, 7, 5, 3, 1]</span>
+
+<span class="c1">//sort() - ATTENZIONE</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numeriDispari</span><span class="p">.</span><span class="nx">sort</span><span class="p">());</span> <span class="c1">//(10) [1, 11, 13, 15, 17, 19, 3, 5, 7, 9]</span>
+</code></pre></div></div>
+
+:ET

@@ -1,6 +1,7 @@
 ---
 title: "05 - Variabili e tipi di dato"
 excerpt: "Javascript"
+permalink: /javascript-modulo-base/05-js-modulo-base
 last_modified_at: 2021-01-10
 ---
 

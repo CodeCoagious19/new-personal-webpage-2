@@ -1,0 +1,152 @@
+I"�5<h2 id="control-structure-ifelse">Control Structure if/else</h2>
+
+<p>La struttura di controllo <code class="language-plaintext highlighter-rouge">if/else</code> esegue un’istruzione o un blocco di istruzioni se una condizione specificata come argomento di <code class="language-plaintext highlighter-rouge">if</code> risulta <em>true</em>. Se la condizione risulta <em>false</em> si eseguono le istruzioni del ramo <code class="language-plaintext highlighter-rouge">else</code></p>
+
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else">MDN - if…else</a></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="nx">condition1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//code</span>
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">condition2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//code</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="p">{</span>
+    <span class="c1">//code</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>La condizione espressa come argomento di <code class="language-plaintext highlighter-rouge">if</code> è trattata come un’espressione logica e quindi ritorna un boolean: <em>true/false</em>.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*Utilizzo di operatori logici combinati al costrutto if/else*/</span>
+
+<span class="kd">const</span> <span class="nx">maggioreEta</span> <span class="o">=</span> <span class="mi">18</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">etaLuca</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">etaLuca</span> <span class="o">&gt;</span> <span class="nx">maggioreEta</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Luca è maggiorenne</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Luca non è maggiorenne</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="cm">/*
+Luca non è maggiorenne
+*/</span>
+
+
+
+<span class="cm">/* Boolean logic, trattano l'espressione come logica
+AND     -&gt; &amp;&amp; : ritorna TRUE se tutte le condizioni sono VERE
+OR      -&gt; || : ritorna TRUE se una condizione è VERE
+NOT     -&gt; !  : inverte il risultato dell'espressione logica
+*/</span>
+
+<span class="kd">const</span> <span class="nx">nome</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Luca</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">eta</span> <span class="o">=</span> <span class="mi">15</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">eta</span> <span class="o">&lt;=</span> <span class="mi">13</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">nome</span> <span class="o">+</span> <span class="dl">"</span><span class="s2"> è un bambino</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span> <span class="nx">eta</span> <span class="o">&gt;</span> <span class="mi">13</span> <span class="o">&amp;&amp;</span> <span class="nx">eta</span> <span class="o">&lt;=</span> <span class="mi">20</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">nome</span> <span class="o">+</span> <span class="dl">"</span><span class="s2"> è un ragazzo</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+ <span class="k">else</span>  <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">nome</span> <span class="o">+</span> <span class="dl">"</span><span class="s2"> è un adulto</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="cm">/*
+Luca è un ragazzo
+*/</span>
+</code></pre></div></div>
+
+<h2 id="ternary-operator">Ternary Operator</h2>
+
+<p>Il Ternary Operator è un costrutto condizionale inline.</p>
+
+<p>L’operatore condizionale (ternary) è  l’unico operatore JavaScript che necessità di tre operandi. Questo operatore è frequentemente usato al posto del comando <code class="language-plaintext highlighter-rouge">if</code> per la sua sintassi concisa e perché fornisce direttamente un espressione valutabile.</p>
+
+<p><a href="https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Operators/Operator_Condizionale">MDN - Operatore condizionale (ternary)</a></p>
+
+<p><code class="language-plaintext highlighter-rouge">(condition) ? (steatement1) : (steatement2);</code> : Se <code class="language-plaintext highlighter-rouge">condition</code> risulta <em>true</em> verrà eseguito <code class="language-plaintext highlighter-rouge">steatement1</code> altrimenti <code class="language-plaintext highlighter-rouge">steatement2</code>.<br /></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* Ternary Operator */</span>
+<span class="kd">var</span> <span class="nx">nome</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Marco</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">eta</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">17</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="nx">eta</span> <span class="o">&gt;=</span> <span class="mi">18</span> <span class="p">?</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">nome</span> <span class="o">+</span> <span class="dl">"</span><span class="s2"> può guidare</span><span class="dl">"</span><span class="p">)</span> <span class="p">:</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">nome</span> <span class="o">+</span> <span class="dl">"</span><span class="s2"> non può guidare</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="cm">/*
+Marco non può guidare
+*/</span>
+</code></pre></div></div>
+
+<p>E’ da preferire il <code class="language-plaintext highlighter-rouge">ternary operator</code> nei casi in cui si hanno due semplici statemeant da eseguire condizionati da un’espressione altrettanto semplice. In questo caso risulta chiaro ed elegante.</p>
+
+<h2 id="switch-statemeant">Switch statemeant</h2>
+
+<p>L’ultimo costrutto condizionale è <code class="language-plaintext highlighter-rouge">switch</code>.
+Il comando <code class="language-plaintext highlighter-rouge">switch</code> valuta un espressione, confronta il valore dell’espressione con ciascuna delle clausole <code class="language-plaintext highlighter-rouge">case</code> ed esegue i comandi (statements) associati alla clausola (case) che verifica il confronto.</p>
+
+<p><a href="https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Statements/switch">MDN - switch</a></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">switch</span> <span class="p">(</span><span class="nx">key</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="nx">value1</span><span class="p">:</span>
+        <span class="c1">//code</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="nx">value2</span><span class="p">:</span>
+        <span class="c1">//code</span>
+        <span class="k">break</span><span class="p">;</span>      
+    <span class="nl">default</span><span class="p">:</span>
+        <span class="c1">//code</span>
+        <span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Esempio:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* switch statemeant*/</span>
+<span class="kd">const</span> <span class="nx">sport</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">calcio</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="k">switch</span> <span class="p">(</span><span class="nx">sport</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="dl">"</span><span class="s2">calcio</span><span class="dl">"</span><span class="p">:</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Amo giocare a calcio</span><span class="dl">"</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="dl">"</span><span class="s2">tennis</span><span class="dl">"</span><span class="p">:</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Amo giocare a tennis</span><span class="dl">"</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="nl">default</span><span class="p">:</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">non amo nessuno sportf</span><span class="dl">"</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="cm">/*
+Console:
+---------------
+Amo giocare a calcio
+*/</span>
+</code></pre></div></div>
+
+<p>In che occasioni si usa è preferibile utilizzare il costrutto <code class="language-plaintext highlighter-rouge">switch</code>?<br />
+E’ da preferire quando si hanno opzioni multiple di una un unico <code class="language-plaintext highlighter-rouge">key</code> (un tipo di dato qualsiasi) da valutare e tutte le opzioni sono omogenee. In questo caso risulta chiaro e leggibile.</p>
+
+<p>Nel prossimo esempio lo <code class="language-plaintext highlighter-rouge">switch/case</code> è <em>trasformato</em> in un <code class="language-plaintext highlighter-rouge">if/else</code>.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* switch statemeant*/</span>
+
+<span class="kd">const</span> <span class="nx">nome</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Matteo</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">eta</span> <span class="o">=</span> <span class="mi">15</span><span class="p">;</span>
+
+<span class="k">switch</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="p">(</span><span class="nx">eta</span> <span class="o">&lt;=</span> <span class="mi">13</span><span class="p">):</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">nome</span> <span class="o">+</span> <span class="dl">"</span><span class="s2"> è un bambino</span><span class="dl">"</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="p">(</span> <span class="nx">eta</span> <span class="o">&gt;</span> <span class="mi">13</span> <span class="o">&amp;&amp;</span> <span class="nx">eta</span> <span class="o">&lt;=</span> <span class="mi">20</span><span class="p">):</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">nome</span> <span class="o">+</span> <span class="dl">"</span><span class="s2"> è un ragazzo</span><span class="dl">"</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="nl">default</span><span class="p">:</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">nome</span> <span class="o">+</span> <span class="dl">"</span><span class="s2"> è un adulto</span><span class="dl">"</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="cm">/*
+Matteo è un ragazzo
+*/</span>
+</code></pre></div></div>
+
+<p>In questo caso lo <code class="language-plaintext highlighter-rouge">switch/case</code> risulta meno chiaro di un <code class="language-plaintext highlighter-rouge">if/else</code>. <br />
+E’ importante fin da subito saper utilizzare i costrutti giusti per la situazione giusta.</p>
+
+:ET

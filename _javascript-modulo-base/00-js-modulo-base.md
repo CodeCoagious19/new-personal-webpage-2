@@ -1,6 +1,7 @@
 ---
 title: "00 - Introduzione e setup pt1"
 excerpt: "Javascript"
+permalink: /javascript-modulo-base/index
 last_modified_at: 2021-01-10
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: "10- Conversione di tipo, implicita e espicita"
 excerpt: "Javascript"
+permalink: /javascript-modulo-base/10-js-modulo-base
 last_modified_at: 2021-01-10
 ---
 

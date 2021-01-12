@@ -1,3 +1,9 @@
+$container-item-heght-desktop: 200px;
+$container-item-heght-mobile: 350px;
+$width-image-desktop: 150px;
+$width-image-mobile: 100px;
+$body-container-desktop: 200px;
+$body-container-mobile: 250px;
 //----------------------------------------------------------------------------
 //CARD
 
@@ -56,7 +62,7 @@
 .feature__item .archive__item {
     display: flex;
     flex-flow: column;
-    height: 400px;
+    height: $container-item-heght-mobile;
     align-items: center;
 }
 //Card >>> card-container
@@ -65,7 +71,7 @@
     .feature__item .archive__item {
         display: flex;
         flex-flow: row;
-        height: 250px;
+        height: $container-item-heght-desktop;
         align-items: center;
     }
 }
@@ -81,16 +87,16 @@
 //Mobile
 .feature__item .archive__item .archive__item-teaser {
     padding: 1rem;
-    flex: 0 0 150px;
-    width: 150px;
+    flex: 0 0 $width-image-mobile;
+    width: $width-image-mobile;
 }
 //Card >>> card-container >>> image-container
 //Desktop
 @media (min-width: 37.5em){
     .feature__item .archive__item .archive__item-teaser {
         padding: 2rem;
-        flex: 0 0 200px;
-        width: 200px;
+        flex: 0 0 $width-image-desktop;
+        width: $width-image-desktop;
     }
 }
 //----------------------------------------------------------------------------
@@ -106,7 +112,7 @@
 //Mobile
 .feature__item .archive__item .archive__item-body {
     flex: 1 1 auto;
-    max-height: 250px;
+    max-height: $body-container-mobile;
     align-items: center;
 }
 //Card >>> card-container >>> body-container
@@ -116,7 +122,7 @@
         flex: 1 1 auto;
         border-left: 1px solid rgba(128, 128, 128, 0.5);
         padding-left: 2rem;
-        max-height: 250px;
+        max-height: $body-container-desktop;
         align-items: baseline;
     }
 }

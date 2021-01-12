@@ -1,0 +1,497 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.21.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="it" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>09- Codifica caratteri. ASCII &amp; Unicode | Build &amp; Run</title>
+<meta name="description" content="Javascript">
+
+
+  <meta name="author" content="Simone Di Ricco">
+  
+  <meta property="article:author" content="Simone Di Ricco">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="it_IT">
+<meta property="og:site_name" content="Build & Run">
+<meta property="og:title" content="09- Codifica caratteri. ASCII &amp; Unicode">
+<meta property="og:url" content="/javascript-modulo-base/09-js-modulo-base">
+
+
+  <meta property="og:description" content="Javascript">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-01-12T15:37:36+01:00">
+
+
+
+  <meta property="article:modified_time" content="2021-01-10T00:00:00+01:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="/javascript-modulo-base/09-js-modulo-base">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Simone Di Ricco",
+      "url": "/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Build & Run Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--corso">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logo2.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          Build & Run
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/pages/about/">Chi sono</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/tutorial/">Tutorial</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/corsi/">Corsi</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+
+
+  <article class="corso page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="09- Codifica caratteri. ASCII &amp; Unicode">
+    <meta itemprop="description" content="Javascript">
+    <meta itemprop="datePublished" content="2021-01-12T15:37:36+01:00">
+    <meta itemprop="dateModified" content="2021-01-10T00:00:00+01:00">
+
+    <div class="corso page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">09- Codifica caratteri. ASCII &amp; Unicode
+</h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          18 minuto/i di lettura
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="corso page__content" itemprop="text">
+        
+          <aside class="corso sidebar__right ">
+            <nav class="corso toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Indice della pagina</h4></header>
+              <ul class="toc__menu"><li><a href="#approfondimento---codifica-caratteri-javascript">Approfondimento - Codifica caratteri Javascript</a></li><li><a href="#ascii">ASCII</a></li><li><a href="#unicode">Unicode</a></li><li><a href="#caratteri-di-escape">Caratteri di Escape</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="approfondimento---codifica-caratteri-javascript">Approfondimento - Codifica caratteri Javascript</h2>
+
+<p>Questa parte per adesso potrebbe essere troppo approfondita, è possibile saltarla senza pregiudicare il corso</p>
+
+<h2 id="ascii">ASCII</h2>
+
+<p>ASCII (acronimo di American Standard Code for Information Interchange, Codice Standard Americano per lo Scambio di Informazioni) è un codice per la codifica di caratteri. Lo standard ASCII è stato pubblicato dall’American National Standards Institute (ANSI) nel 1968</p>
+
+<p>Con US-ASCII si intende un sistema di codifica dei caratteri a 7 bit, comunemente utilizzato nei calcolatori, proposto dall’ingegnere dell’IBM Bob Bemer nel 1961, e successivamente accettato come standard dall’ISO, con il nome di ISO/IEC 646.</p>
+
+<p>Alla specifica iniziale basata su codici di 7 bit fecero seguito negli anni molte proposte di estensione ad 8 bit e quindi 256 caratteri, con lo scopo di raddoppiare il numero di caratteri rappresentabili. Nei PC IBM si fa per l’appunto uso di una di queste estensioni, ormai standard de facto, chiamata extended ASCII o high ASCII. In questo ASCII esteso, i caratteri aggiunti sono vocali accentate, simboli semigrafici e altri simboli di uso meno comune. I caratteri di ASCII esteso sono codificati nei cosiddetti codepage. Ogni paese presentò la sua proposta di ASCII esteso per rappresentare e codificare tutti i caratteri aggiuntivi relativi alla lingua creando non pochi problemi di comunicazione tra continenti. C’era quindi bisogno di uno standard nuovo e unico per tutto il mondo. Nasce quindi l’UNICODE.</p>
+
+<p><a href="https://it.wikipedia.org/wiki/ASCII">Wikipedia - ASCII</a></p>
+
+<h2 id="unicode">Unicode</h2>
+
+<p>Unicode è stato creato per risolvere i limiti dei tradizionali schemi di codifica dei caratteri Ad esempio , sebbene i caratteri definiti nella ISO 8859-1 siano ampiamente utilizzati in paesi diversi, spesso si verifica incompatibilità tra paesi diversi. Molti metodi di codifica tradizionali hanno un problema comune, ovvero consentono ai computer di gestire un ambiente bilingue (di solito utilizzando lettere latine e le loro lingue native), ma non possono supportare un ambiente multilingue allo stesso tempo (riferendosi a una situazione in cui più lingue possono essere mescolate contemporaneamente).</p>
+
+<p>Unicode era stato originariamente pensato come una codifica a 16 bit (quattro cifre esadecimali) che dava la possibilità di codificare 65.535 (2^16 -1) caratteri. Tanto si riteneva essere sufficiente per rappresentare i caratteri impiegati in tutte le lingue scritte del mondo. Ora invece lo standard Unicode, che tendenzialmente è perfettamente allineato con la norma ISO/IEC 10646, prevede una codifica fino a 21 bit e supporta un repertorio di codici numerici che possono rappresentare circa un milione di caratteri. Ciò appare sufficiente a coprire anche i fabbisogni di codifica di scritti del patrimonio storico dell’umanità, nelle diverse lingue e negli svariati sistemi di segni utilizzati.</p>
+
+<p>Al 2009, solo una piccolissima parte di questa disponibilità di codici è assegnata. Per lo sviluppo dei codici sono infatti previsti 17 “piani” (“planes”, in inglese), da 00 a 10hex, ciascuno con 65.536 posizioni (quattro cifre esadecimali), ma solo i primi tre e gli ultimi tre piani sono ad oggi assegnati[2], e di questi il primo, detto anche BMP, è praticamente sufficiente a coprire tutte le lingue più usate.</p>
+
+<p><img src="./images/Unicode-1.png" alt="" /></p>
+
+<p>Concretamente, questo repertorio di codici numerici è serializzato mediante diversi schemi di ricodifica, che consentono l’uso di codici più compatti per i caratteri usati più di frequente. È previsto l’uso di codifiche con unità da 8 bit (byte), 16 bit (word) e 32 bit (double word), descritte rispettivamente come UTF-8, UTF-16 e UTF-32. UTF-8 è di fatto lo standard successore di ASCII, perfettamente compatibile mentre javascript utilizza l’UTF-16 consentendo di rappresentare un numero elevato di caratteri, 655536. Ciò non significa che per le codifiche UTF-8 e UTF-16 non sia possibile rappresentare tutti i caratteri unicode ma a causa della codifica potrebbe non essere conveniente in certe situazioni utilizzare UTF-8 anzichè UTF-16. In certe situazioni infatti UTF-8 potrebbe aver bisogno di 3 byte per rappresentare un certo carattere mentre UTF-16 soltanto 2. Dipende dalla frequenza e natura dei caratteri.</p>
+
+<p>Si rirprenda il template html:</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1.0"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Document<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>Alla riga</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+<p>E’ indicata la codifica necessaria per la trasmissione e visualizzazione corretta dei caratteri.</p>
+
+<p><a href="https://en.wikipedia.org/wiki/Plane_(Unicode)">Wikipedia - Unicode</a> <br />
+<a href="https://en.wikibooks.org/wiki/Unicode/Character_reference/0000-0FFF">Wikibooks - Unicode/Character reference/0000-0FFF</a><br /></p>
+
+<h2 id="caratteri-di-escape">Caratteri di Escape</h2>
+
+<p>Il backslash <code class="language-plaintext highlighter-rouge">\</code> indica la presenza di un carattere escape che non sarebbe possibile inserire direttamente con un editor di testo poichè verrebbe interpretato come un comando.</p>
+
+<p>Vediamo qualche carattere di escape:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">\n</code>: a capo</li>
+  <li><code class="language-plaintext highlighter-rouge">\t</code>: tab</li>
+  <li><code class="language-plaintext highlighter-rouge">\b</code>: Backspace</li>
+  <li><code class="language-plaintext highlighter-rouge">\r</code>: Carriage return</li>
+  <li><code class="language-plaintext highlighter-rouge">\\</code>: Backslash</li>
+  <li><code class="language-plaintext highlighter-rouge">\'</code>: Single quote</li>
+  <li><code class="language-plaintext highlighter-rouge">\"</code>: Double quote</li>
+</ul>
+
+<p>Introdotti gli escape è possibile vedere come inserire un carattere UNICODE tramite il suo codice identificatico: <code class="language-plaintext highlighter-rouge">\u{codice_unicode}</code></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="dl">"</span><span class="se">\</span><span class="s2">u{1234}</span><span class="dl">"</span><span class="p">;</span> <span class="c1">// ሴ === 1234 codice unicode, 1 carattere</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="p">(</span><span class="nx">str</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="p">(</span><span class="nx">str</span><span class="p">,</span> <span class="nx">str</span><span class="p">.</span><span class="nx">lenght</span><span class="p">);</span> <span class="c1">//ሴ, 1</span>
+
+<span class="c1">//Attenzione!! la codifica UTF-16 non raggiunge direttamnte il carattere stampato qui di seguito</span>
+<span class="c1">//Utilizza quindi 2 caratteri Javascript</span>
+<span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="dl">"</span><span class="se">\</span><span class="s2">u{1F600}</span><span class="dl">"</span><span class="p">;</span> <span class="c1">// 😀 === 1F600 codice unicode, 2 caratteri</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="p">(</span><span class="nx">str</span><span class="p">,</span> <span class="nx">str</span><span class="p">.</span><span class="nx">lenght</span><span class="p">);</span> <span class="c1">//😀, 2</span>
+</code></pre></div></div>
+
+<p>Posso risalire al codice unicode tramite il metodo <code class="language-plaintext highlighter-rouge">charCodeAt(index)</code> che restituisce il codice unicode del carattere specificato da <code class="language-plaintext highlighter-rouge">index</code>.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="dl">"</span><span class="se">\</span><span class="s2">u{1F600}</span><span class="dl">"</span><span class="p">;</span> <span class="c1">// 😀 === 1F600 codice unicode 2 caratteri</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="p">(</span><span class="nx">str</span><span class="p">);</span> <span class="c1">//😀</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="nx">strCharCodeAt</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span> <span class="c1">//55357 56832</span>
+</code></pre></div></div>
+
+<p>C’è anche il metodo che più completo <code class="language-plaintext highlighter-rouge">charCodePointAt(index)</code> che restituisce il codice unicode che <em>inizia</em> da <code class="language-plaintext highlighter-rouge">index</code>. Questo è necessario per quei caratteri che non possono essere rappresentati da UTF-16 e che quindi sono necessari “due caratteri” Javascript</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="dl">"</span><span class="se">\</span><span class="s2">u{1F600}</span><span class="dl">"</span><span class="p">;</span> <span class="c1">// 😀 === 1F600 codice unicode 2 caratteri</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="p">(</span><span class="nx">str</span><span class="p">);</span> <span class="c1">//😀</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">codePointAt</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span> <span class="c1">// 128512 === 1F600 </span>
+</code></pre></div></div>
+
+<p>Posso usare l’unicode anche per il nome di variabili! Da evitare.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="err">\</span><span class="nx">u</span><span class="p">{</span><span class="mi">1</span><span class="nx">f68</span><span class="p">}</span> <span class="o">=</span> <span class="mi">2017</span><span class="p">;</span> <span class="c1">// Ὠ</span>
+</code></pre></div></div>
+
+
+        
+      </section>
+      
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Aggiornato:</strong> <time datetime="2021-01-10">January 10, 2021</time></p>
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/javascript-modulo-base/08-js-modulo-base" class="pagination--pager" title="08 - Rappresentazione dei numeri in fixed e floating point
+">Precedente</a>
+    
+    
+      <a href="/javascript-modulo-base/10-js-modulo-base" class="pagination--pager" title="10- Conversione di tipo, implicita e espicita
+">Prossima</a>
+    
+  </nav>
+
+    </div>
+    
+<div class="corso sidebar sticky">
+  
+  
+  <header>
+    <h1 class="corso course__title">
+      Javascript - Modulo Base
+    </h1>
+  </header>
+  <ul class="corso lesson__items" id="move__scrollbar">
+  
+      <li ><a href="/javascript-modulo-base/index">00 - Introduzione e setup pt1</a></li>
+  
+      <li ><a href="/javascript-modulo-base/01-js-modulo-base">01 - Introduzione e setup pt2</a></li>
+  
+      <li ><a href="/javascript-modulo-base/02-js-modulo-base">02 - Primo script</a></li>
+  
+      <li ><a href="/javascript-modulo-base/03-js-modulo-base">02 - Browser console, alert & prompt</a></li>
+  
+      <li ><a href="/javascript-modulo-base/04-js-modulo-base">04 - Introduzione al DOM e jQuery</a></li>
+  
+      <li ><a href="/javascript-modulo-base/05-js-modulo-base">05 - Variabili e tipi di dato</a></li>
+  
+      <li ><a href="/javascript-modulo-base/06-js-modulo-base">06 - Stringhe. Operatori proprietà e metodi</a></li>
+  
+      <li ><a href="/javascript-modulo-base/07-js-modulo-base">07 - Esercitazione. Conta parole</a></li>
+  
+      <li ><a href="/javascript-modulo-base/08-js-modulo-base">08 - Rappresentazione dei numeri in fixed e floating point</a></li>
+  
+      <li  class="active" id ="lesson__active" ><a href="/javascript-modulo-base/09-js-modulo-base">09- Codifica caratteri. ASCII & Unicode</a></li>
+  
+      <li ><a href="/javascript-modulo-base/10-js-modulo-base">10- Conversione di tipo, implicita e espicita</a></li>
+  
+      <li ><a href="/javascript-modulo-base/11-js-modulo-base">11 - Operatori matematici e oggetto Math</a></li>
+  
+      <li ><a href="/javascript-modulo-base/12-js-modulo-base">12 - Esercitazione - Equazione di II grado</a></li>
+  
+      <li ><a href="/javascript-modulo-base/13-js-modulo-base">13 - Precedenza e associatività degli operatori</a></li>
+  
+      <li ><a href="/javascript-modulo-base/14-js-modulo-base">14 - Operatori Logici e logica booleana</a></li>
+  
+      <li ><a href="/javascript-modulo-base/15-js-modulo-base">15 - Costrutti condizionali. if...else, ternary operator, switch</a></li>
+  
+      <li ><a href="/javascript-modulo-base/16-js-modulo-base">15 - Costrutti iterativi. while, do...while</a></li>
+  
+      <li ><a href="/javascript-modulo-base/17-js-modulo-base">17 - Costrutti iterativi. for, break, continue</a></li>
+  
+      <li ><a href="/javascript-modulo-base/18-js-modulo-base">18 - Funzioni. parametri, parametri di default, ritorno di una funzione</a></li>
+  
+      <li ><a href="/javascript-modulo-base/19-js-modulo-base">19 - Funzioni. Passaggio di oggetti e array. Oggetto Arguments e parametri Rest</a></li>
+  
+      <li ><a href="/javascript-modulo-base/20-js-modulo-base">20 - Funzioni ricorsive, Funzioni espressione, Hoisting</a></li>
+  
+      <li ><a href="/javascript-modulo-base/21-js-modulo-base">21 - Visibilità delle variabili</a></li>
+  
+      <li ><a href="/javascript-modulo-base/22-js-modulo-base">22 - Array</a></li>
+  
+      <li ><a href="/javascript-modulo-base/23-js-modulo-base">23 - Array. Qualche metodo</a></li>
+  
+      <li ><a href="/javascript-modulo-base/24-js-modulo-base">24 - Array. Metodi avanzati</a></li>
+  
+      <li ><a href="/javascript-modulo-base/25-js-modulo-base">25 - Introduzione agli oggetti</a></li>
+  
+  </ul>
+  
+</div>
+
+
+<script>
+  var lesson__active = document.getElementById("lesson__active");
+  lesson__active.scrollIntoViewIfNeeded(true);
+</script>
+
+    
+  </article>
+
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Inserisci termini di ricerca..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Segui:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/CodeCoagious19" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Simone Di Ricco. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

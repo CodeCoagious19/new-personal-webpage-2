@@ -1,0 +1,144 @@
+I"�$<h2 id="while-loop">while loop</h2>
+<p>L’istruzione <code class="language-plaintext highlighter-rouge">while</code> crea un ciclo che esegue un’istruzione specificata fintanto che la condizione di test restituisce <em>true</em>. La condizione viene valutata prima di eseguire l’istruzione.</p>
+
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while">MDN - while</a></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">while</span> <span class="p">(</span><span class="nx">condition</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//code</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Esempio:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">contatore</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="k">while</span> <span class="p">(</span><span class="nx">contatore</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">contatore</span><span class="p">);</span>
+    <span class="nx">contatore</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="cm">/*
+1
+2
+3
+4
+*/</span>
+</code></pre></div></div>
+
+<p>In un qualsiasi costrutto iterativo è sempre bene tenere in considerazione:</p>
+<ul>
+  <li>La condizione da verificare</li>
+  <li>l’evento che altera, ad ogni ciclo, la condizione da verificare.</li>
+</ul>
+
+<p>Il programmatore si deve assicurare che <em>prima o poi</em> la condizione diventi falsa altrimenti rischia di creare un loop infinito causando un crash del browser.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1.0"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Document<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>LOOP INFINITO<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;script&gt;</span>
+        <span class="cm">/*Loop Infinito - DA EVITARE! */</span>
+        <span class="kd">var</span> <span class="nx">infinito</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+        <span class="k">while</span> <span class="p">(</span><span class="nx">infinito</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">infinito</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p><img src="./images/loop-infinito.gif" alt="" /></p>
+
+<p>Altro esempio di un ciclo iterativo applicato a una stringa con <em>while</em>:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">parola</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">ciao</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">contatore</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="k">while</span> <span class="p">(</span><span class="nx">contatore</span> <span class="o">&lt;</span> <span class="nx">parola</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 0 &lt; 4 // 1 &lt; 4 // 2 &lt; 4 // 3 &lt; 4</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">parola</span><span class="p">[</span><span class="nx">contatore</span><span class="p">]);</span> <span class="c1">// c     // i     // a     // o</span>
+    <span class="nx">contatore</span><span class="o">++</span><span class="p">;</span>                    <span class="c1">// 1     // 2     // 3     // 4</span>
+<span class="p">}</span>
+
+<span class="cm">/*
+parola.lenght -&gt;  restituisce il numero delle lettere che compongono la stringa parola
+parola[contatore] -&gt; restituisce il contenuto relativo all'indice "contaotore"
+
+Output:
+c
+i
+a
+o
+*/</span>
+</code></pre></div></div>
+
+<h2 id="do-while-loop">do-while loop</h2>
+
+<p>L’istruzione do … while crea un ciclo che esegue un’istruzione specificata finché la condizione di test non restituisce false. La condizione viene valutata dopo l’esecuzione dell’istruzione, determinando l’esecuzione dell’istruzione specificata almeno una volta.</p>
+
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/do...while">MDN - do…while</a></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">do</span> <span class="p">{</span>
+    <span class="c1">//code</span>
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nx">condition</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">do</span> <span class="p">{</span>
+    <span class="nx">j</span><span class="o">++</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">j</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nx">j</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">j</span><span class="p">);</span>
+
+<span class="cm">/*
+Console:
+---------------
+0
+1
+2
+3
+4
+*/</span>
+</code></pre></div></div>
+
+<p>Il do-while loop è molto simile al while loop ma differisce nel punto in cui valuta la condizione sotto test. Qui sotto riporto un esempio dello stesso loop realizzato prima con while e poi con do-while.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//while</span>
+<span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+
+<span class="c1">//la condizione è falsa, non eseguo il corpo del loop</span>
+<span class="k">while</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">){</span>
+    <span class="nx">i</span><span class="o">++</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+
+<span class="cm">/*
+5
+*/</span>
+
+<span class="c1">//do-while</span>
+<span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="k">do</span> <span class="p">{</span>
+    <span class="nx">j</span><span class="o">++</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">j</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nx">j</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">);</span> <span class="c1">//la condizione è falsa ma ho eseguito una volta il corpo del loop</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">j</span><span class="p">);</span>
+
+<span class="cm">/*
+Console:
+---------------
+6
+6
+*/</span>
+</code></pre></div></div>
+
+<p><em>do…while</em> esegue il ciclo almeno una volta mentre <em>while</em> può anche non eseguire mai il corpo. <em>do…while</em> è meno utilizzato rispetto <em>while</em> ma può comunque essere utilizzato in strutture iterative sempre in esecuzione come quella di selezione di un menù grafico a opzioni multiple.</p>
+
+:ET

@@ -1,0 +1,235 @@
+I"�J<h2 id="approfondimento-funzioni-ricorsive">Approfondimento Funzioni ricorsive</h2>
+
+<blockquote>
+  <p>Questa parte per adesso potrebbe essere troppo “approfondita”, è possibile saltarla senza pregiudicare il corso.</p>
+</blockquote>
+
+<p>La funzioni ricorsive sono funzioni che richiamano se stesse all’interno del corpo. Questa tecnica fornisce un modo per scomporre problemi complicati in problemi semplici che sono più facili da risolvere.</p>
+
+<p>Con le funzioni ricorsive si costruiscono algoritmi potenti.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">x</span><span class="p">(</span><span class="nx">contatore</span><span class="p">){</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">contatore</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">){</span>
+        <span class="k">return</span><span class="p">;</span> <span class="c1">//Terminatore, </span>
+    <span class="p">}</span>
+    <span class="k">else</span><span class="p">{</span>
+        <span class="nx">x</span><span class="p">(</span><span class="o">++</span><span class="nx">contatore</span><span class="p">);</span> <span class="c1">//passo ricorsivo</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">contatore</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">x</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+<span class="cm">/*
+6
+5
+4
+3
+2
+1
+*/</span>
+</code></pre></div></div>
+
+<p>Nell’esempio di sopra al primo passo  ricorsivo <code class="language-plaintext highlighter-rouge">x(++contatore)</code> non eseguo <code class="language-plaintext highlighter-rouge">console.log(contatore);</code> che rimane pending nello stack. Così anche per gli altri passi successivi finchè la condizione dell’ <code class="language-plaintext highlighter-rouge">if</code> diventa <em>true</em> e l’ultima funzione ritorna. A questo punto lo statemeant <code class="language-plaintext highlighter-rouge">console.log(contatore);</code> rimasto pending viene eseguito e così via i precedenti. fino al ritorno dell’intera funzione</p>
+
+<p><strong>Osservazioni:</strong></p>
+<ul>
+  <li>Se nulla limita il meccanismo di chiamate a funzione con una serie di ritorni a cascata, lo stack si riempie e il browser va in crash con l’errore <code class="language-plaintext highlighter-rouge">Maximum call stack size exceeded</code>.</li>
+  <li>E’ un meccanismo che rallenta parecchio l’applicazione quando il passo ricorsivo diverge.</li>
+</ul>
+
+<h2 id="approfondimento-function-expression">Approfondimento Function expression</h2>
+
+<blockquote>
+  <p>Questa parte per adesso potrebbe essere troppo “approfondita”, è possibile saltarla senza pregiudicare il corso.</p>
+</blockquote>
+
+<p>La parola chiave <code class="language-plaintext highlighter-rouge">function</code> può essere utilizzata per definire una funzione all’interno di un’espressione.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">media</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">){</span> <span class="c1">//funzione anonima</span>
+    <span class="k">return</span> <span class="p">(</span><span class="nx">a</span><span class="o">+</span><span class="nx">b</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">media</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">9</span><span class="p">));</span>
+
+<span class="kd">var</span> <span class="nx">fattoriale</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">fatt</span> <span class="p">(</span><span class="nx">n</span><span class="p">){</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">n</span> <span class="o">===</span> <span class="mi">0</span><span class="p">){</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span><span class="p">{</span>
+        <span class="k">return</span> <span class="nx">n</span> <span class="o">*</span> <span class="p">(</span><span class="nx">fatt</span><span class="p">(</span><span class="nx">n</span><span class="o">-</span><span class="mi">1</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="p">(</span><span class="nx">fattoriale</span><span class="p">(</span><span class="mi">4</span><span class="p">));</span> <span class="c1">//24</span>
+</code></pre></div></div>
+
+<h2 id="approfondimento-hoisting">Approfondimento Hoisting</h2>
+
+<blockquote>
+  <p>Questa parte per adesso potrebbe essere troppo “approfondita”, è possibile saltarla senza pregiudicare il corso.</p>
+</blockquote>
+
+<p>Per comprendere l’hoisting è necessario introdurre il meccanismo di parsing dell’interprete javascript.
+Prima di eseguire lo script, il parser dell’interprete Javascript scansiona tutto il codice per risolvere i valori da assegnare agli identificatori ed esegue molte altre operazioni</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">esterna</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">function</span> <span class="nx">interna</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="dl">"</span><span class="s2">interna1</span><span class="dl">"</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nx">interna</span><span class="p">();</span>
+
+    <span class="kd">function</span> <span class="nx">interna</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="dl">"</span><span class="s2">interna2</span><span class="dl">"</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">esterna</span><span class="p">()</span> <span class="p">);</span><span class="c1">//interna2</span>
+</code></pre></div></div>
+
+<p>Nell’esempio di sopra, poichè la funzione <code class="language-plaintext highlighter-rouge">interna()</code> è stata definita due volte, il parser sovraiscrive la prima definizione con la seconda!</p>
+
+<p>Tutto cambia se utilizzo le <code class="language-plaintext highlighter-rouge">function expression</code></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">esterna</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">interna</span> <span class="o">=</span>  <span class="kd">function</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="dl">"</span><span class="s2">interna1</span><span class="dl">"</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nx">interna</span><span class="p">();</span>
+
+    <span class="kd">var</span> <span class="nx">interna</span> <span class="o">=</span> <span class="kd">function</span><span class="p">{</span>
+        <span class="k">return</span> <span class="dl">"</span><span class="s2">interna2</span><span class="dl">"</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">esterna</span><span class="p">()</span> <span class="p">);</span><span class="c1">//interna1</span>
+</code></pre></div></div>
+<p>In questo caso poichè non sono definizioni di funzione ma variabili la seconda variabile non viene valutata poichè è codice irraggiungibile. In questo caso si segue un andamento lineare del codice anche detto paradigma imperativo. Nel caso invece di chiamate a funzione il paradigma si dice funzionale.</p>
+
+<p>Altro controesempio:</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">esterna</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">interna</span><span class="p">();</span>
+
+    <span class="kd">var</span> <span class="nx">interna</span> <span class="o">=</span>  <span class="kd">function</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="dl">"</span><span class="s2">interna1</span><span class="dl">"</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">var</span> <span class="nx">interna</span> <span class="o">=</span> <span class="kd">function</span><span class="p">{</span>
+        <span class="k">return</span> <span class="dl">"</span><span class="s2">interna2</span><span class="dl">"</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">esterna</span><span class="p">()</span> <span class="p">);</span><span class="c1">//ERROR. interna() non è riconosciuto perchè non è stato dichiarato l'identificaore</span>
+</code></pre></div></div>
+
+<p>Con il paradigma funzionale invece non ci sono problemi:</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">esterna</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">interna</span><span class="p">();</span>
+
+    <span class="kd">function</span> <span class="nx">interna</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="dl">"</span><span class="s2">interna1</span><span class="dl">"</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kd">function</span> <span class="nx">interna</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="dl">"</span><span class="s2">interna2</span><span class="dl">"</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">esterna</span><span class="p">()</span> <span class="p">);</span><span class="c1">//interna2</span>
+</code></pre></div></div>
+
+<h2 id="approfondimento-differenza-tra-undefined-e-not-defined">Approfondimento Differenza tra undefined e not defined</h2>
+
+<blockquote>
+  <p>Questa parte per adesso potrebbe essere troppo “approfondita”, è possibile saltarla senza pregiudicare il corso.</p>
+</blockquote>
+
+<p>Anche se sembra un uso improprio del vocabolario, c’è una differenza tra una variabile <code class="language-plaintext highlighter-rouge">undefined</code> e un <strong>errore dell’interprete</strong> dovuto a una variabile <code class="language-plaintext highlighter-rouge">not defined</code>.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">undefined</code>: L’interprete trova la definizione della variabile ma non trova nessun valore associato a tale variabile. Non genera un errore</li>
+  <li><code class="language-plaintext highlighter-rouge">not defined</code>: l’interprete non trova da nessuna parte nel codice l’identificatore. Genera un errore</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">esterna</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">interna</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">interna</span> <span class="o">=</span>  <span class="kd">function</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="dl">"</span><span class="s2">interna1</span><span class="dl">"</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">var</span> <span class="nx">interna</span> <span class="o">=</span> <span class="kd">function</span><span class="p">{</span>
+        <span class="k">return</span> <span class="dl">"</span><span class="s2">interna2</span><span class="dl">"</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">esterna</span><span class="p">()</span> <span class="p">);</span><span class="c1">//undefined, l'interprete sa cos'è ma non è stata definita a quel punto del codice</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">esterna</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">y</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">interna</span> <span class="o">=</span>  <span class="kd">function</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="dl">"</span><span class="s2">interna1</span><span class="dl">"</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">var</span> <span class="nx">interna</span> <span class="o">=</span> <span class="kd">function</span><span class="p">{</span>
+        <span class="k">return</span> <span class="dl">"</span><span class="s2">interna2</span><span class="dl">"</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">esterna</span><span class="p">()</span> <span class="p">);</span><span class="c1">//ERROR. y is not defined. L'interprete non sa cosa sia y, ben diverso</span>
+</code></pre></div></div>
+
+<h2 id="approfondimento-iifi-immediatly-invoked-function-expression">Approfondimento IIFI Immediatly invoked function expression</h2>
+
+<blockquote>
+  <p>Questa parte per adesso potrebbe essere troppo “approfondita”, è possibile saltarla senza pregiudicare il corso.</p>
+</blockquote>
+
+<p>Sebbene introdurre funzioni aiuti a scrivere moduli indipendenti si rischia di inondare il contesto globale di nomi di funzioni.
+Il pattern IIFE (Immediately Invoked Function Expression) aiuta in tal senso.
+Le IIFI functions sono funzioni che vengono eseguite al momento della definizione. Non necessitano quindi della chiamata.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="kd">function</span> <span class="nx">name</span><span class="p">(){</span>
+    <span class="c1">//code</span>
+<span class="p">})();</span>
+</code></pre></div></div>
+
+<p>Esempio:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//Questa è una funzione standard, NON IIFI. Viene eseguita solo alla chiamata</span>
+<span class="kd">function</span> <span class="nx">stampaLogo</span><span class="p">(){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">myLogo</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">stampaLogo</span><span class="p">();</span> <span class="c1">//in questa linea eseguo la funzione</span>
+<span class="cm">/*
+*/</span>
+
+<span class="c1">//Questa è una funzione IIFI. Viene eseguita al momento.</span>
+<span class="c1">//(function name(){})();</span>
+<span class="p">(</span><span class="kd">function</span> <span class="nx">stampaLogo</span><span class="p">(){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">myLogo</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">})();</span>   <span class="c1">//eseguo qui la funzione IIFI</span>
+</code></pre></div></div>
+
+<p>Esempio 2:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span> <span class="c1">//operatore di raggruppamento: cio' che e' all'interno e' una espressione</span>
+  <span class="kd">function</span> <span class="nx">iife</span><span class="p">()</span> 
+  <span class="p">{</span> 
+    <span class="kd">var</span> <span class="nx">a</span><span class="o">=</span><span class="mi">222</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">parto da sola!! </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">a</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">)</span> <span class="c1">//fine espressione</span>
+<span class="p">();</span> <span class="c1">//operatore di chiamata di funzione</span>
+
+<span class="c1">//forma alternativa</span>
+<span class="p">(</span> <span class="kd">function</span> <span class="nx">iife</span><span class="p">()</span> 
+  <span class="p">{</span> 
+    <span class="kd">var</span> <span class="nx">a</span><span class="o">=</span><span class="mi">444</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">parto da sola!! </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">a</span><span class="p">);</span>
+  <span class="p">}</span> 
+  <span class="p">()</span>
+<span class="p">);</span>
+
+<span class="nx">iife</span><span class="p">();</span> <span class="c1">//errore! iife come identificatore non esiste nel contesto globale</span>
+</code></pre></div></div>
+
+<h2 id="paradigma-di-programmazione-javascript">Paradigma di programmazione Javascript</h2>
+<p>Javascript è un linguaggio multiparadigma, consente quindi il paradigma imperativo, quello funzionale e il paradigma object oriented in un unico linguaggio. Non esiste il miglior paradigma in assoluto ma esista il paradigma migliore per la situazione migliore.</p>
+:ET

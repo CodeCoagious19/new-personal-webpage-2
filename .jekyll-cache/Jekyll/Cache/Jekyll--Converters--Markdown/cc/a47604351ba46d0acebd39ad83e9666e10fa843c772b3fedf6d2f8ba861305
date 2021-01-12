@@ -1,0 +1,73 @@
+I"�(<h2 id="operatori-logici">Operatori Logici</h2>
+
+<p>Gli operatori logici <code class="language-plaintext highlighter-rouge">&lt;</code>, <code class="language-plaintext highlighter-rouge">&lt;=</code>, <code class="language-plaintext highlighter-rouge">==</code>, <code class="language-plaintext highlighter-rouge">&gt;</code>, <code class="language-plaintext highlighter-rouge">&gt;=</code>, <code class="language-plaintext highlighter-rouge">!=</code> ..  trattano l’espressione come un espressione logica e ritornano un valore booleano. Sono spesso utilizzati nel controllo di condizioni in costruttti <code class="language-plaintext highlighter-rouge">if</code> o cicli <code class="language-plaintext highlighter-rouge">while</code>, <code class="language-plaintext highlighter-rouge">for</code> e tutti i costrutti condizionali e iterativi inerenti.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">&gt;=</span> <span class="mi">5</span><span class="p">);</span>           <span class="c1">//false</span>
+<span class="c1">//Per le stringhe si segue un ordine lessicografico</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">ciao</span><span class="dl">"</span> <span class="o">&lt;</span> <span class="dl">"</span><span class="s2">pasta</span><span class="dl">"</span><span class="p">);</span> <span class="c1">//true</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">12</span> <span class="o">!=</span> <span class="mi">5</span><span class="p">);</span> <span class="sr">/        /</span><span class="o">/</span><span class="kc">true</span>
+</code></pre></div></div>
+
+<p><strong>Nota - Operatore di uguaglianza:</strong> == Vs ===</p>
+
+<p>Entrambi sono operatori logici di uguaglianza.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">===</code>: <strong>Uguaglianza forte</strong>, valuta l’uguaglianza dell’espressione valutanto il tipo e il contenuto.</li>
+  <li><code class="language-plaintext highlighter-rouge">==</code>: <strong>Uguaglianza debole</strong>, valuta l’uguaglianza dell’espressione valutanto il contenuto effettuando prima una conversione di tipo.</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* === */</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">5</span> <span class="o">===</span> <span class="mi">5</span><span class="p">);</span>            <span class="c1">//true</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">15</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">15</span><span class="dl">"</span><span class="p">);</span>        <span class="c1">//false -&gt; sono tipi di dati diversi, il primo è un numero, il secondo è una stringa</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">null</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">);</span> <span class="c1">//false -&gt; sono tipi di dati diversi.</span>
+
+<span class="cm">/* == */</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">5</span> <span class="o">==</span> <span class="mi">5</span><span class="p">);</span>             <span class="c1">//true</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">15</span> <span class="o">==</span> <span class="dl">"</span><span class="s2">15</span><span class="dl">"</span><span class="p">);</span>         <span class="c1">//true!! -&gt; sono tipi di dati diversi, il primo è un numero, il secondo è una stringa ma il contenuto è lo stesso</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">false</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>         <span class="c1">//true!! -&gt; entrambi hanno un valore falsy anche se il tipo è diverso</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">null</span> <span class="o">==</span> <span class="kc">undefined</span><span class="p">);</span>  <span class="c1">//true!! -&gt; entrambi hanno un valore falsy anche se il tipo è diverso</span>
+</code></pre></div></div>
+
+<p>In generale l’uguaglianza forte è da preferire per essere sicuri di effettuare quindi anche un controllo sul tipo e rendere più semplice l’individuazione di errori run-time spesso causati da conversioni implicite di Javascript.</p>
+
+<h2 id="logica-booleana">Logica Booleana</h2>
+
+<p>Trattano l’espressione come un’espressione logica e permettono la concatenazione di espressioni con più operatori logici. Ritornano un valore booleano: <code class="language-plaintext highlighter-rouge">TRUE</code>, <code class="language-plaintext highlighter-rouge">FALSE</code>.
+Vediamo i principali:</p>
+
+<p><strong>AND</strong> : <code class="language-plaintext highlighter-rouge">condition1 &amp;&amp; condition2</code>: Ritorna <em>true</em> se entrambe <code class="language-plaintext highlighter-rouge">condition1</code> e <code class="language-plaintext highlighter-rouge">condition2</code> risultano <em>true</em>. <br />
+<strong>OR</strong>  : <code class="language-plaintext highlighter-rouge">condition1 || condition2</code>: Ritorna <em>true</em> se almeno una tra <code class="language-plaintext highlighter-rouge">condition1</code> e <code class="language-plaintext highlighter-rouge">condition2</code> risulta <em>true</em>. <br />
+<strong>NOT</strong> : <code class="language-plaintext highlighter-rouge">!condition1</code>: Inverte il risultato logico di <code class="language-plaintext highlighter-rouge">condition1</code>. <br /></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&gt;=</span> <span class="mi">5</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="dl">"</span><span class="s2">ciao</span><span class="dl">"</span> <span class="o">&lt;</span> <span class="dl">"</span><span class="s2">pasta</span><span class="dl">"</span><span class="p">)</span> <span class="p">);</span>  <span class="c1">//true</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="p">(</span><span class="dl">"</span><span class="s2">ciao</span><span class="dl">"</span> <span class="o">&lt;</span> <span class="dl">"</span><span class="s2">pasta</span><span class="dl">"</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="mi">12</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span> <span class="p">);</span> <span class="c1">//false</span>
+</code></pre></div></div>
+
+<h2 id="approfondimento---short-evalutation">Approfondimento - Short evalutation</h2>
+
+<p>Se un’ espressione logica risulta necessariamente <em>true</em> o <em>false</em> le elaborazioni concatenate non vengono elaborate.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">true || expr</code>: <code class="language-plaintext highlighter-rouge">expr</code> non viene valutata</li>
+  <li><code class="language-plaintext highlighter-rouge">false &amp;&amp; expr</code>: <code class="language-plaintext highlighter-rouge">expr</code> non viene valutata</li>
+</ul>
+
+<p>Esempio:</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="dl">"</span><span class="s2">ciao</span><span class="dl">"</span> <span class="o">&lt;</span> <span class="dl">"</span><span class="s2">pasta</span><span class="dl">"</span><span class="p">)</span> <span class="p">);</span> <span class="c1">//true,  ("ciao" &lt; "pasta") non viene valutata</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="p">(</span><span class="mi">12</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="dl">"</span><span class="s2">c</span><span class="dl">"</span> <span class="o">&lt;</span> <span class="dl">"</span><span class="s2">p</span><span class="dl">"</span><span class="p">)</span> <span class="p">);</span> <span class="c1">//false, ("c" &lt; "p") non viene valutata</span>
+</code></pre></div></div>
+
+<h2 id="truthy-e-falsy">Truthy e falsy</h2>
+
+<p>I valori <code class="language-plaintext highlighter-rouge">truthy</code> e <code class="language-plaintext highlighter-rouge">falsy</code> sono quei valori considerati rispettivamente sempre veri o falsi o per meglio dire che ritornano sempre un boolean: <em>true/false</em>.</p>
+
+<ul>
+  <li>Valori truthy: <code class="language-plaintext highlighter-rouge">1</code>, <code class="language-plaintext highlighter-rouge">"content"</code> ..</li>
+  <li>Valori falsy: <code class="language-plaintext highlighter-rouge">undefined</code>, <code class="language-plaintext highlighter-rouge">null</code>, <code class="language-plaintext highlighter-rouge">0</code>, <code class="language-plaintext highlighter-rouge">""</code>, <code class="language-plaintext highlighter-rouge">NaN</code></li>
+</ul>
+
+<p>Vedremo adesso come mettere in pratica questi concetti attraverso l’uso di costrutti condizionali e iterativi.</p>
+
+:ET

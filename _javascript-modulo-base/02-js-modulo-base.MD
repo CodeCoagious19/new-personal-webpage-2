@@ -1,6 +1,7 @@
 ---
 title: "02 - Primo script"
 excerpt: "Javascript"
+permalink: /javascript-modulo-base/02-js-modulo-base
 last_modified_at: 2021-01-10
 ---
 

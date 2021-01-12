@@ -1,6 +1,7 @@
 ---
 title: "06 - Stringhe. Operatori proprietà e metodi"
 excerpt: "Javascript"
+permalink: /javascript-modulo-base/06-js-modulo-base
 last_modified_at: 2021-01-10
 ---
 

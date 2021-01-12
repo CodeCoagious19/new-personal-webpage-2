@@ -13,6 +13,7 @@
 @import "custom/custom_card.scss";
 @import "custom/custom_lessons_sidebar.scss";
 @import "custom/custom_table_of_content.scss";
+@import "minimal-mistakes/skins/air.scss";
 
 //----------------------------------------------------------------------------
 
@@ -43,4 +44,45 @@ article.corso.page .page__inner-wrap.corso {
 article.corso.page .page__inner-wrap.corso {
     width: 75%;
     }
+}
+
+.feature__wrapper {
+    clear: both;
+    margin-bottom: 2em;
+    border-bottom: unset;
+}
+
+.groups_feature_row_container {
+    border: 1px solid #cecfd1;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 4px;
+}
+
+header.groups_feature_row_header {
+
+}
+
+.feature__item {
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+
+.groups_feature_row_content {
+    padding: 1rem;
+    overflow: auto;
+    max-height: 60vh;
+    border-top: 1px solid #cecfd1;
+    /* border-radius: 4px; */
+}
+
+//Scrollbar Container list of lesson
+//width 
+.groups_feature_row_content::-webkit-scrollbar {
+    width: 0.5rem;
+}
+   
+//Handle 
+.groups_feature_row_content::-webkit-scrollbar-thumb {
+  background: $border-color;
 }

@@ -1,6 +1,7 @@
 ---
 title: "07 - Esercitazione. Conta parole"
 excerpt: "Javascript"
+permalink: /javascript-modulo-base/07-js-modulo-base
 last_modified_at: 2021-01-10
 ---
 

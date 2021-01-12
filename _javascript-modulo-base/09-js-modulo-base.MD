@@ -1,6 +1,7 @@
 ---
 title: "09- Codifica caratteri. ASCII & Unicode"
 excerpt: "Javascript"
+permalink: /javascript-modulo-base/09-js-modulo-base
 last_modified_at: 2021-01-10
 ---
 

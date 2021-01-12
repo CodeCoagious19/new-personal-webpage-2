@@ -1,0 +1,110 @@
+I"U-<h2 id="operatori-matematici">Operatori matematici</h2>
+
+<p>Vediamo alcuni operatori matematici direttamente con un esempio:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* operatori matematici */</span>
+
+<span class="kd">const</span> <span class="nx">questAnno</span> <span class="o">=</span> <span class="mi">2020</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">etaMarco</span> <span class="o">=</span> <span class="mi">25</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">etaStefano</span> <span class="o">=</span> <span class="mi">22</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">nascitaMarco</span> <span class="o">=</span> <span class="nx">questAnno</span> <span class="o">-</span> <span class="nx">etaMarco</span><span class="p">;</span>  
+<span class="kd">const</span> <span class="nx">nascitaStefano</span> <span class="o">=</span> <span class="nx">questAnno</span> <span class="o">-</span> <span class="nx">etaStefano</span><span class="p">;</span> 
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">nascitaMarco</span><span class="p">);</span>   <span class="c1">//1995</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">nascitaStefano</span><span class="p">);</span> <span class="c1">//1998</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">//10</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">5</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">//2.5</span>
+
+<span class="c1">// Modulo: resto della divisione intera</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">7</span> <span class="o">%</span> <span class="mi">4</span><span class="p">);</span> <span class="c1">//3</span>
+</code></pre></div></div>
+
+<h2 id="pre-e-post-incrementodecremento">Pre e post incremento/decremento</h2>
+
+<p>L’operatore di incremento incrementa (aggiunge uno a) il suo operando e restituisce un valore.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">++x</code> / <code class="language-plaintext highlighter-rouge">--x</code>: <strong>pre incremento/decremento</strong> restituisce il valore dopo l’incremento</li>
+  <li><code class="language-plaintext highlighter-rouge">x++</code> / <code class="language-plaintext highlighter-rouge">x--</code>: <strong>post incremento/decremento</strong> restituisce il valore prima di incrementare</li>
+</ul>
+
+<p>Pre e post incremento/decremento rilevano una differenza solo in caso di valutazione di un’espressione.
+Se troviamo Pre e post incremento/decremento isolati in un singolo statement (come spesso accade) risultano equivalenti.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//Pre incremento</span>
+<span class="nx">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="nx">y</span> <span class="o">=</span> <span class="o">++</span><span class="nx">x</span><span class="p">;</span> <span class="c1">//y=1, x=1</span>
+
+<span class="c1">//Post incremento</span>
+<span class="nx">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="nx">y</span> <span class="o">=</span> <span class="nx">x</span><span class="o">++</span><span class="p">;</span> <span class="c1">//y=0, x=1</span>
+
+<span class="nx">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="nx">x</span><span class="o">++</span><span class="p">;</span> <span class="c1">//x=1 // in questo caso è equivalente a ++x</span>
+
+<span class="nx">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="o">++</span><span class="nx">x</span><span class="p">;</span> <span class="c1">//x=1 // in questo caso è equivalente a x++</span>
+</code></pre></div></div>
+
+<p>La lista di tutti gli operatori aritmetici la troviamo alla pagina: <a href="https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Operators/Operatori_Aritmetici">MDN - Operatori Aritmetici</a></p>
+
+<h2 id="oggetto-math">Oggetto MATH</h2>
+
+<p>In JS è possibile utilizzare funzioni matematiche avanzate tramite l’oggetto <code class="language-plaintext highlighter-rouge">Math</code>. Vediamo alcune tra le più comuni:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Math.round(value)</code>: Ritorna l’arrotondamento di <em>value</em> al numero più vicino</li>
+  <li><code class="language-plaintext highlighter-rouge">Math.ceil(value)</code>: Ritorna l’ arrotondamento di <em>value</em> per eccesso</li>
+  <li><code class="language-plaintext highlighter-rouge">Math.floor(value)</code>: Ritorna l’ arrotondamento di <em>value</em> per difetto</li>
+  <li><code class="language-plaintext highlighter-rouge">Math.trunc(value)</code>: Ritorna il troncamento di <em>value</em></li>
+  <li><code class="language-plaintext highlighter-rouge">Math.sqrt(value)</code>: Ritorna la radice quadrata di <em>value</em></li>
+  <li><code class="language-plaintext highlighter-rouge">Math.abs(value)</code>: Ritorna il valore assoluto di <em>value</em></li>
+  <li><code class="language-plaintext highlighter-rouge">Math.pow(base, exp)</code>: Ritorna l’esponenziale: <em>base^exp</em></li>
+  <li><code class="language-plaintext highlighter-rouge">Math.min(value1, value2, value3, ..)</code>: Ritorna il minimo valore tra i parametri indicati tra gli argomenti</li>
+  <li><code class="language-plaintext highlighter-rouge">Math.max(value1, value2, value3, ..)</code>: Ritorna il massimo valore tra i parametri indicati tra gli argomenti</li>
+  <li><code class="language-plaintext highlighter-rouge">Math.random()</code>: Ritorna un numero random decimale nel range <em>0 - 1</em></li>
+</ul>
+
+<p>Esempio:</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//Math.PI</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">);</span> <span class="c1">//stampa del numero pi greco: 3,14..</span>
+
+<span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="mf">42.1</span><span class="p">);</span> <span class="c1">//42</span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="mf">42.5</span><span class="p">);</span> <span class="c1">//43</span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="mf">42.7</span><span class="p">);</span> <span class="c1">//43</span>
+
+<span class="nb">Math</span><span class="p">.</span><span class="nx">ceil</span><span class="p">(</span><span class="mf">42.1</span><span class="p">);</span> <span class="c1">//43</span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">ceil</span><span class="p">(</span><span class="mf">42.5</span><span class="p">);</span> <span class="c1">//43</span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">ceil</span><span class="p">(</span><span class="mf">42.7</span><span class="p">);</span> <span class="c1">//43</span>
+
+<span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="mf">42.1</span><span class="p">);</span> <span class="c1">//42</span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="mf">42.5</span><span class="p">);</span> <span class="c1">//42</span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="mf">42.7</span><span class="p">);</span> <span class="c1">//42</span>
+
+<span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="mi">25</span><span class="p">);</span> <span class="c1">//5</span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="mf">42.5</span><span class="p">);</span> <span class="c1">//6.</span>
+
+<span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="o">-</span><span class="mi">25</span><span class="p">);</span> <span class="c1">//25</span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="mf">42.5</span><span class="p">);</span> <span class="c1">//42.5</span>
+
+<span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span> <span class="c1">//32</span>
+<span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">5</span><span class="p">);</span> <span class="c1">//32 === 2^5 &gt;&gt; equivalente a Math.pow(2, 5); </span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span> <span class="c1">//125</span>
+
+<span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span> <span class="c1">//-2</span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span> <span class="c1">//6</span>
+
+<span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">();</span> <span class="c1">//0.234514378429</span>
+
+<span class="nb">Math</span><span class="p">.</span><span class="nx">trunc</span><span class="p">(</span><span class="mf">12.78899</span><span class="p">);</span> <span class="c1">//12</span>
+</code></pre></div></div>
+
+<p>La seguente riga di codice genera un numero casuale da 0 a 100.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">((</span><span class="nb">Math</span><span class="p">.</span><span class="nx">reandom</span><span class="p">()</span><span class="o">*</span><span class="mi">100</span><span class="p">)));</span> <span class="c1">//45</span>
+</code></pre></div></div>
+
+:ET

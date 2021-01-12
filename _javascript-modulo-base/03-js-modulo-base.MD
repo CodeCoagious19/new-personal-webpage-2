@@ -1,6 +1,7 @@
 ---
 title: "02 - Browser console, alert & prompt"
 excerpt: "Javascript"
+permalink: /javascript-modulo-base/03-js-modulo-base
 last_modified_at: 2021-01-10
 ---
 

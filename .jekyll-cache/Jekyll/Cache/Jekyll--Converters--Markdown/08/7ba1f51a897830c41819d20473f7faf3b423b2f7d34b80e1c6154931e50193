@@ -1,0 +1,82 @@
+I"7'<h2 id="operator-precedence">Operator Precedence</h2>
+
+<p>La precedenza degli operatori determina la priorità in cui gli operatori vengono valutati. Gli operatori con precedenza più alta sono valutati prima degli operatori con precedenza più bassa.</p>
+
+<p>La lista completa di tutti gli operatori con le rispettive precedenze la troviamo qua: 
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence">MDN - Operator Precedence</a></p>
+
+<p>Da notare che l’operatore <code class="language-plaintext highlighter-rouge">( )</code> ha la priorità più alta e quindi la precedenza su tutti gli operatori. Questo significa che per forzare la precedenza, esattamente come per la matematica è possibile sfruttare le parentesi <code class="language-plaintext highlighter-rouge">( )</code>.</p>
+
+<p><strong>Regola di buona programmazione:</strong> Non è mai una buona pratica di programmazione lasciare espressioni troppo complesse prive di parentesi anche se sono rispettate dal punto di vista semantico tutte le precedenze previste. Le parentesi, oltre a forzare la precedenza, offrono visivamente una chiarezza maggiore, evitando di commettere errori banali di svista.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* Operatore precedence */</span>
+<span class="cm">/* Calcolo eta' media */</span>
+
+<span class="kd">const</span> <span class="nx">questAnno</span> <span class="o">=</span> <span class="mi">2020</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">maggiorenne</span> <span class="o">=</span> <span class="mi">18</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">nascitaMarco</span> <span class="o">=</span> <span class="mi">1996</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">nascitaLuca</span> <span class="o">=</span> <span class="mi">2006</span><span class="p">;</span>
+
+
+<span class="cm">/* l'operatore "-" ha precedenza sull'operatore "&gt;" quindi l'espressione è svolta correttamente da sinistra verso destra
+La sottrazione verrà quindi svolta prima dell'operatore "&gt;" */</span>
+<span class="kd">let</span> <span class="nx">isMaggiorenne</span> <span class="o">=</span> <span class="nx">questAnno</span> <span class="o">-</span> <span class="nx">nascitaMarco</span> <span class="o">&gt;</span> <span class="nx">maggiorenne</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">isMaggiorenne</span><span class="p">);</span> <span class="c1">//true</span>
+<span class="kd">let</span> <span class="nx">isMaggiorenne</span> <span class="o">=</span> <span class="nx">questAnno</span> <span class="o">-</span> <span class="nx">nascitaMarco</span> <span class="o">&gt;</span> <span class="nx">maggiorenne</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">isMaggiorenne</span><span class="p">);</span> <span class="c1">//false</span>
+
+<span class="c1">//Grouping</span>
+<span class="kd">const</span> <span class="nx">etaMarco</span> <span class="o">=</span> <span class="nx">questAnno</span> <span class="o">-</span> <span class="nx">nascitaMarco</span><span class="p">;</span> <span class="c1">//24</span>
+<span class="kd">const</span> <span class="nx">etaLuca</span> <span class="o">=</span> <span class="nx">questAnno</span> <span class="o">-</span> <span class="nx">nascitaLuca</span><span class="p">;</span>   <span class="c1">//14</span>
+
+<span class="c1">// In questo caso poichè la divisione ha precedenza sulla somma è necessario forzare la priorità inserendo le parentesi</span>
+<span class="c1">// Calcolo età media</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="p">(</span> <span class="p">(</span><span class="nx">etaMarco</span> <span class="o">+</span> <span class="nx">nascitaLuca</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span> <span class="p">);</span> <span class="c1">//19</span>
+</code></pre></div></div>
+
+<h2 id="associatività">Associatività</h2>
+
+<p>L’associatività specifica in che modo vengono eseguite le elaborazioni a parità di operatore.
+Mentre la precedenza valuta la priorità, l’associatività valuta la modalità di esecuzione. Quasi tutti gli operatori hanno un’associatività <em>left-to-right</em> ovvero, l’elaborazione è da sinistra verso destra esattamente come per la matematica.</p>
+
+<p>Alla pagina <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence">MDN - Operator Precedence</a> si trova una tabella riassuntiva che mostra priorità/associatività per ogni operatore.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//Associatività del'operatore +. L'operatore + vale sia da somma che da concatenazione stringa</span>
+<span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nx">j</span><span class="o">=</span><span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;=</span><span class="nx">j</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">,</span><span class="nx">j</span><span class="o">--</span><span class="p">){</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">writeln</span><span class="p">(</span><span class="nx">i</span> <span class="o">+</span> <span class="nx">j</span> <span class="o">+</span> <span class="dl">"</span><span class="s2"> </span><span class="dl">"</span><span class="p">);</span> <span class="c1">//5//5//5</span>
+<span class="p">}</span>
+<span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nx">j</span><span class="o">=</span><span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;=</span><span class="nx">j</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">,</span><span class="nx">j</span><span class="o">--</span><span class="p">){</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">writeln</span><span class="p">(</span><span class="nx">i</span> <span class="o">+</span> <span class="p">(</span><span class="nx">j</span> <span class="o">+</span> <span class="dl">"</span><span class="s2"> </span><span class="dl">"</span><span class="p">)</span> <span class="p">);</span> <span class="c1">//05//14//23</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="operatori-di-assegnamento">Operatori di assegnamento</h2>
+
+<p>L’operatore di assegnazione semplice <code class="language-plaintext highlighter-rouge">=</code> viene utilizzato per assegnare un valore a una variabile. L’operazione di assegnazione restituisce il valore assegnato. È possibile concatenare l’operatore di assegnazione per assegnare un singolo valore a più variabili (multiple assignment).</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//Multiple assignement</span>
+<span class="c1">// E' possibile dichiarare due variabili contemporaneamente</span>
+<span class="kd">let</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">;</span>
+
+<span class="cm">/*Molto importante! L'operatore "= è un operatore da destra a sinistra  */</span>
+<span class="nx">x</span> <span class="o">=</span> <span class="nx">y</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="mi">7</span><span class="p">)</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">-</span> <span class="mi">5</span><span class="p">;</span> <span class="c1">// 9 * 3 - 5 // 27 - 5 // 22</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span> <span class="c1">//22</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">y</span><span class="p">);</span> <span class="c1">//22</span>
+</code></pre></div></div>
+
+<p>Molto utilizzati sono anche gli operatori di assegnamento composto come: <code class="language-plaintext highlighter-rouge">+=, -=, *=, /= ..</code> <br /></p>
+
+<p>Hanno una sintassi molto chiara e compatta. Vengono utilizzati nei casi in cui è necessario elaborare anche il valore della variabile a sinistra contrariamente all’operatore di assegnamento semplice <code class="language-plaintext highlighter-rouge">=</code> che ignora e distrugge il valore contenuto a sinistra.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+<span class="nx">x</span> <span class="o">*=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// x = x * 2</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span> <span class="c1">//20</span>
+
+<span class="nx">x</span> <span class="o">/=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// x = x / 2</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span> <span class="c1">//10</span>
+</code></pre></div></div>
+
+:ET

@@ -315,7 +315,6 @@ defaults:
       path: ""
       type: javascript-modulo-base
     values:
-      permalink: /:collection/:path/
       name: Javascript - Modulo Base
       name_collection: javascript-modulo-base
       layout: corso

@@ -1,0 +1,163 @@
+I"JR<h2 id="funzioni---passaggio-di-oggetti-e-array">Funzioni - Passaggio di oggetti e array</h2>
+
+<p>Il passaggio di oggetti e array come parametri ad una funzione avviene per <em>riferimento</em>.
+Dal momento che viene passato il nome dell’oggetto e dell’array che corrisponde all’indirizzo puntatore dei dati contenuti, viene effettuata la copia dell’indirizzo e non dell’intero oggetto/array contenente i dati interni.
+<strong>In sostanza è possibile accedere e modificare i dati dell’array o oggetto passato!!</strong></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//Metodo Object - Gli oggetti sono passati per riferimento</span>
+<span class="kd">const</span> <span class="nx">annoAttuale</span> <span class="o">=</span> <span class="mi">2020</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">objPersona</span> <span class="o">=</span> <span class="p">{</span> 
+    <span class="na">nome</span><span class="p">:</span> <span class="dl">"</span><span class="s2">simone</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">eta</span><span class="p">:</span> <span class="mi">24</span><span class="p">,</span>
+    <span class="na">titolo</span><span class="p">:</span> <span class="dl">"</span><span class="s2">laurea</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">annoNascita</span><span class="p">:</span> <span class="mi">1994</span>
+<span class="p">}</span>
+<span class="nx">aggiornaEta</span><span class="p">(</span><span class="nx">objPersona</span><span class="p">,</span> <span class="nx">annoAttuale</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">objPersona</span><span class="p">.</span><span class="nx">eta</span><span class="p">);</span> <span class="c1">//26</span>
+
+<span class="kd">function</span> <span class="nx">aggiornaEta</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="nx">anno</span><span class="p">){</span>
+    <span class="nx">obj</span><span class="p">.</span><span class="nx">eta</span> <span class="o">=</span> <span class="nx">anno</span> <span class="o">-</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">annoNascita</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="c1">//Metodo Array - Gli array sono passati per riferimento</span>
+<span class="kd">const</span> <span class="nx">arrayPersona</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="dl">"</span><span class="s2">simone</span><span class="dl">"</span><span class="p">,</span> <span class="c1">//0</span>
+    <span class="mi">24</span><span class="p">,</span>       <span class="c1">//1</span>
+    <span class="dl">"</span><span class="s2">laurea</span><span class="dl">"</span><span class="p">,</span> <span class="c1">//2</span>
+    <span class="mi">1994</span>      <span class="c1">//3</span>
+<span class="p">];</span>
+<span class="nx">aggiornaEta2</span><span class="p">(</span><span class="nx">arrayPersona</span><span class="p">,</span> <span class="nx">annoAttuale</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arrayPersona</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span> <span class="c1">//26</span>
+
+<span class="kd">function</span> <span class="nx">aggiornaEta2</span><span class="p">(</span><span class="nx">array</span><span class="p">,</span> <span class="nx">anno</span><span class="p">){</span>
+    <span class="nx">array</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nx">anno</span> <span class="o">-</span> <span class="nx">array</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">array</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="funzioni---ritorno-di-un-oggetto-o-un-array">Funzioni - Ritorno di un oggetto o un array</h2>
+
+<p>Una funzione in Javascript può avere come tipo di ritorno anche un oggetto o un array</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//Metodo Oggetto</span>
+<span class="kd">let</span> <span class="nx">objRisultatoEqIIgrado</span> <span class="o">=</span> <span class="nx">objCalcolaRisultatoEqIIgrado</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Risultato 1: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">objRisultatoEqIIgrado</span><span class="p">.</span><span class="nx">x1</span><span class="p">);</span> 
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Risultato 2: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">objRisultatoEqIIgrado</span><span class="p">.</span><span class="nx">x2</span><span class="p">);</span> 
+
+<span class="kd">function</span> <span class="nx">objCalcolaRisultatoEqIIgrado</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">){</span>
+    <span class="kd">let</span> <span class="nx">delta</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="nx">b</span><span class="o">*</span><span class="nx">b</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="nx">a</span><span class="o">*</span><span class="nx">c</span><span class="p">);</span>
+    <span class="kd">let</span> <span class="nx">ris1</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="nx">b</span> <span class="o">+</span> <span class="nx">delta</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">ris2</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="nx">b</span> <span class="o">-</span> <span class="nx">delta</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+    <span class="c1">//Ritorno un oggetto</span>
+    <span class="k">return</span> <span class="p">{</span> 
+        <span class="na">x1</span><span class="p">:</span> <span class="nx">ris1</span><span class="p">,</span>
+        <span class="na">x2</span><span class="p">:</span> <span class="nx">ris2</span> 
+    <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="c1">//Metodo Array</span>
+<span class="kd">let</span> <span class="nx">arrayRisultatoEqIIgrado</span> <span class="o">=</span> <span class="nx">arrayCalcolaRisultatoEqIIgrado</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Risultato 1: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">arrayRisultatoEqIIgrado</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> 
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Risultato 2: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">arrayRisultatoEqIIgrado</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span> 
+
+<span class="kd">function</span> <span class="nx">arrayCalcolaRisultatoEqIIgrado</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">){</span>
+    <span class="kd">let</span> <span class="nx">delta</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="nx">b</span><span class="o">*</span><span class="nx">b</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="nx">a</span><span class="o">*</span><span class="nx">c</span><span class="p">);</span>
+    <span class="kd">let</span> <span class="nx">ris1</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="nx">b</span> <span class="o">+</span> <span class="nx">delta</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">ris2</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="nx">b</span> <span class="o">-</span> <span class="nx">delta</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+    <span class="c1">//Ritorno un oggetto</span>
+    <span class="k">return</span> <span class="p">[</span><span class="nx">ris1</span><span class="p">,</span> <span class="nx">ris2</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="approfondimento-funzioni---oggetto-arguments">Approfondimento funzioni - Oggetto Arguments</h2>
+
+<p>Facendo uso di <code class="language-plaintext highlighter-rouge">arguments</code> è possibile passare un numero <em>indefinito</em> di parametri. <code class="language-plaintext highlighter-rouge">arguments</code> raggruppa gli argomenti in un oggetto collezione di elementi. L’oggetto <code class="language-plaintext highlighter-rouge">arguments</code> permette di utilizzare la proprietà <code class="language-plaintext highlighter-rouge">lenght</code>, l’indicizzazione <code class="language-plaintext highlighter-rouge">[ ]</code> ma <strong>non è un array</strong> e quindi non si possono applicare i metodi applicabili agli array.
+<code class="language-plaintext highlighter-rouge">arguments</code> non si specifica nella definizione di una funzione tra i parametri poichè è un oggetto riconosciuto nel contesto stesso della funzione</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//arguments è un oggetto riconosciuto all'interno della definizione della funzione</span>
+<span class="kd">function</span> <span class="nx">somma</span><span class="p">(){</span>
+    <span class="kd">let</span> <span class="nx">ris</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">index</span> <span class="o">&lt;</span> <span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">index</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">ris</span> <span class="o">+=</span> <span class="nx">arguments</span><span class="p">[</span><span class="nx">index</span><span class="p">];</span>           
+    <span class="p">}</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arguments</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">ris</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">somma</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">));</span>           <span class="c1">//5</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">somma</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">));</span> <span class="c1">//17</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">somma</span><span class="p">());</span>              <span class="c1">//0</span>
+</code></pre></div></div>
+
+<h2 id="approfondimento-funzioni---parametri-rest">Approfondimento funzioni - Parametri Rest</h2>
+
+<p>La sintassi dei <em>rest parameter</em> permette di rappresentare un indefinito numero di argomenti come un array. A differenza dell’oggetto <code class="language-plaintext highlighter-rouge">arguments</code> in questo caso gli argomenti “restanti” sono rappresentati e raggruppati in un array ed è possibile quindi utilizzare ogni metodo applicabile agli arrays.
+Si specificano i <em>rest parameter</em> all’interno della definizione di una funzione come ultimo parametro attraverso l’operatore rest <code class="language-plaintext highlighter-rouge">...</code></p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">...</code>: Operatore <strong>rest</strong></li>
+</ul>
+
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters">MDN - Rest parameters</a></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">calcola</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">,</span> <span class="p">...</span><span class="nx">altriParam</span> <span class="p">){</span>
+    <span class="nx">ris</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span>
+    <span class="c1">//Il forEach(param1, param2) ha due parametri. Il primo è una funzione che a sua volta accetta i parametri </span>
+    <span class="c1">//opzionali (valore, indice, array) in questo caso dell'array altriParam passato come argomento a calcola.</span>
+    <span class="c1">//this in questo caso rappresenta il fatto che voglio ritornare il valore all'interno del contesto di ris</span>
+    <span class="nx">altriParam</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">controllaEsomma</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">ris</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">controllaEsomma</span> <span class="p">(</span><span class="nx">valore</span><span class="p">,</span> <span class="nx">indice</span><span class="p">,</span> <span class="nx">array</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">valore</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">//this riesce a raggiungere il contesto di "ris" della funzione calcola</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">ris</span> <span class="o">+=</span> <span class="nx">valore</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">calcola</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">));</span>             <span class="c1">//5</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">calcola</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">));</span> <span class="c1">//17</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">calcola</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">));</span>             <span class="c1">//0</span>
+</code></pre></div></div>
+
+<h2 id="approfondimento-introduzione-foreach--this">Approfondimento Introduzione forEach / this</h2>
+
+<p><strong>forEach()</strong> è un metodo applicabile agli array.</p>
+
+<p>E’ una struttura iterativa cheesegue una funzione fornita una volta per ogni elemento dell’array a cui si applica il metodo. La funzione riceve dall’array tre parametri opzionali in ordine: <code class="language-plaintext highlighter-rouge">value, index, array</code> ovvero il valore dell’elemento dell’array a cui si applica il metodo, l’indice dell’elemento e l’array stesso.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">myArray</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">myFunc</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">myFunc</span> <span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">array</span><span class="p">){</span>
+    <span class="c1">//code;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>Nell’esempio di sopra:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">altriParam</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">controllaEsomma</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Esegue la funzione <code class="language-plaintext highlighter-rouge">controllaEsomma</code> per ogni elemento dell’array.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">controllaEsomma</span> <span class="p">(</span><span class="nx">valore</span><span class="p">,</span> <span class="nx">indice</span><span class="p">,</span> <span class="nx">array</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">valore</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">//this riesce a raggiungere il contesto di "ris" della funzione calcola</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">ris</span> <span class="o">+=</span> <span class="nx">valore</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>L’identificatore <code class="language-plaintext highlighter-rouge">this</code>, come il <code class="language-plaintext highlighter-rouge">forEach</code> stesso verranno approfonditi più avanti. Per adesso ci basta sapere che <code class="language-plaintext highlighter-rouge">this</code> consente di raggiungere un oggetto utilizzato come callback (valore di ritorno).</p>
+
+<p><strong>Osservazione:</strong>
+Se dichiariamo la variabile “ris” con <code class="language-plaintext highlighter-rouge">let</code> o <code class="language-plaintext highlighter-rouge">var</code> ritorna <code class="language-plaintext highlighter-rouge">NaN</code>.</p>
+
+<p><strong>Approfondimento:</strong> <br />
+<a href="https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Statements/var">MDN - var</a></p>
+
+:ET

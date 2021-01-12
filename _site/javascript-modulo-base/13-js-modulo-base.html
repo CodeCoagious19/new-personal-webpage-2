@@ -1,0 +1,481 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.21.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="it" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>13 - Precedenza e associatività degli operatori | Build &amp; Run</title>
+<meta name="description" content="Javascript">
+
+
+  <meta name="author" content="Simone Di Ricco">
+  
+  <meta property="article:author" content="Simone Di Ricco">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="it_IT">
+<meta property="og:site_name" content="Build & Run">
+<meta property="og:title" content="13 - Precedenza e associatività degli operatori">
+<meta property="og:url" content="/javascript-modulo-base/13-js-modulo-base">
+
+
+  <meta property="og:description" content="Javascript">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-01-12T15:37:36+01:00">
+
+
+
+  <meta property="article:modified_time" content="2021-01-10T00:00:00+01:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="/javascript-modulo-base/13-js-modulo-base">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Simone Di Ricco",
+      "url": "/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Build & Run Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--corso">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logo2.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          Build & Run
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/pages/about/">Chi sono</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/tutorial/">Tutorial</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pages/corsi/">Corsi</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+
+
+  <article class="corso page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="13 - Precedenza e associatività degli operatori">
+    <meta itemprop="description" content="Javascript">
+    <meta itemprop="datePublished" content="2021-01-12T15:37:36+01:00">
+    <meta itemprop="dateModified" content="2021-01-10T00:00:00+01:00">
+
+    <div class="corso page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">13 - Precedenza e associatività degli operatori
+</h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          10 minuto/i di lettura
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="corso page__content" itemprop="text">
+        
+          <aside class="corso sidebar__right ">
+            <nav class="corso toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Indice della pagina</h4></header>
+              <ul class="toc__menu"><li><a href="#operator-precedence">Operator Precedence</a></li><li><a href="#associatività">Associatività</a></li><li><a href="#operatori-di-assegnamento">Operatori di assegnamento</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="operator-precedence">Operator Precedence</h2>
+
+<p>La precedenza degli operatori determina la priorità in cui gli operatori vengono valutati. Gli operatori con precedenza più alta sono valutati prima degli operatori con precedenza più bassa.</p>
+
+<p>La lista completa di tutti gli operatori con le rispettive precedenze la troviamo qua: 
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence">MDN - Operator Precedence</a></p>
+
+<p>Da notare che l’operatore <code class="language-plaintext highlighter-rouge">( )</code> ha la priorità più alta e quindi la precedenza su tutti gli operatori. Questo significa che per forzare la precedenza, esattamente come per la matematica è possibile sfruttare le parentesi <code class="language-plaintext highlighter-rouge">( )</code>.</p>
+
+<p><strong>Regola di buona programmazione:</strong> Non è mai una buona pratica di programmazione lasciare espressioni troppo complesse prive di parentesi anche se sono rispettate dal punto di vista semantico tutte le precedenze previste. Le parentesi, oltre a forzare la precedenza, offrono visivamente una chiarezza maggiore, evitando di commettere errori banali di svista.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* Operatore precedence */</span>
+<span class="cm">/* Calcolo eta' media */</span>
+
+<span class="kd">const</span> <span class="nx">questAnno</span> <span class="o">=</span> <span class="mi">2020</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">maggiorenne</span> <span class="o">=</span> <span class="mi">18</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">nascitaMarco</span> <span class="o">=</span> <span class="mi">1996</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">nascitaLuca</span> <span class="o">=</span> <span class="mi">2006</span><span class="p">;</span>
+
+
+<span class="cm">/* l'operatore "-" ha precedenza sull'operatore "&gt;" quindi l'espressione è svolta correttamente da sinistra verso destra
+La sottrazione verrà quindi svolta prima dell'operatore "&gt;" */</span>
+<span class="kd">let</span> <span class="nx">isMaggiorenne</span> <span class="o">=</span> <span class="nx">questAnno</span> <span class="o">-</span> <span class="nx">nascitaMarco</span> <span class="o">&gt;</span> <span class="nx">maggiorenne</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">isMaggiorenne</span><span class="p">);</span> <span class="c1">//true</span>
+<span class="kd">let</span> <span class="nx">isMaggiorenne</span> <span class="o">=</span> <span class="nx">questAnno</span> <span class="o">-</span> <span class="nx">nascitaMarco</span> <span class="o">&gt;</span> <span class="nx">maggiorenne</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">isMaggiorenne</span><span class="p">);</span> <span class="c1">//false</span>
+
+<span class="c1">//Grouping</span>
+<span class="kd">const</span> <span class="nx">etaMarco</span> <span class="o">=</span> <span class="nx">questAnno</span> <span class="o">-</span> <span class="nx">nascitaMarco</span><span class="p">;</span> <span class="c1">//24</span>
+<span class="kd">const</span> <span class="nx">etaLuca</span> <span class="o">=</span> <span class="nx">questAnno</span> <span class="o">-</span> <span class="nx">nascitaLuca</span><span class="p">;</span>   <span class="c1">//14</span>
+
+<span class="c1">// In questo caso poichè la divisione ha precedenza sulla somma è necessario forzare la priorità inserendo le parentesi</span>
+<span class="c1">// Calcolo età media</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="p">(</span> <span class="p">(</span><span class="nx">etaMarco</span> <span class="o">+</span> <span class="nx">nascitaLuca</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span> <span class="p">);</span> <span class="c1">//19</span>
+</code></pre></div></div>
+
+<h2 id="associatività">Associatività</h2>
+
+<p>L’associatività specifica in che modo vengono eseguite le elaborazioni a parità di operatore.
+Mentre la precedenza valuta la priorità, l’associatività valuta la modalità di esecuzione. Quasi tutti gli operatori hanno un’associatività <em>left-to-right</em> ovvero, l’elaborazione è da sinistra verso destra esattamente come per la matematica.</p>
+
+<p>Alla pagina <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence">MDN - Operator Precedence</a> si trova una tabella riassuntiva che mostra priorità/associatività per ogni operatore.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//Associatività del'operatore +. L'operatore + vale sia da somma che da concatenazione stringa</span>
+<span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nx">j</span><span class="o">=</span><span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;=</span><span class="nx">j</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">,</span><span class="nx">j</span><span class="o">--</span><span class="p">){</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">writeln</span><span class="p">(</span><span class="nx">i</span> <span class="o">+</span> <span class="nx">j</span> <span class="o">+</span> <span class="dl">"</span><span class="s2"> </span><span class="dl">"</span><span class="p">);</span> <span class="c1">//5//5//5</span>
+<span class="p">}</span>
+<span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nx">j</span><span class="o">=</span><span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;=</span><span class="nx">j</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">,</span><span class="nx">j</span><span class="o">--</span><span class="p">){</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">writeln</span><span class="p">(</span><span class="nx">i</span> <span class="o">+</span> <span class="p">(</span><span class="nx">j</span> <span class="o">+</span> <span class="dl">"</span><span class="s2"> </span><span class="dl">"</span><span class="p">)</span> <span class="p">);</span> <span class="c1">//05//14//23</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="operatori-di-assegnamento">Operatori di assegnamento</h2>
+
+<p>L’operatore di assegnazione semplice <code class="language-plaintext highlighter-rouge">=</code> viene utilizzato per assegnare un valore a una variabile. L’operazione di assegnazione restituisce il valore assegnato. È possibile concatenare l’operatore di assegnazione per assegnare un singolo valore a più variabili (multiple assignment).</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//Multiple assignement</span>
+<span class="c1">// E' possibile dichiarare due variabili contemporaneamente</span>
+<span class="kd">let</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">;</span>
+
+<span class="cm">/*Molto importante! L'operatore "= è un operatore da destra a sinistra  */</span>
+<span class="nx">x</span> <span class="o">=</span> <span class="nx">y</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="mi">7</span><span class="p">)</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">-</span> <span class="mi">5</span><span class="p">;</span> <span class="c1">// 9 * 3 - 5 // 27 - 5 // 22</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span> <span class="c1">//22</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">y</span><span class="p">);</span> <span class="c1">//22</span>
+</code></pre></div></div>
+
+<p>Molto utilizzati sono anche gli operatori di assegnamento composto come: <code class="language-plaintext highlighter-rouge">+=, -=, *=, /= ..</code> <br /></p>
+
+<p>Hanno una sintassi molto chiara e compatta. Vengono utilizzati nei casi in cui è necessario elaborare anche il valore della variabile a sinistra contrariamente all’operatore di assegnamento semplice <code class="language-plaintext highlighter-rouge">=</code> che ignora e distrugge il valore contenuto a sinistra.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+<span class="nx">x</span> <span class="o">*=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// x = x * 2</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span> <span class="c1">//20</span>
+
+<span class="nx">x</span> <span class="o">/=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// x = x / 2</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span> <span class="c1">//10</span>
+</code></pre></div></div>
+
+
+        
+      </section>
+      
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Aggiornato:</strong> <time datetime="2021-01-10">January 10, 2021</time></p>
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/javascript-modulo-base/12-js-modulo-base" class="pagination--pager" title="12 - Esercitazione - Equazione di II grado
+">Precedente</a>
+    
+    
+      <a href="/javascript-modulo-base/14-js-modulo-base" class="pagination--pager" title="14 - Operatori Logici e logica booleana
+">Prossima</a>
+    
+  </nav>
+
+    </div>
+    
+<div class="corso sidebar sticky">
+  
+  
+  <header>
+    <h1 class="corso course__title">
+      Javascript - Modulo Base
+    </h1>
+  </header>
+  <ul class="corso lesson__items" id="move__scrollbar">
+  
+      <li ><a href="/javascript-modulo-base/index">00 - Introduzione e setup pt1</a></li>
+  
+      <li ><a href="/javascript-modulo-base/01-js-modulo-base">01 - Introduzione e setup pt2</a></li>
+  
+      <li ><a href="/javascript-modulo-base/02-js-modulo-base">02 - Primo script</a></li>
+  
+      <li ><a href="/javascript-modulo-base/03-js-modulo-base">02 - Browser console, alert & prompt</a></li>
+  
+      <li ><a href="/javascript-modulo-base/04-js-modulo-base">04 - Introduzione al DOM e jQuery</a></li>
+  
+      <li ><a href="/javascript-modulo-base/05-js-modulo-base">05 - Variabili e tipi di dato</a></li>
+  
+      <li ><a href="/javascript-modulo-base/06-js-modulo-base">06 - Stringhe. Operatori proprietà e metodi</a></li>
+  
+      <li ><a href="/javascript-modulo-base/07-js-modulo-base">07 - Esercitazione. Conta parole</a></li>
+  
+      <li ><a href="/javascript-modulo-base/08-js-modulo-base">08 - Rappresentazione dei numeri in fixed e floating point</a></li>
+  
+      <li ><a href="/javascript-modulo-base/09-js-modulo-base">09- Codifica caratteri. ASCII & Unicode</a></li>
+  
+      <li ><a href="/javascript-modulo-base/10-js-modulo-base">10- Conversione di tipo, implicita e espicita</a></li>
+  
+      <li ><a href="/javascript-modulo-base/11-js-modulo-base">11 - Operatori matematici e oggetto Math</a></li>
+  
+      <li ><a href="/javascript-modulo-base/12-js-modulo-base">12 - Esercitazione - Equazione di II grado</a></li>
+  
+      <li  class="active" id ="lesson__active" ><a href="/javascript-modulo-base/13-js-modulo-base">13 - Precedenza e associatività degli operatori</a></li>
+  
+      <li ><a href="/javascript-modulo-base/14-js-modulo-base">14 - Operatori Logici e logica booleana</a></li>
+  
+      <li ><a href="/javascript-modulo-base/15-js-modulo-base">15 - Costrutti condizionali. if...else, ternary operator, switch</a></li>
+  
+      <li ><a href="/javascript-modulo-base/16-js-modulo-base">15 - Costrutti iterativi. while, do...while</a></li>
+  
+      <li ><a href="/javascript-modulo-base/17-js-modulo-base">17 - Costrutti iterativi. for, break, continue</a></li>
+  
+      <li ><a href="/javascript-modulo-base/18-js-modulo-base">18 - Funzioni. parametri, parametri di default, ritorno di una funzione</a></li>
+  
+      <li ><a href="/javascript-modulo-base/19-js-modulo-base">19 - Funzioni. Passaggio di oggetti e array. Oggetto Arguments e parametri Rest</a></li>
+  
+      <li ><a href="/javascript-modulo-base/20-js-modulo-base">20 - Funzioni ricorsive, Funzioni espressione, Hoisting</a></li>
+  
+      <li ><a href="/javascript-modulo-base/21-js-modulo-base">21 - Visibilità delle variabili</a></li>
+  
+      <li ><a href="/javascript-modulo-base/22-js-modulo-base">22 - Array</a></li>
+  
+      <li ><a href="/javascript-modulo-base/23-js-modulo-base">23 - Array. Qualche metodo</a></li>
+  
+      <li ><a href="/javascript-modulo-base/24-js-modulo-base">24 - Array. Metodi avanzati</a></li>
+  
+      <li ><a href="/javascript-modulo-base/25-js-modulo-base">25 - Introduzione agli oggetti</a></li>
+  
+  </ul>
+  
+</div>
+
+
+<script>
+  var lesson__active = document.getElementById("lesson__active");
+  lesson__active.scrollIntoViewIfNeeded(true);
+</script>
+
+    
+  </article>
+
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Inserisci termini di ricerca..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Segui:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/CodeCoagious19" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Simone Di Ricco. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

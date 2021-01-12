@@ -1,0 +1,116 @@
+I"�?<h2 id="arrays---foreach">Arrays - forEach()</h2>
+<p><code class="language-plaintext highlighter-rouge">forEach()</code> è un metodo applicabile agli array utilizzato per l’iterazione.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">array</span><span class="p">){</span><span class="cm">/*code*/</span><span class="p">});</span>
+</code></pre></div></div>
+<p>Riceve come parametro una funzione detta <em>anonima</em> poichè non ha un nome. La funzione riceve tre parametri opzionali, in ordine <em>value</em>, <em>index</em>, <em>array</em> che, dell’array a cui è applicato il metodo, rappresentano rispettivamente l’elemento, l’indice e l’array stesso. Viene invocata la funzione anonima per ogni elemento (forEach) presente nell’array.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">frutta</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">mela</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">pera</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">banana</span><span class="dl">"</span><span class="p">];</span>       
+
+<span class="nx">stampaArray</span><span class="p">(</span><span class="nx">frutta</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">stampaArray</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">//i parametri della funzione anonima del forEach sono opzionali e, essendo parametri posso</span>
+    <span class="c1">//dare un nome simbolico qualsiasi</span>
+    <span class="nx">arr</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span> <span class="kd">function</span><span class="p">(</span><span class="nx">elemento</span><span class="p">,</span> <span class="nx">indice</span><span class="p">,</span> <span class="nx">a</span><span class="p">)</span>  <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">indice</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">a</span><span class="p">[</span><span class="nx">indice</span><span class="p">]</span> <span class="p">);</span> <span class="p">}</span> <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="cm">/*
+0: mela
+1: pera
+2: banana
+*/</span>
+</code></pre></div></div>
+
+<h2 id="arrays---map">Arrays - map()</h2>
+<p><code class="language-plaintext highlighter-rouge">map()</code> è un metodo applicabile agli array utilizzato per l’iterazione.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">array</span><span class="p">){</span><span class="cm">/*code*/</span><span class="p">});</span>
+</code></pre></div></div>
+
+<p>Itera ogni elemento dell’array e ritorna un array. E’ utile quindi all’elaborazione e costruzione di un nuovo array a partire da quello a cui si applica il metodo.</p>
+
+<p>Riceve come parametro una funzione detta <em>anonima</em> poichè non ha un nome. La funzione riceve tre parametri opzionali, in ordine <em>value</em>, <em>index</em>, <em>array</em> che, dell’array a cui è applicato il metodo, rappresentano rispettivamente l’elemento, l’indice e l’array stesso. Viene invocata la funzione anonima per ogni elemento (forEach) presente nell’array.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">mela</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">pera</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">banana</span><span class="dl">'</span><span class="p">];</span>
+<span class="c1">//In questo caso newFruits sarà identico a fruits. Ho effettuato una copia</span>
+<span class="kd">const</span> <span class="nx">newFruits</span> <span class="o">=</span> <span class="nx">fruits</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="nx">index</span><span class="p">){</span>
+    <span class="k">return</span> <span class="nx">value</span><span class="p">;</span>
+<span class="p">})</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">newFruits</span><span class="p">);</span> <span class="c1">//(3) ["mela", "pera", "banana"]</span>
+
+
+<span class="c1">//In questo caso newFruits2 sarà un array contenente 0, 1, 2 poichè ritorna l'indice</span>
+<span class="kd">const</span> <span class="nx">newFruits2</span> <span class="o">=</span> <span class="nx">fruits</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="nx">index</span><span class="p">){</span>
+    <span class="k">return</span> <span class="nx">index</span><span class="p">;</span>
+<span class="p">})</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">newFruits2</span><span class="p">);</span> <span class="c1">//3) [0, 1, 2]</span>
+</code></pre></div></div>
+
+<h2 id="funzioni-freccia-lambda">Funzioni freccia (lambda)</h2>
+
+<p>Oltre alla sintassi espressa tramite <em>funzione anonima</em> esiste anche una sintassi diversa espressa tramite l’operatore <em>freccia</em> <code class="language-plaintext highlighter-rouge">=&gt;</code>. Ogni funzione anonima può essere espressa tramite l’operatore freccia, questo tipo di funzione prende il nome di funzione <em>lambda</em>.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nx">param1</span><span class="p">,</span> <span class="nx">param2</span><span class="p">,</span> <span class="p">..)</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="cm">/*code*/</span><span class="p">};</span> <span class="c1">//function(param1, param2, ..{/*code*/}</span>
+
+<span class="c1">//Esempi con forEach() e map()</span>
+<span class="nx">map</span><span class="p">(</span> <span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">array</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="cm">/*code*/</span><span class="p">}</span> <span class="p">);</span>
+<span class="nx">forEach</span><span class="p">(</span> <span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">array</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="cm">/*code*/</span><span class="p">});</span>
+</code></pre></div></div>
+<p><strong>Nota:</strong></p>
+<ul>
+  <li>I parametri vanno sempre espressi tra parentesi. Se si ha necessità solo del primo parametro le parentesi possono essere omesse.</li>
+  <li>In generale il corpo della funzione lambda va tra le parentesi graffe <code class="language-plaintext highlighter-rouge">{ }</code>. Se il corpo ha un’istruzione inline, le parentesi graffe possono essere omesse.</li>
+</ul>
+
+<p>Esempio interessante:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//casuali è un array di 30 numeri inter casuali</span>
+<span class="kd">const</span> <span class="nx">numeriCasuali</span> <span class="o">=</span> <span class="p">[];</span>
+
+<span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span>
+<span class="p">{</span> <span class="nx">numeriCasuali</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span> <span class="p">)</span> <span class="p">;}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numeriCasuali</span><span class="p">);</span> <span class="c1">//32, 54, 33, 91, 4, 25, 46, 37, 73, 2]</span>
+
+<span class="c1">//calcola il resto della divisione per 7 dei numeri casuali</span>
+<span class="c1">//e crea con questi un nuovo array</span>
+<span class="kd">const</span> <span class="nx">isPari</span> <span class="o">=</span> <span class="nx">numeriCasuali</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span> <span class="p">(</span><span class="nx">elemento</span><span class="p">,</span><span class="nx">indice</span><span class="p">,</span> <span class="nx">a</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nb">Boolean</span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="nx">elemento</span><span class="o">%</span><span class="mi">2</span><span class="p">))</span> <span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">isPari</span><span class="p">);</span> <span class="c1">//[true, true, false, false, true, false, true, false, false, true]</span>
+</code></pre></div></div>
+
+<h2 id="array---metodi-avanzati">Array - Metodi avanzati</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">filter( (value,index,array) =&gt; {/*CONDITION*/} );</code> : Ritorna un array risultato del filtraggio gli elementi dell’array a cui si applica il metodo che restituiscono <strong>true</strong> nella <em>CONDITION</em></li>
+  <li><code class="language-plaintext highlighter-rouge">some ( (value,index,array) =&gt; {/*CONDITION*/} );</code>: Ritorna un booleano se c’è almeno un elemento nell’array che restituisce <strong>true</strong> alla <em>CONDITION</em></li>
+  <li><code class="language-plaintext highlighter-rouge">every ( (value,index,array) =&gt; {/*CONDITION*/} );</code> Ritorna <em>true</em> (ritorna n boolean) se c’è almeno un elemento nell’array che restituisce <strong>true</strong> alla <em>CONDITION</em></li>
+  <li><code class="language-plaintext highlighter-rouge">reduce ((accumulatore, value,index,array) =&gt; {/*CONDITION*/}, startValueAccumulatore);</code> : Ritorna il numero di elementi che soddisfano la <em>CONDITION</em>. Ha due parametri: il primo è una funzione freccia che riceve a sua volta 4 parametri in ordine: <em>accumulatore</em>, <em>value</em>, <em>index</em>, <em>array</em> , il secondo, <em>startValueAccumulatore</em> è il valore di partenza dell’accumulatore, opzionale. Se non si specifica il valore di partenza dell’accumulatore <em>startValueAccumulatore</em> viene assegnato come valore il primo elemento.</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">casuali</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="mi">20</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span>
+<span class="p">{</span> <span class="nx">casuali</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span> <span class="p">)</span> <span class="p">;}</span>
+
+<span class="kd">let</span> <span class="nx">diversiDaZero</span> <span class="o">=</span> <span class="nx">casuali</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span> <span class="nx">elemento</span> <span class="o">=&gt;</span> <span class="nx">elemento</span><span class="o">!==</span><span class="mi">0</span> <span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">diversiDaZero</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span> <span class="nx">diversiDaZero</span><span class="p">.</span><span class="nx">some</span><span class="p">(</span> <span class="nx">elemento</span> <span class="o">=&gt;</span> <span class="nx">elemento</span><span class="o">&gt;</span><span class="mi">4</span> <span class="p">)</span> <span class="p">)</span>
+<span class="p">{</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Trovato almento un resto maggiore di zero</span><span class="dl">"</span><span class="p">);}</span>
+
+<span class="kd">let</span> <span class="nx">quanti</span> <span class="o">=</span> <span class="nx">diversiDaZero</span><span class="p">.</span><span class="nx">reduce</span><span class="p">(</span> <span class="p">(</span><span class="nx">conta</span><span class="p">,</span> <span class="nx">elemento</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">elemento</span><span class="o">&gt;</span><span class="mi">4</span> <span class="p">?</span> <span class="nx">conta</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">:</span> <span class="nx">conta</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">quanti</span><span class="p">);</span> <span class="c1">//19</span>
+
+<span class="kd">let</span> <span class="nx">totale</span> <span class="o">=</span> <span class="nx">diversiDaZero</span><span class="p">.</span><span class="nx">reduce</span><span class="p">(</span> <span class="p">(</span><span class="nx">somma</span><span class="p">,</span> <span class="nx">elemento</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">somma</span><span class="o">+</span><span class="nx">elemento</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">totale</span><span class="p">);</span> <span class="c1">//1057</span>
+
+<span class="cm">/*
+[37, 67, 31, 88, 55, 45, 26, 21, 32, 2, 20, 62, 79, 48, 85, 53, 33, 97, 92, 84]
+Trovato almento un resto maggiore di zero
+19
+1057
+
+*/</span>
+</code></pre></div></div>
+:ET

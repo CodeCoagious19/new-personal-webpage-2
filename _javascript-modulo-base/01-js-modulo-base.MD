@@ -1,6 +1,7 @@
 ---
 title: "01 - Introduzione e setup pt2"
 excerpt: "Javascript"
+permalink: /javascript-modulo-base/01-js-modulo-base
 last_modified_at: 2021-01-10
 ---
 
@@ -37,7 +38,7 @@ Nel corso degli anni lo standard ha definito nuove versioni e aggiornamenti del 
 
 [github - es6 table](https://kangax.github.io/compat-table/es6/)
 
-![](images/JS-versioni.png)
+![](./images/JS-versioni.png)
 
 Possiamo affermare che la versione più utilizzata ad oggi è ES6, la ES5 è obsoleta ma di fatto ormai anche la ES2016+ è supportata da tutti i browser.
 

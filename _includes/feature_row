@@ -1,39 +1,48 @@
 {% if include.id %}
-  {% assign feature_row = page[include.id] %}
+  {% assign groups_feature_row = page[include.id] %}
 {% else %}
-  {% assign feature_row = page.feature_row %}
+  {% assign groups_feature_row = page.groups_feature_row %}
 {% endif %}
 
 <div class="feature__wrapper">
+  {% for g in groups_feature_row %}
+    <div class="groups_feature_row_container">
+      <header class="groups_feature_row_header">
+        <h1 class="group__title">{{ g.group_title }}</h1>
+        <p class="group__description">{{ g.group_description }}</p>
+      </header>
+      <div class="groups_feature_row_content">
+        {% for f in g.feature_row %}
+          <div class="feature__item{% if include.type %}--{{ include.type }}{% endif %}">
+            <div class="archive__item">
+              {% if f.image_path %}
+                <div class="archive__item-teaser">
+                  <img src="{{ f.image_path | relative_url }}"
+                      alt="{% if f.alt %}{{ f.alt }}{% endif %}">
+                  {% if f.image_caption %}
+                    <span class="archive__item-caption">{{ f.image_caption | markdownify | remove: "<p>" | remove: "</p>" }}</span>
+                  {% endif %}
+                </div>
+              {% endif %}
 
-  {% for f in feature_row %}
-    <div class="feature__item{% if include.type %}--{{ include.type }}{% endif %}">
-      <div class="archive__item">
-        {% if f.image_path %}
-          <div class="archive__item-teaser">
-            <img src="{{ f.image_path | relative_url }}"
-                 alt="{% if f.alt %}{{ f.alt }}{% endif %}">
-            {% if f.image_caption %}
-              <span class="archive__item-caption">{{ f.image_caption | markdownify | remove: "<p>" | remove: "</p>" }}</span>
-            {% endif %}
-          </div>
-        {% endif %}
+              <div class="archive__item-body">
+                {% if f.title %}
+                  <h2 class="archive__item-title">{{ f.title }}</h2>
+                {% endif %}
 
-        <div class="archive__item-body">
-          {% if f.title %}
-            <h2 class="archive__item-title">{{ f.title }}</h2>
-          {% endif %}
+                {% if f.excerpt %}
+                  <div class="archive__item-excerpt">
+                    {{ f.excerpt | markdownify }}
+                  </div>
+                {% endif %}
 
-          {% if f.excerpt %}
-            <div class="archive__item-excerpt">
-              {{ f.excerpt | markdownify }}
+                {% if f.url %}
+                  <p><a href="{{ f.url | relative_url }}" class="btn {{ f.btn_class }}">{{ f.btn_label | default: site.data.ui-text[site.locale].more_label | default: "Learn More" }}</a></p>
+                {% endif %}
+              </div>
             </div>
-          {% endif %}
-
-          {% if f.url %}
-            <p><a href="{{ f.url | relative_url }}" class="btn {{ f.btn_class }}">{{ f.btn_label | default: site.data.ui-text[site.locale].more_label | default: "Learn More" }}</a></p>
-          {% endif %}
-        </div>
+          </div>
+        {% endfor %}
       </div>
     </div>
   {% endfor %}

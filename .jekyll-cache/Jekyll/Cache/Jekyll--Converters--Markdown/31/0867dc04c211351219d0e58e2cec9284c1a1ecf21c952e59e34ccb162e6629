@@ -1,0 +1,79 @@
+I"�<h2 id="function">Function</h2>
+
+<p>Le funzioni sono tra i blocchi di programmazione fondamentali in JavaScript. Una funzione è una procedura JavaScript — un gruppo di istruzioni ( statement ) che esegue un compito o calcola un valore.</p>
+
+<p>La definizione di funzione ( o dichiarazione di funzione, o istruzione di funzione ) consiste della parola chiave <code class="language-plaintext highlighter-rouge">function</code>, seguita da:</p>
+
+<ul>
+  <li>il nome della funzione.</li>
+  <li>una lista di argomenti per la funzione, chiusi tra due parentesi e separati da una virgola.</li>
+  <li>le istruzioni JavaScript che definiscono la funzione, chiuse tra due parentesi graffe, { }.</li>
+</ul>
+
+<p><a href="https://developer.mozilla.org/it/docs/Web/JavaScript/Guida/Functions">MDN - Funzioni</a></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//Dichiarazione o definizione di una funzione</span>
+<span class="kd">function</span> <span class="nx">name</span><span class="p">(</span><span class="nx">param1</span><span class="p">,</span> <span class="nx">param2</span><span class="p">,</span> <span class="p">?</span><span class="nx">param3</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//code</span>
+<span class="p">}</span>
+
+<span class="c1">//Chiamata</span>
+<span class="nx">name</span><span class="p">(</span><span class="nx">param1</span><span class="p">,</span> <span class="nx">param2</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Esempio:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* Function with arguments */</span>
+<span class="kd">function</span> <span class="nx">salutoCompleanno</span><span class="p">(</span><span class="nx">nome</span><span class="p">,</span> <span class="nx">anni</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">ciao </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">nome</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">, auguri per i tuoi </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">anni</span> <span class="o">+</span> <span class="dl">"</span><span class="s2"> anni!</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">salutoCompleanno</span><span class="p">(</span><span class="dl">"</span><span class="s2">Francesco</span><span class="dl">"</span><span class="p">,</span> <span class="mi">22</span><span class="p">);</span> <span class="c1">//ciao Francesco, auguri per i tuoi 22 anni!</span>
+</code></pre></div></div>
+
+<p><strong>Nota:</strong> L’ordine dei parametri è importante!
+<strong>Nota2:</strong> Il passaggio dei parametri è sempre per <em>valore</em> intendendo che al momento della chiamata della funzione, si esegue una copia dei parametri. Non vengono quindi elaborati direttamente i valori passati a una funzione</p>
+
+<h2 id="parametri-di-default">Parametri di default</h2>
+
+<p>Alcuni parametri possono essere opzionali. In fase di chiamata possono quindi essere passati dei valori a tali parametri opppure no. In caso non venga passato un valore a tali parametri assumeranno all’interno della funzione un cosìdetto valore di <code class="language-plaintext highlighter-rouge">default</code>. Per inserire un valore di default e quindi rendere il parametro opzionale basta assegnare ad esso un valore in fase di dichiarazione della funzione.</p>
+
+<p>Vediamo un esempio:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">salutoCompleanno</span><span class="p">(</span><span class="nx">nome</span><span class="p">,</span> <span class="nx">anni</span><span class="o">=</span><span class="mi">0</span><span class="p">){</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">anni</span> <span class="o">===</span> <span class="mi">0</span><span class="p">){</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">ciao </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">nome</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">, auguri per il tuo compleanno!</span><span class="dl">"</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span><span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">ciao </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">nome</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">, auguri per i tuoi </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">anni</span> <span class="o">+</span> <span class="dl">"</span><span class="s2"> anni!</span><span class="dl">"</span><span class="p">);</span>
+    <span class="p">}</span> 
+<span class="p">}</span>
+
+<span class="nx">salutoCompleanno</span><span class="p">(</span><span class="dl">"</span><span class="s2">Francesco</span><span class="dl">"</span><span class="p">,</span> <span class="mi">22</span><span class="p">);</span> <span class="c1">//ciao Francesco, auguri per i tuoi 22 anni!</span>
+<span class="nx">salutoCompleanno</span><span class="p">(</span><span class="dl">"</span><span class="s2">Mario</span><span class="dl">"</span><span class="p">);</span>         <span class="c1">//ciao Mario, auguri per il tuo compleanno!</span>
+</code></pre></div></div>
+
+<p><strong>NOTA:</strong> E’ buona norma passare parametri in modo che i primi siano obbligatori e gli altri opzionali anche se tutto è consentito ma di fatto in fase di chiamata della funzione i parametri passati sono interpretati a partire dal primo. Ricorda che conta solo l’ordine dei parametri e non l’identificativo utilizzato</p>
+
+<h2 id="ritorno-di-una-funzione">Ritorno di una funzione</h2>
+
+<p>Una funzione può restituire un valore con il comando <code class="language-plaintext highlighter-rouge">return</code></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* Return Keword */</span>
+<span class="kd">function</span> <span class="nx">quadrato</span><span class="p">(</span><span class="nx">numero</span><span class="p">){</span>
+    <span class="k">return</span> <span class="p">(</span><span class="nx">numero</span><span class="o">*</span><span class="nx">numero</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">quadrato</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="p">);</span> <span class="c1">//25</span>
+</code></pre></div></div>
+
+<p>E’ preferibile che una funzione esegua un’elaborazione interna e che ritorni un valore invece di salvare il risultato all’interno di variabili esterne globali. In questo modo è possibile riutilizzare la funzione ovunque e non renderla dipendente dal codice. E’ quindi indispensabile l’utilizzo del <code class="language-plaintext highlighter-rouge">return</code></p>
+
+<p><strong>Note</strong></p>
+
+<ul>
+  <li>Una funzione ammette <strong>un</strong> solo <code class="language-plaintext highlighter-rouge">return</code> che termina l’esecuzione della funzione.</li>
+  <li>Eventuali linee di codice dopo il <code class="language-plaintext highlighter-rouge">return</code> verranno ignorate.</li>
+</ul>
+
+:ET

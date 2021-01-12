@@ -1,6 +1,7 @@
 ---
 title: "04 - Introduzione al DOM e jQuery"
 excerpt: "Javascript"
+permalink: /javascript-modulo-base/04-js-modulo-base
 last_modified_at: 2021-01-10
 ---
 
