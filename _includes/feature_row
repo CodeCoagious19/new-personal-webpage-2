@@ -8,7 +8,7 @@
   {% for g in groups_feature_row %}
     <div class="groups_feature_row_container">
       <header class="groups_feature_row_header">
-        <h1 class="group__title">{{ g.group_title }}</h1>
+        <h1 class="group__title" id="{{ g.group_title_id }}">{{ g.group_title }}</h1>
         <p class="group__description">{{ g.group_description }}</p>
       </header>
       <div class="groups_feature_row_content">

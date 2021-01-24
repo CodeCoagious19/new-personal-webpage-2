@@ -1,7 +1,9 @@
 ---
 title: "Corsi"
-layout: splash
+layout: indiceCorso
 permalink: /pages/corsi/
+author_profile: false
+toc: true
 header:
   overlay_color: "#5e616c"
   overlay_image: 
@@ -13,6 +15,7 @@ excerpt: >
 
 groups_feature_row:
    - group_title: "Programmazione Web"
+     group_title_id: "programmazione-web"
      group_description: "Con la locuzione programmazione web si indicano le attività e le tecniche di programmazione, con i rispettivi linguaggi di scripting, che consentono la realizzazione e lo sviluppo di applicazioni per il Web"
      feature_row:
       - image_path: /assets/images/JS-logo.png
@@ -23,6 +26,7 @@ groups_feature_row:
         btn_class: "btn--primary"
         btn_label: "Inizia"      
    - group_title: "Programmazione desktop"
+     group_title_id: "programmazione-desktop"
      group_description: "Secondo la mia esperienza, per applicazioni general-purpose e in considerazione che è un po' che non lavori nel campo dell’informatica, lo strumento migliore per realizzare applicazioni desktop soprattutto in ambiente Windows è ancora Delphi."
      feature_row:
       - image_path: /assets/images/cpp-logo-350x350.png
@@ -40,6 +44,7 @@ groups_feature_row:
         btn_class: "btn--primary"
         btn_label: "Inizia"    
    - group_title: "Scripting"
+     group_title_id: "scripting"
      group_description: "Secondo la mia esperienza, per applicazioni general-purpose e in considerazione che è un po' che non lavori nel campo dell’informatica, lo strumento migliore per realizzare applicazioni desktop soprattutto in ambiente Windows è ancora Delphi."
      feature_row: 
       - image_path: /assets/images/python-logo.png

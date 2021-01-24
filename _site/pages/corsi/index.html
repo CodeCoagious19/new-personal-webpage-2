@@ -103,7 +103,7 @@
 
   </head>
 
-  <body class="layout--splash">
+  <body class="layout--indiceCorso">
     <nav class="skip-links">
   <h2 class="screen-reader-text">Skip links</h2>
   <ul>
@@ -193,20 +193,36 @@
 
 
 
+
+
 <div id="main" role="main">
-  <article class="splash" itemscope itemtype="https://schema.org/CreativeWork">
+
+
+  <article class="indice-corso page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Corsi">
     <meta itemprop="description" content="Corsi completi di linguaggi di programmazione">
     
     
 
-    <section class="page__content" itemprop="text">
+    <div class="indice-corso page__inner-wrap">
       
+
+      <section class="corso page__content" itemprop="text">
+        
+          <aside class="corso sidebar__right ">
+            <nav class="corso toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Indice della pagina</h4></header>
+              <ul class="toc__menu"><li><a href="#programmazione-web">Programmazione Web</a></li><li><a href="#programmazione-desktop">Programmazione desktop</a></li><li><a href="#scripting">Scripting</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        
 <div class="feature__wrapper">
   
     <div class="groups_feature_row_container">
       <header class="groups_feature_row_header">
-        <h1 class="group__title">Programmazione Web</h1>
+        <h1 class="group__title" id="programmazione-web">Programmazione Web</h1>
         <p class="group__description">Con la locuzione programmazione web si indicano le attività e le tecniche di programmazione, con i rispettivi linguaggi di scripting, che consentono la realizzazione e lo sviluppo di applicazioni per il Web</p>
       </header>
       <div class="groups_feature_row_content">
@@ -244,7 +260,7 @@
   
     <div class="groups_feature_row_container">
       <header class="groups_feature_row_header">
-        <h1 class="group__title">Programmazione desktop</h1>
+        <h1 class="group__title" id="programmazione-desktop">Programmazione desktop</h1>
         <p class="group__description">Secondo la mia esperienza, per applicazioni general-purpose e in considerazione che è un po' che non lavori nel campo dell’informatica, lo strumento migliore per realizzare applicazioni desktop soprattutto in ambiente Windows è ancora Delphi.</p>
       </header>
       <div class="groups_feature_row_content">
@@ -310,7 +326,7 @@
   
     <div class="groups_feature_row_container">
       <header class="groups_feature_row_header">
-        <h1 class="group__title">Scripting</h1>
+        <h1 class="group__title" id="scripting">Scripting</h1>
         <p class="group__description">Secondo la mia esperienza, per applicazioni general-purpose e in considerazione che è un po' che non lavori nel campo dell’informatica, lo strumento migliore per realizzare applicazioni desktop soprattutto in ambiente Windows è ancora Delphi.</p>
       </header>
       <div class="groups_feature_row_content">
@@ -350,8 +366,36 @@
 </div>
 
 
-    </section>
+        
+      </section>
+      
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+      </footer>
+
+      
+
+      
+    </div>
+    
+
+<script>
+  var lesson__active = document.getElementById("lesson__active");
+  lesson__active.scrollIntoViewIfNeeded(true);
+</script>
+
+    
   </article>
+
+
+  
+  
 </div>
 
     </div>

@@ -1,9 +1,9 @@
-I"y
+I"�
 <div class="feature__wrapper">
   
     <div class="groups_feature_row_container">
       <header class="groups_feature_row_header">
-        <h1 class="group__title">Programmazione Web</h1>
+        <h1 class="group__title" id="programmazione-web">Programmazione Web</h1>
         <p class="group__description">Con la locuzione programmazione web si indicano le attività e le tecniche di programmazione, con i rispettivi linguaggi di scripting, che consentono la realizzazione e lo sviluppo di applicazioni per il Web</p>
       </header>
       <div class="groups_feature_row_content">
@@ -41,7 +41,7 @@
   
     <div class="groups_feature_row_container">
       <header class="groups_feature_row_header">
-        <h1 class="group__title">Programmazione desktop</h1>
+        <h1 class="group__title" id="programmazione-desktop">Programmazione desktop</h1>
         <p class="group__description">Secondo la mia esperienza, per applicazioni general-purpose e in considerazione che è un po' che non lavori nel campo dell’informatica, lo strumento migliore per realizzare applicazioni desktop soprattutto in ambiente Windows è ancora Delphi.</p>
       </header>
       <div class="groups_feature_row_content">
@@ -107,7 +107,7 @@
   
     <div class="groups_feature_row_container">
       <header class="groups_feature_row_header">
-        <h1 class="group__title">Scripting</h1>
+        <h1 class="group__title" id="scripting">Scripting</h1>
         <p class="group__description">Secondo la mia esperienza, per applicazioni general-purpose e in considerazione che è un po' che non lavori nel campo dell’informatica, lo strumento migliore per realizzare applicazioni desktop soprattutto in ambiente Windows è ancora Delphi.</p>
       </header>
       <div class="groups_feature_row_content">

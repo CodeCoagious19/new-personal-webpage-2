@@ -59,9 +59,6 @@ article.corso.page .page__inner-wrap.corso {
    // border-radius: 4px;
 }
 
-header.groups_feature_row_header {
-
-}
 
 .feature__item {
     margin-top: 1rem;
@@ -85,4 +82,32 @@ header.groups_feature_row_header {
 //Handle 
 .groups_feature_row_content::-webkit-scrollbar-thumb {
   background: $border-color;
+}
+
+
+@media (min-width: 64em){
+    article.indice-corso.page{
+        width: 100%;
+        padding-right: 0; 
+    }
+}
+
+article.indice-corso.page {
+    display: flex;
+    box-sizing: border-box;
+}
+
+article.indice-corso.page .page__inner-wrap.indice-corso {
+    width: 100%;
+}
+@media (min-width: 64em){
+    article.indice-corso.page .page__inner-wrap.indice-corso {
+        width: 100%;
+    }
+}
+
+@media (min-width: 80em){
+article.indice-corso.page .page__inner-wrap.indice-corso {
+    width: 100%;
+    }
 }
